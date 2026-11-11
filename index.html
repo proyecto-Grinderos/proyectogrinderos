@@ -134,27 +134,48 @@
       </div>
 
       <!-- Navigation Tabs -->
-      <div class="flex items-center justify-start sm:justify-center gap-2 mb-8 overflow-x-auto no-scrollbar pb-2">
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 pb-2">
         <button
           id="tab-stock-btn"
           onclick="switchTab('stock')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-indigo-600 text-white shadow"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow"
         >
           📦 Stock Crítico + Pedido a Proveedor
         </button>
         <button
           id="tab-gym-btn"
           onclick="switchTab('gym')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
         >
           🥋 Membresías & Cobranza Preventiva
         </button>
         <button
           id="tab-waste-btn"
           onclick="switchTab('waste')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
         >
           🗑️ Registro Ágil de Mermas
+        </button>
+        <button
+          id="tab-bakery-btn"
+          onclick="switchTab('bakery')"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+        >
+          🎂 Gestor de Cupos e Insumos
+        </button>
+        <button
+          id="tab-repair-btn"
+          onclick="switchTab('repair')"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+        >
+          🔧 Tracker Servicio Técnico
+        </button>
+        <button
+          id="tab-booking-btn"
+          onclick="switchTab('booking')"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+        >
+          📅 Agenda Inteligente Cero Login
         </button>
       </div>
 
@@ -355,6 +376,203 @@
           </div>
         </div>
       </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 4: Gestor de Cupos e Insumos (Bakery)     -->
+      <!-- ============================================== -->
+      <div id="tab-bakery-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-pink-600 uppercase tracking-wider bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100">
+              Cálculo Automático
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Gestor de Cupos de Fin de Semana</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Agrega pedidos confirmados y el sistema suma automáticamente la lista de compras del viernes para que nunca falte mantequilla a última hora.
+            </p>
+          </div>
+          <div class="bg-pink-50 border border-pink-200/80 px-4 py-2.5 rounded-xl text-left md:text-right">
+            <span class="text-xs text-pink-800 font-semibold block">Cupos Usados Sábado</span>
+            <span id="bakery-capacity-display" class="text-xl font-extrabold text-pink-900">0 / 4</span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <form onsubmit="handleBakerySubmit(event)" class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+            <h4 class="font-bold text-slate-800 text-sm">Nuevo Pedido Confirmado</h4>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Tipo de Pastel</label>
+              <select id="bakery-cake-type" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
+                <option value="chocolate">Torta Chocolate (Para 12)</option>
+                <option value="zanahoria">Torta Zanahoria (Para 15)</option>
+                <option value="hojarasca">Torta Hojarasca Manjar (Para 20)</option>
+              </select>
+            </div>
+            
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Cliente</label>
+              <input id="bakery-client" type="text" placeholder="Ej. María López" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white" />
+            </div>
+
+            <button type="submit" class="w-full py-2.5 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-lg text-xs transition shadow-sm">
+              + Bloquear Cupo y Sumar Insumos
+            </button>
+          </form>
+
+          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+            <div>
+              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Pedidos (Sábado)</p>
+              <div id="bakery-orders-container" class="space-y-2"></div>
+            </div>
+            <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
+              <p class="text-xs font-semibold text-indigo-800 uppercase tracking-wider mb-3 flex items-center gap-2">
+                <span>🛒</span> Lista de Supermercado
+              </p>
+              <ul id="bakery-ingredients-container" class="space-y-2 text-sm text-slate-700 font-medium">
+                <li class="text-slate-500 text-xs italic">Agrega pedidos para calcular insumos...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 5: Tracker Servicio Técnico (Tech Repair) -->
+      <!-- ============================================== -->
+      <div id="tab-repair-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-sky-600 uppercase tracking-wider bg-sky-50 px-2.5 py-1 rounded-md border border-sky-100">
+              Fin a las llamadas
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Portal de Estado de Reparación</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              El técnico actualiza el estado con un clic. El cliente revisa el avance desde su teléfono sin tener que enviar WhatsApp preguntando "¿está listo?".
+            </p>
+          </div>
+          <div class="bg-slate-100 border border-slate-200 px-4 py-2.5 rounded-xl text-left md:text-right">
+            <span class="text-xs text-slate-500 font-semibold block">Orden de Trabajo</span>
+            <span class="text-lg font-mono font-extrabold text-slate-800">REP-1042</span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 mt-6">
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-800 text-sm mb-4">Vista del Técnico (Taller)</h4>
+            <div class="space-y-3">
+              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
+                <input type="radio" name="repair-status" value="ingresado" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-sky-600 focus:ring-sky-500" checked>
+                <span class="text-sm font-semibold text-slate-700">1. Equipo Ingresado</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
+                <input type="radio" name="repair-status" value="diagnostico" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-sky-600 focus:ring-sky-500">
+                <span class="text-sm font-semibold text-slate-700">2. En Diagnóstico</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
+                <input type="radio" name="repair-status" value="reparacion" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-sky-600 focus:ring-sky-500">
+                <span class="text-sm font-semibold text-slate-700">3. En Reparación / Esperando Repuesto</span>
+              </label>
+              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
+                <input type="radio" name="repair-status" value="listo" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
+                <span class="text-sm font-semibold text-slate-700">4. Listo para Retiro</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="border-2 border-slate-800 rounded-[2rem] p-2 bg-slate-800 shadow-xl max-w-sm mx-auto w-full relative">
+            <div class="bg-white rounded-[1.5rem] p-6 h-full min-h-[300px] flex flex-col justify-center relative overflow-hidden">
+              <div class="absolute top-2 w-full left-0 flex justify-center"><div class="w-12 h-1.5 bg-slate-200 rounded-full"></div></div>
+              
+              <h4 class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 mt-4">Consulta de Cliente</h4>
+              <h2 class="text-center text-2xl font-black text-slate-800 mb-8 font-mono tracking-tight">REP-1042</h2>
+              
+              <div class="relative flex flex-col gap-6 pl-4" id="tech-client-view">
+                <!-- Status lines injected by JS -->
+              </div>
+
+              <div id="tech-whatsapp-btn" class="mt-8 hidden">
+                <button class="w-full py-3 bg-emerald-500 text-white font-bold rounded-xl text-sm shadow-lg shadow-emerald-200">
+                  Ver Boleta y Retirar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 6: Agenda Inteligente (Booking)           -->
+      <!-- ============================================== -->
+      <div id="tab-booking-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-2.5 py-1 rounded-md border border-purple-100">
+              Reserva sin fricción
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Agenda Inteligente Cero Login</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Tus clientes no tienen que descargar apps ni crear cuentas. Piden su hora en 2 pasos y la confirmación queda en su WhatsApp.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 mt-6">
+          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+            <h4 class="font-bold text-slate-800 text-sm mb-4">Simulador: Vista del Cliente</h4>
+            <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">¿Qué servicio buscas?</label>
+                <select id="book-service" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white">
+                  <option value="Corte de Cabello Clásico">Corte Clásico ($12.000)</option>
+                  <option value="Corte + Perfilado de Barba">Corte + Barba ($18.000)</option>
+                  <option value="Camuflaje de Canas">Camuflaje de Canas ($15.000)</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Día</label>
+                  <input id="book-date" type="date" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white" />
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Hora</label>
+                  <select id="book-time" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white">
+                    <option>10:00 AM</option>
+                    <option>12:30 PM</option>
+                    <option>16:00 PM</option>
+                    <option>18:15 PM</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Tu Nombre</label>
+                <input id="book-name" type="text" placeholder="Ej. Carlos Valdés" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white" />
+              </div>
+              <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg text-xs transition shadow">
+                Confirmar Hora
+              </button>
+            </form>
+          </div>
+
+          <div class="flex flex-col justify-center items-center p-6 border-2 border-dashed border-slate-200 rounded-2xl">
+            <div id="booking-success-area" class="w-full text-center hidden">
+              <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                ✓
+              </div>
+              <h4 class="font-bold text-slate-800 text-lg mb-1">¡Hora Pre-reservada!</h4>
+              <p class="text-xs text-slate-500 mb-6">Para confirmar tu bloque en la agenda, haz clic abajo para avisarnos por WhatsApp.</p>
+              
+              <a id="booking-whatsapp-link" href="#" target="_blank" class="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-sm transition shadow-sm flex justify-center items-center gap-2">
+                <span>📲</span> Enviar Confirmación al Local
+              </a>
+            </div>
+            
+            <div id="booking-empty-state" class="text-center text-slate-400 text-xs">
+              Completa el formulario a la izquierda para ver cómo el cliente finaliza su reserva.
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -399,16 +617,16 @@
     // TAB SWITCHING LOGIC
     // ==============================================
     function switchTab(tabKey) {
-      const tabs = ['stock', 'gym', 'waste'];
+      const tabs = ['stock', 'gym', 'waste', 'bakery', 'repair', 'booking'];
       tabs.forEach(tab => {
         const panel = document.getElementById(`tab-${tab}-panel`);
         const btn = document.getElementById(`tab-${tab}-btn`);
         if (tab === tabKey) {
           panel.classList.remove('hidden');
-          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-indigo-600 text-white shadow";
+          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow";
         } else {
           panel.classList.add('hidden');
-          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-slate-600 border border-slate-200 hover:bg-slate-100";
+          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100";
         }
       });
     }
@@ -689,11 +907,155 @@
       qtyInput.value = '1';
     }
 
+    // ==============================================
+    // TOOL 4: BAKERY (GESTOR DE INSUMOS)
+    // ==============================================
+    let bakeryOrders = [];
+    const cakeRecipes = {
+      chocolate: { name: 'Torta Chocolate', huevos: 4, harina: 500, mantequilla: 200, chocolate: 300 },
+      zanahoria: { name: 'Torta Zanahoria', huevos: 3, harina: 400, mantequilla: 150, zanahoria: 500 },
+      hojarasca: { name: 'Torta Hojarasca', huevos: 6, harina: 600, manjar: 800 }
+    };
+
+    function handleBakerySubmit(e) {
+      e.preventDefault();
+      if(bakeryOrders.length >= 4) {
+        alert("¡Agenda llena! No puedes recibir más pedidos este sábado.");
+        return;
+      }
+      
+      const type = document.getElementById('bakery-cake-type').value;
+      const client = document.getElementById('bakery-client').value.trim();
+      
+      bakeryOrders.push({ id: Date.now(), type, client });
+      document.getElementById('bakery-client').value = '';
+      renderBakery();
+    }
+
+    function renderBakery() {
+      // 1. Update Capacity
+      document.getElementById('bakery-capacity-display').textContent = `${bakeryOrders.length} / 4`;
+      
+      // 2. Render Orders List
+      const orderContainer = document.getElementById('bakery-orders-container');
+      orderContainer.innerHTML = '';
+      bakeryOrders.forEach(order => {
+        const recipe = cakeRecipes[order.type];
+        orderContainer.innerHTML += `
+          <div class="p-3 bg-white border border-slate-200 rounded-lg flex justify-between items-center text-sm shadow-sm">
+            <div>
+              <p class="font-bold text-slate-800">${order.client}</p>
+              <p class="text-[11px] text-slate-500">${recipe.name}</p>
+            </div>
+            <span class="text-[10px] uppercase font-bold bg-pink-100 text-pink-700 px-2 py-1 rounded">Agendado</span>
+          </div>
+        `;
+      });
+
+      // 3. Calculate Ingredients
+      let total = { huevos: 0, harina: 0, mantequilla: 0, chocolate: 0, zanahoria: 0, manjar: 0 };
+      bakeryOrders.forEach(order => {
+        const r = cakeRecipes[order.type];
+        if(r.huevos) total.huevos += r.huevos;
+        if(r.harina) total.harina += r.harina;
+        if(r.mantequilla) total.mantequilla += r.mantequilla;
+        if(r.chocolate) total.chocolate += r.chocolate;
+        if(r.zanahoria) total.zanahoria += r.zanahoria;
+        if(r.manjar) total.manjar += r.manjar;
+      });
+
+      // 4. Render Ingredients
+      const ingContainer = document.getElementById('bakery-ingredients-container');
+      if (bakeryOrders.length === 0) {
+        ingContainer.innerHTML = '<li class="text-slate-500 text-xs italic">Agrega pedidos para calcular insumos...</li>';
+      } else {
+        let html = '';
+        if(total.huevos) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Huevos</span> <span class="font-bold">${total.huevos} un.</span></li>`;
+        if(total.harina) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Harina</span> <span class="font-bold">${total.harina} g.</span></li>`;
+        if(total.mantequilla) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Mantequilla</span> <span class="font-bold">${total.mantequilla} g.</span></li>`;
+        if(total.chocolate) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Chocolate</span> <span class="font-bold">${total.chocolate} g.</span></li>`;
+        if(total.zanahoria) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Zanahoria</span> <span class="font-bold">${total.zanahoria} g.</span></li>`;
+        if(total.manjar) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Manjar</span> <span class="font-bold">${total.manjar} g.</span></li>`;
+        ingContainer.innerHTML = html;
+      }
+    }
+
+    // ==============================================
+    // TOOL 5: TECH REPAIR (TRACKER ESTADO)
+    // ==============================================
+    function updateRepairStatus(status) {
+      const clientView = document.getElementById('tech-client-view');
+      const waBtn = document.getElementById('tech-whatsapp-btn');
+      
+      const states = [
+        { key: 'ingresado', title: '1. Ingresado', desc: 'Equipo recibido en taller' },
+        { key: 'diagnostico', title: '2. Diagnóstico', desc: 'Técnico evaluando fallas' },
+        { key: 'reparacion', title: '3. Reparación', desc: 'Trabajando en el equipo' },
+        { key: 'listo', title: '4. Listo para Retiro', desc: 'Trabajo finalizado con éxito' }
+      ];
+
+      let currentIndex = states.findIndex(s => s.key === status);
+      
+      let html = '';
+      states.forEach((s, index) => {
+        let isPast = index < currentIndex;
+        let isCurrent = index === currentIndex;
+        let isFuture = index > currentIndex;
+        
+        let colorClass = isPast ? 'bg-emerald-500' : (isCurrent ? 'bg-sky-500 ring-4 ring-sky-100' : 'bg-slate-200');
+        let textClass = isPast || isCurrent ? 'text-slate-800' : 'text-slate-400';
+        let lineClass = isFuture ? 'border-slate-200' : 'border-emerald-500';
+        
+        html += `
+          <div class="flex items-start gap-4 relative z-10">
+            ${index !== states.length - 1 ? `<div class="absolute left-3 top-6 w-0.5 h-full -z-10 border-l-2 ${lineClass}"></div>` : ''}
+            <div class="w-6 h-6 rounded-full flex-shrink-0 mt-0.5 ${colorClass}"></div>
+            <div>
+              <h5 class="text-sm font-bold ${textClass}">${s.title}</h5>
+              <p class="text-[11px] text-slate-500">${isCurrent ? '<strong>Estado Actual:</strong> ' : ''}${s.desc}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      clientView.innerHTML = html;
+      
+      if(status === 'listo') {
+        waBtn.classList.remove('hidden');
+      } else {
+        waBtn.classList.add('hidden');
+      }
+    }
+
+    // ==============================================
+    // TOOL 6: AGENDA INTELIGENTE (BOOKING)
+    // ==============================================
+    function handleBookingSubmit(e) {
+      e.preventDefault();
+      
+      const service = document.getElementById('book-service').value;
+      const date = document.getElementById('book-date').value;
+      const time = document.getElementById('book-time').value;
+      const name = document.getElementById('book-name').value;
+      
+      const msg = `¡Hola! Soy ${name}. Quiero confirmar mi reserva para *${service}* el día ${date} a las ${time}. ¡Gracias!`;
+      const url = `https://wa.me/56900000000?text=${encodeURIComponent(msg)}`;
+      
+      document.getElementById('booking-whatsapp-link').href = url;
+      document.getElementById('booking-empty-state').classList.add('hidden');
+      document.getElementById('booking-success-area').classList.remove('hidden');
+    }
+
     // Initialize all views on load
     window.onload = function() {
+      // Set today's date for booking tool
+      document.getElementById('book-date').valueAsDate = new Date();
+      
       renderStockItems();
       renderGymMembers();
       renderWasteLogs();
+      renderBakery();
+      updateRepairStatus('ingresado');
     };
   </script>
 </body>
