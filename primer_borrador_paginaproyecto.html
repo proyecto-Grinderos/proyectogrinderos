@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PYMELab Chile | Micro-Herramientas Operativas</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    /* Hide scrollbar for tabs on small screens while retaining swipe */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 selection:bg-indigo-100 antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- Top Navigation Bar -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-xl bg-indigo-600 text-white font-black flex items-center justify-center text-lg shadow-sm shadow-indigo-200">
+          P
+        </span>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold tracking-tight text-slate-900 leading-none">
+            PYME<span class="text-indigo-600">Lab</span>
+          </span>
+          <span class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-0.5">
+            Santiago & Quilpué
+          </span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#filosofia" class="hover:text-indigo-600 transition-colors">Nuestra Filosofía</a>
+        <a href="#prototipos" class="hover:text-indigo-600 transition-colors">Micro-Herramientas</a>
+        <a href="#contacto" class="hover:text-indigo-600 transition-colors">Conversar con Nosotros</a>
+      </nav>
+
+      <div>
+        <a href="#contacto" class="px-4 py-2 bg-indigo-600 text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-indigo-700 transition shadow-sm shadow-indigo-100 inline-block">
+          Agendar Charla
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="max-w-5xl mx-auto px-4 pt-16 pb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 rounded-full bg-indigo-50 border border-indigo-200/70 text-indigo-700 text-xs font-bold tracking-wide">
+        <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+        Tecnología Adaptada a tu Rutina Real
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
+        No cambiamos tu negocio.<br class="hidden sm:inline" />
+        <span class="text-indigo-600">Aliviamos las tareas</span> que te quitan tiempo.
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+        Sin capacitaciones eternas, sin contratos amarrados ni software inflado. Construimos micro-herramientas directas, diseñadas a la medida de lo que tú y tu equipo necesitan resolver hoy.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="#prototipos" class="px-6 py-3.5 bg-indigo-600 text-white font-semibold rounded-xl shadow-md shadow-indigo-200 hover:bg-indigo-700 transition text-sm">
+          Probar Micro-Herramientas en Vivo
+        </a>
+        <a href="#filosofia" class="px-6 py-3.5 bg-white border border-slate-300 text-slate-700 font-semibold rounded-xl hover:bg-slate-50 transition text-sm">
+          Nuestra Manera de Trabajar
+        </a>
+      </div>
+    </section>
+
+    <!-- Methodology & Ground Approach Section -->
+    <section id="filosofia" class="max-w-5xl mx-auto px-4 py-12">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-wider font-bold text-indigo-600">Nuestra Forma de Trabajar</span>
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-1">Primero Escuchamos, Luego Construimos</h2>
+        <p class="text-sm text-slate-500 mt-2 max-w-xl mx-auto">
+          Creemos que el mejor software no se diseña en una oficina cerrada, sino conversando al lado del mostrador.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Rephrased Point 1: Humble, listening-first approach -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative overflow-hidden">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-bold flex items-center justify-center mb-4 text-sm border border-indigo-100">
+            01
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Escucha Activa, Cero Cátedra</h3>
+          <p class="text-xs leading-relaxed text-slate-600">
+            Nadie conoce tu local mejor que tú. No venimos a auditarte ni a decirte cómo hacer tu trabajo. Nos sentamos a escucharte, entender qué parte del día se te hace pesada y construir una herramienta que se adapte exactamente a tu ritmo.
+          </p>
+        </div>
+
+        <!-- Point 2: Tangible Prototypes -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-bold flex items-center justify-center mb-4 text-sm border border-indigo-100">
+            02
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Prototipos en Mano</h3>
+          <p class="text-xs leading-relaxed text-slate-600">
+            No vendemos ideas al aire ni presentaciones en PowerPoint. Si algo se puede mejorar, volvemos con un prototipo funcional en el teléfono para que tú y tus colaboradores lo toquen y nos digan qué le sobra o qué le falta.
+          </p>
+        </div>
+
+        <!-- Point 3: Zero lock-in -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
+          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-bold flex items-center justify-center mb-4 text-sm border border-indigo-100">
+            03
+          </div>
+          <h3 class="font-bold text-slate-900 text-base mb-2">Cero Fricción ni Amarras</h3>
+          <p class="text-xs leading-relaxed text-slate-600">
+            Sin suscripciones forzadas ni cambios bruscos de sistema. Buscamos resolver un cuello de botella puntual de forma simple: si te ahorra dolores de cabeza lo adoptas; si no te sirve, no perdiste un solo peso.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Micro-Tools Showcase -->
+    <section id="prototipos" class="max-w-5xl mx-auto px-4 py-12">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-wider font-bold text-indigo-600">Demostraciones Interactivas</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Explora las Micro-Herramientas</h2>
+        <p class="text-slate-500 text-xs sm:text-sm max-w-xl mx-auto mt-2">
+          Haz clic en cada pestaña para probar cómo funcionan estas soluciones tácticas diseñadas para no interferir con tu flujo diario.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="flex items-center justify-start sm:justify-center gap-2 mb-8 overflow-x-auto no-scrollbar pb-2">
+        <button
+          id="tab-stock-btn"
+          onclick="switchTab('stock')"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-indigo-600 text-white shadow"
+        >
+          📦 Stock Crítico + Pedido a Proveedor
+        </button>
+        <button
+          id="tab-gym-btn"
+          onclick="switchTab('gym')"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+        >
+          🥋 Membresías & Cobranza Preventiva
+        </button>
+        <button
+          id="tab-waste-btn"
+          onclick="switchTab('waste')"
+          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
+        >
+          🗑️ Registro Ágil de Mermas
+        </button>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 1: Stock Crítico + Pedido a Proveedor     -->
+      <!-- ============================================== -->
+      <div id="tab-stock-panel" class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
+              Doble Impacto Operativo
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Detección de Quiebres y Pedido Directo a WhatsApp</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Comprueba el stock tocando los botones. Si baja del límite mínimo, genera la orden automática con el formato que el distribuidor necesita.
+            </p>
+          </div>
+          <div class="text-left md:text-right">
+            <span class="text-xs text-slate-400 block">Insumos Críticos</span>
+            <span id="critical-stock-counter" class="text-lg font-extrabold text-slate-800">2 productos en alerta</span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <!-- Stock Items Column -->
+          <div class="lg:col-span-7 space-y-3">
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Toca para seleccionar un producto:</p>
+            <div id="stock-items-container" class="space-y-3">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Order Generator Column -->
+          <div class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div id="order-box-content">
+              <!-- Rendered via JS based on selected product -->
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
+              💡 <strong>El Ahorro:</strong> El personal de turno ya no tiene que adivinar números ni llamar apurado. Con un toque, el pedido al proveedor queda redactado y sin errores.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 2: Membresías & Cobranza Preventiva (Gym)  -->
+      <!-- ============================================== -->
+      <div id="tab-gym-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-100">
+              Cero Incomodidad en el Tatami
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Control de Membresías y Cobranza Preventiva</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              El profesor no pasa lista uno por uno. Solo filtra la lista de morosos y envía un recordatorio amable por WhatsApp con los datos de cuenta.
+            </p>
+          </div>
+
+          <!-- Filter buttons -->
+          <div class="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl self-start md:self-auto">
+            <button
+              id="filter-all-btn"
+              onclick="setGymFilter('all')"
+              class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-slate-800 shadow-sm transition"
+            >
+              Todos (4)
+            </button>
+            <button
+              id="filter-restricted-btn"
+              onclick="setGymFilter('restricted')"
+              class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition"
+            >
+              Vencidos / Por Cobrar (2)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <!-- Member list column -->
+          <div class="lg:col-span-7 space-y-2.5" id="gym-members-container">
+            <!-- Rendered via JS -->
+          </div>
+
+          <!-- WhatsApp Reminder Preview Box -->
+          <div class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div>
+              <h4 class="font-bold text-slate-800 text-sm mb-1.5">Mensaje Automático Respetuoso</h4>
+              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                El instructor no tiene que frenar la clase ni cobrar en persona. El mensaje sale con datos bancarios claros y tono motivador.
+              </p>
+
+              <div id="gym-preview-area">
+                <div class="p-6 text-center border-2 border-dashed border-slate-200 rounded-xl text-xs text-slate-400">
+                  Presiona el botón <span class="font-bold text-indigo-600">"Cobrar WhatsApp"</span> en cualquier alumno para ver la vista previa.
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
+              🥋 <strong>Escalabilidad:</strong> Aunque la academia crezca a 100 alumnos, el profesor solo se fija en los 4 o 5 en rojo al terminar la jornada, sin perder el rol de mentor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TAB 3: Registro Ágil de Mermas                -->
+      <!-- ============================================== -->
+      <div id="tab-waste-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-amber-600 uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md border border-amber-100">
+              Control de Fugas Silenciosas
+            </span>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Registro Rápido de Mermas (Cafés y Locales)</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Anota en 3 toques lo que se descarta en cocina o bodega para tener una cifra real y clara de pérdida semanal.
+            </p>
+          </div>
+
+          <div class="bg-amber-50 border border-amber-200/80 px-4 py-2.5 rounded-xl text-left md:text-right">
+            <span class="text-xs text-amber-800 font-semibold block">Total Pérdida Semanal</span>
+            <span id="total-waste-display" class="text-xl font-extrabold text-amber-900">$12.000 CLP</span>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <!-- Form to add waste -->
+          <form onsubmit="handleWasteSubmit(event)" class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
+            <h4 class="font-bold text-slate-800 text-sm">Registrar Insumo Descartado</h4>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Producto o Insumo</label>
+              <input
+                id="waste-item-input"
+                type="text"
+                placeholder="Ej. Leche Entera 1L o Queso Gouda"
+                required
+                class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+              />
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Cantidad</label>
+                <input
+                  id="waste-qty-input"
+                  type="number"
+                  min="1"
+                  value="1"
+                  required
+                  class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Costo Unitario ($ CLP)</label>
+                <input
+                  id="waste-cost-input"
+                  type="number"
+                  placeholder="Ej. 1200"
+                  required
+                  class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Motivo del Descarte</label>
+              <select
+                id="waste-reason-input"
+                class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+              >
+                <option value="Vencimiento">Fecha de Vencimiento</option>
+                <option value="Error en Preparación">Error en Preparación</option>
+                <option value="Dañado en Manipulación">Dañado en Manipulación / Transporte</option>
+                <option value="Rechazo de Cliente">Rechazo de Cliente</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-xs transition shadow-sm"
+            >
+              + Agregar Merma al Reporte
+            </button>
+          </form>
+
+          <!-- Waste Log Table -->
+          <div class="lg:col-span-7">
+            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+              Historial de Mermas de la Semana
+            </p>
+            <div id="waste-logs-container" class="space-y-2.5">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Ground Connection & Footer Section -->
+  <footer id="contacto" class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <span class="text-xs uppercase tracking-widest font-bold text-indigo-400">Conversación Sin Compromiso</span>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 mb-3">
+        ¿Tienes un negocio en Santiago o Quilpué?
+      </h3>
+      <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
+        Nos acercamos a tu local, nos tomamos un café y conversamos 15 minutos sobre lo que te hace perder tiempo. Sin discursos de venta ni compromisos.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+        <a
+          href="https://wa.me/56900000000?text=Hola!%20Me%20interesa%20conversar%20sobre%20mi%20local"
+          target="_blank"
+          rel="noreferrer"
+          class="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm"
+        >
+          <span>💬</span> Hablar directamente por WhatsApp
+        </a>
+        <a
+          href="mailto:contacto@pymelab.cl"
+          class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-700 font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center"
+        >
+          Enviar un Correo
+        </a>
+      </div>
+
+      <div class="mt-14 pt-8 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <p>© 2026 PYMELab Chile • Santiago & Quilpué</p>
+        <p>Herramientas Ligeras • Foco en Escucha • Cero Fricción</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dynamic Application Script (Vanilla JS) -->
+  <script>
+    // ==============================================
+    // TAB SWITCHING LOGIC
+    // ==============================================
+    function switchTab(tabKey) {
+      const tabs = ['stock', 'gym', 'waste'];
+      tabs.forEach(tab => {
+        const panel = document.getElementById(`tab-${tab}-panel`);
+        const btn = document.getElementById(`tab-${tab}-btn`);
+        if (tab === tabKey) {
+          panel.classList.remove('hidden');
+          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-indigo-600 text-white shadow";
+        } else {
+          panel.classList.add('hidden');
+          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap bg-white text-slate-600 border border-slate-200 hover:bg-slate-100";
+        }
+      });
+    }
+
+    // ==============================================
+    // TOOL 1: STOCK CRÍTICO + PEDIDO PROVEEDOR
+    // ==============================================
+    let stockData = [
+      { id: 1, name: 'Harina Selecta 25kg', stock: 3, minStock: 6, unit: 'sacos', provider: 'Molinos del Sur', phone: '+56987654321', orderQty: 10 },
+      { id: 2, name: 'Café Grano Colombia 1kg', stock: 8, minStock: 5, unit: 'bolsas', provider: 'Tostaduría Central', phone: '+56976543210', orderQty: 6 },
+      { id: 3, name: 'Aceite Maravilla 5L', stock: 1, minStock: 4, unit: 'bidones', provider: 'Distribuidora Costa', phone: '+56965432109', orderQty: 8 }
+    ];
+    let selectedStockId = 1;
+
+    function renderStockItems() {
+      const container = document.getElementById('stock-items-container');
+      container.innerHTML = '';
+
+      let criticalCount = 0;
+
+      stockData.forEach(item => {
+        const isCritical = item.stock <= item.minStock;
+        if (isCritical) criticalCount++;
+
+        const isSelected = item.id === selectedStockId;
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border transition-all cursor-pointer ${
+          isSelected
+            ? 'border-indigo-500 ring-2 ring-indigo-100 bg-indigo-50/20'
+            : 'border-slate-200 hover:border-slate-300 bg-white'
+        }`;
+        card.onclick = () => selectStockItem(item.id);
+
+        card.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-2">
+                <h4 class="font-bold text-slate-800 text-sm">${item.name}</h4>
+                ${isCritical 
+                  ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-700">Crítico (Min: ${item.minStock})</span>` 
+                  : `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Stock OK</span>`
+                }
+              </div>
+              <p class="text-xs text-slate-500 mt-1">
+                Proveedor: <strong class="text-slate-700">${item.provider}</strong> • Pedido típico: ${item.orderQty} ${item.unit}
+              </p>
+            </div>
+
+            <!-- Stepper -->
+            <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
+              <button onclick="modifyStock(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-sm transition">-</button>
+              <span class="w-7 text-center font-bold text-sm text-slate-800">${item.stock}</span>
+              <button onclick="modifyStock(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-sm transition">+</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      document.getElementById('critical-stock-counter').textContent = `${criticalCount} producto${criticalCount !== 1 ? 's' : ''} en alerta`;
+      renderOrderBox();
+    }
+
+    function selectStockItem(id) {
+      selectedStockId = id;
+      renderStockItems();
+    }
+
+    function modifyStock(id, delta) {
+      const item = stockData.find(i => i.id === id);
+      if (item) {
+        item.stock = Math.max(0, item.stock + delta);
+        renderStockItems();
+      }
+    }
+
+    function renderOrderBox() {
+      const box = document.getElementById('order-box-content');
+      const item = stockData.find(i => i.id === selectedStockId) || stockData[0];
+      const isCritical = item.stock <= item.minStock;
+
+      const orderMsg = `Hola ${item.provider}, necesitamos realizar el siguiente pedido para el local:\n- ${item.orderQty} ${item.unit} de ${item.name}\n\n¿Nos confirman stock y disponibilidad de despacho? ¡Muchas gracias!`;
+      const encodedMsg = encodeURIComponent(orderMsg);
+      const cleanPhone = item.phone.replace(/[^0-9]/g, '');
+      const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
+
+      box.innerHTML = `
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Acción de Reposición</span>
+          <span class="text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-mono">${item.phone}</span>
+        </div>
+
+        <h4 class="font-bold text-slate-900 text-sm mb-1">${item.name}</h4>
+        <p class="text-xs text-slate-600 mb-4">
+          Stock actual: <strong class="${isCritical ? 'text-red-600' : 'text-slate-800'}">${item.stock} ${item.unit}</strong> (Mínimo requerido: ${item.minStock} ${item.unit})
+        </p>
+
+        <div class="p-3 bg-white rounded-xl border border-slate-200 mb-4 text-xs">
+          <p class="font-semibold text-slate-700 mb-1">Previsualización de orden:</p>
+          <p class="italic text-slate-500 whitespace-pre-line text-[11px]">"${orderMsg}"</p>
+        </div>
+
+        <a
+          href="${whatsappUrl}"
+          target="_blank"
+          rel="noreferrer"
+          class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-2 shadow-sm transition"
+        >
+          <span>📲</span> Abrir WhatsApp con Orden Armada
+        </a>
+      `;
+    }
+
+    // ==============================================
+    // TOOL 2: GIMNASIO & ACADEMIAS
+    // ==============================================
+    const gymMembers = [
+      { id: 1, name: 'Ignacio Morales', plan: 'Plan Mensual BJJ', status: 'al_dia', dueDate: '28 Nov', phone: '+56991122334' },
+      { id: 2, name: 'Camila Reyes', plan: 'Plan Libre 3x/sem', status: 'por_vencer', dueDate: '12 Nov', phone: '+56988776655' },
+      { id: 3, name: 'Diego Sanhueza', plan: 'Pase Ilimitado', status: 'vencido', dueDate: '02 Nov', phone: '+56977665544' },
+      { id: 4, name: 'Valentina Soto', plan: 'Plan Funcional AM', status: 'al_dia', dueDate: '25 Nov', phone: '+56955443322' }
+    ];
+    let gymCurrentFilter = 'all';
+
+    function setGymFilter(filterType) {
+      gymCurrentFilter = filterType;
+      const allBtn = document.getElementById('filter-all-btn');
+      const restrictedBtn = document.getElementById('filter-restricted-btn');
+
+      if (filterType === 'all') {
+        allBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-slate-800 shadow-sm transition";
+        restrictedBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition";
+      } else {
+        restrictedBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-600 text-white shadow-sm transition";
+        allBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition";
+      }
+      renderGymMembers();
+    }
+
+    function renderGymMembers() {
+      const container = document.getElementById('gym-members-container');
+      container.innerHTML = '';
+
+      const filtered = gymMembers.filter(m => {
+        if (gymCurrentFilter === 'restricted') {
+          return m.status === 'vencido' || m.status === 'por_vencer';
+        }
+        return true;
+      });
+
+      filtered.forEach(member => {
+        const row = document.createElement('div');
+        row.className = "p-4 rounded-xl border border-slate-200 bg-white flex items-center justify-between hover:border-slate-300 transition";
+
+        let badgeHtml = '';
+        let actionBtnHtml = '';
+
+        if (member.status === 'al_dia') {
+          badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Al Día (Vence ${member.dueDate})</span>`;
+          actionBtnHtml = `<span class="text-xs text-slate-400 font-mono">Habilitado</span>`;
+        } else if (member.status === 'por_vencer') {
+          badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700">Vence Pronto (${member.dueDate})</span>`;
+          actionBtnHtml = `<button onclick="previewGymReminder(${member.id})" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-xs font-semibold transition">Avisar</button>`;
+        } else {
+          badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-700">Vencido (${member.dueDate})</span>`;
+          actionBtnHtml = `<button onclick="previewGymReminder(${member.id})" class="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition">Cobrar WhatsApp</button>`;
+        }
+
+        row.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <h4 class="font-bold text-slate-800 text-sm">${member.name}</h4>
+              ${badgeHtml}
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">${member.plan}</p>
+          </div>
+          <div>${actionBtnHtml}</div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function previewGymReminder(memberId) {
+      const member = gymMembers.find(m => m.id === memberId);
+      if (!member) return;
+
+      const previewArea = document.getElementById('gym-preview-area');
+      const bankDetails = "Banco Santander, Cuenta Corriente 0-000-987654, RUT 76.890.123-4, academia@tatami.cl";
+      const message = `¡Hola ${member.name}! Te escribimos de la Academia. Te recordamos que tu ${member.plan} venció el ${member.dueDate}.\n\nPara que continúes entrenando sin interrupción, puedes regularizar vía transferencia a:\n${bankDetails}\n\n¡Nos vemos en el próximo entrenamiento! 🥋`;
+      const cleanPhone = member.phone.replace(/[^0-9]/g, '');
+      const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+
+      previewArea.innerHTML = `
+        <div class="p-4 bg-white rounded-xl border border-indigo-200 text-xs shadow-sm">
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-indigo-900">Para: ${member.name}</span>
+            <span class="text-slate-400 font-mono text-[11px]">${member.phone}</span>
+          </div>
+          <p class="text-slate-600 italic whitespace-pre-line bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] leading-relaxed">
+            "${message}"
+          </p>
+          <a
+            href="${whatsappUrl}"
+            target="_blank"
+            rel="noreferrer"
+            class="mt-3 w-full block text-center py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition"
+          >
+            Enviar por WhatsApp
+          </a>
+        </div>
+      `;
+    }
+
+    // ==============================================
+    // TOOL 3: REGISTRO ÁGIL DE MERMAS
+    // ==============================================
+    let wasteLogs = [
+      { id: 1, item: 'Leche Entera 1L', qty: 4, reason: 'Fecha de Vencimiento', cost: 4800, time: 'Hoy, 09:15' },
+      { id: 2, item: 'Croissant Mantequilla', qty: 6, reason: 'Error en Preparación', cost: 7200, time: 'Ayer, 18:30' }
+    ];
+
+    function renderWasteLogs() {
+      const container = document.getElementById('waste-logs-container');
+      container.innerHTML = '';
+
+      let totalCost = 0;
+
+      wasteLogs.forEach(entry => {
+        totalCost += entry.cost;
+        const row = document.createElement('div');
+        row.className = "p-3.5 rounded-xl border border-slate-200 bg-white flex items-center justify-between";
+        row.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-slate-800 text-sm">${entry.item}</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold">${entry.qty} un.</span>
+            </div>
+            <p class="text-[11px] text-slate-500 mt-0.5">
+              Motivo: <strong class="text-slate-700">${entry.reason}</strong> • ${entry.time}
+            </p>
+          </div>
+          <div class="text-right">
+            <span class="text-sm font-bold text-red-600">-$${entry.cost.toLocaleString('es-CL')}</span>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+
+      document.getElementById('total-waste-display').textContent = `$${totalCost.toLocaleString('es-CL')} CLP`;
+    }
+
+    function handleWasteSubmit(event) {
+      event.preventDefault();
+      const itemInput = document.getElementById('waste-item-input');
+      const qtyInput = document.getElementById('waste-qty-input');
+      const costInput = document.getElementById('waste-cost-input');
+      const reasonInput = document.getElementById('waste-reason-input');
+
+      const qty = parseInt(qtyInput.value) || 1;
+      const unitCost = parseInt(costInput.value) || 0;
+      const total = qty * unitCost;
+
+      const newLog = {
+        id: Date.now(),
+        item: itemInput.value.trim(),
+        qty: qty,
+        reason: reasonInput.value,
+        cost: total,
+        time: 'Recién agregado'
+      };
+
+      wasteLogs.unshift(newLog);
+      renderWasteLogs();
+
+      // Reset form fields
+      itemInput.value = '';
+      costInput.value = '';
+      qtyInput.value = '1';
+    }
+
+    // Initialize all views on load
+    window.onload = function() {
+      renderStockItems();
+      renderGymMembers();
+      renderWasteLogs();
+    };
+  </script>
+</body>
+</html>
