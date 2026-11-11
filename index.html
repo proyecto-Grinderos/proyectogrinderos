@@ -1,322 +1,424 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PYMELab Chile | Micro-Herramientas Operativas</title>
-  <!-- Tailwind CSS CDN -->
+  <title>Optimización PYME • Herramientas Operativas a Medida</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Inter', sans-serif; }
-    /* Hide scrollbar for tabs on small screens while retaining swipe */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .wa-chat-pattern {
+      background-color: #efeae2;
+      background-image: radial-gradient(#d1c7b7 0.75px, transparent 0.75px);
+      background-size: 12px 12px;
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-900 selection:bg-indigo-100 antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-slate-50 text-slate-900 selection:bg-indigo-100 selection:text-indigo-900 antialiased">
 
-  <!-- Top Navigation Bar -->
-  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
-    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <span class="w-9 h-9 rounded-xl bg-indigo-600 text-white font-black flex items-center justify-center text-lg shadow-sm shadow-indigo-200">
+  <!-- ==================================================== -->
+  <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR                      -->
+  <!-- ==================================================== -->
+  <nav class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-2 group">
+        <span class="w-8 h-8 rounded-xl bg-indigo-600 text-white font-black flex items-center justify-center text-sm shadow-md shadow-indigo-200 group-hover:scale-105 transition-transform">
           P
         </span>
-        <div class="flex flex-col">
-          <span class="text-xl font-bold tracking-tight text-slate-900 leading-none">
-            PYME<span class="text-indigo-600">Lab</span>
-          </span>
-          <span class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase mt-0.5">
-            Santiago & Quilpué
-          </span>
-        </div>
-      </div>
+        <span class="text-lg font-extrabold tracking-tight text-slate-900">
+          PYME<span class="text-indigo-600">Lab</span>
+        </span>
+        <span class="ml-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 border border-slate-200 hidden sm:inline-block">
+          Santiago & Quilpué
+        </span>
+      </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
-        <a href="#filosofia" class="hover:text-indigo-600 transition-colors">Nuestra Filosofía</a>
-        <a href="#prototipos" class="hover:text-indigo-600 transition-colors">Micro-Herramientas</a>
-        <a href="#contacto" class="hover:text-indigo-600 transition-colors">Conversar con Nosotros</a>
-      </nav>
-
-      <div>
-        <a href="#contacto" class="px-4 py-2 bg-indigo-600 text-white text-xs sm:text-sm font-semibold rounded-xl hover:bg-indigo-700 transition shadow-sm shadow-indigo-100 inline-block">
-          Agendar Charla
+      <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-600">
+        <a href="#filosofia" class="hover:text-indigo-600 transition-colors hidden md:inline">Filosofía</a>
+        <a href="#herramientas" class="hover:text-indigo-600 transition-colors">Micro-Herramientas</a>
+        <a href="#proceso" class="hover:text-indigo-600 transition-colors hidden sm:inline">Proceso</a>
+        <a
+          href="#desafios"
+          class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold transition shadow-sm hover:shadow-indigo-100"
+        >
+          Contar Desafío
         </a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="max-w-5xl mx-auto px-4 pt-16 pb-12 text-center">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-6 rounded-full bg-indigo-50 border border-indigo-200/70 text-indigo-700 text-xs font-bold tracking-wide">
+  <!-- ==================================================== -->
+  <!-- 2. HERO: ENFOQUE 100% PANTALLA COMPLETA              -->
+  <!-- ==================================================== -->
+  <section id="inicio" class="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 text-center pt-8 pb-16 relative">
+    <div class="max-w-4xl mx-auto">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mb-8 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold tracking-wide uppercase shadow-sm">
         <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
-        Tecnología Adaptada a tu Rutina Real
+        Descubrimiento Operativo en Terreno
       </div>
 
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-6">
-        No cambiamos tu negocio.<br class="hidden sm:inline" />
-        <span class="text-indigo-600">Aliviamos las tareas</span> que te quitan tiempo.
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight mb-8">
+        No cambiamos tu negocio.<br />
+        <span class="text-indigo-600">Aliviamos las tareas que te quitan tiempo.</span>
       </h1>
 
-      <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 leading-relaxed font-normal">
+      <p class="text-base sm:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
         Sin capacitaciones eternas, sin contratos amarrados ni software inflado. Construimos micro-herramientas directas, diseñadas a la medida de lo que tú y tu equipo necesitan resolver hoy.
       </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <a href="#prototipos" class="px-6 py-3.5 bg-indigo-600 text-white font-semibold rounded-xl shadow-md shadow-indigo-200 hover:bg-indigo-700 transition text-sm">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+        <a
+          href="#herramientas"
+          class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-lg shadow-indigo-200 hover:shadow-indigo-300 transition-all text-sm flex items-center justify-center"
+        >
           Probar Micro-Herramientas en Vivo
         </a>
-        <a href="#filosofia" class="px-6 py-3.5 bg-white border border-slate-300 text-slate-700 font-semibold rounded-xl hover:bg-slate-50 transition text-sm">
-          Nuestra Manera de Trabajar
+        <a
+          href="#desafios"
+          class="w-full sm:w-auto px-8 py-4 bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-bold rounded-2xl hover:bg-slate-50 transition-all text-sm shadow-sm"
+        >
+          Compartir Desafío
         </a>
       </div>
-    </section>
+    </div>
 
-    <!-- Methodology & Ground Approach Section -->
-    <section id="filosofia" class="max-w-5xl mx-auto px-4 py-12">
-      <div class="text-center mb-10">
-        <span class="text-xs uppercase tracking-wider font-bold text-indigo-600">Nuestra Forma de Trabajar</span>
-        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-1">Primero Escuchamos, Luego Construimos</h2>
-        <p class="text-sm text-slate-500 mt-2 max-w-xl mx-auto">
-          Creemos que el mejor software no se diseña en una oficina cerrada, sino conversando al lado del mostrador.
+    <!-- Indicador de desplazamiento inferior -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 flex flex-col items-center gap-1.5 animate-bounce">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Ver más</span>
+      <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- 3. SECCIÓN: NUESTRA FILOSOFÍA                        -->
+  <!-- ==================================================== -->
+  <section id="filosofia" class="py-28 px-4 sm:px-6 bg-white border-y border-slate-200">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
+          Nuestra Filosofía
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+          Escucha activa, cero cátedra.
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-4 leading-relaxed">
+          Nadie conoce tu negocio mejor que tú. No venimos a auditarte ni a decirte cómo hacer tu trabajo; nos sentamos a escuchar tus rutinas y construimos la herramienta exacta que te libere horas a la semana.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Rephrased Point 1: Humble, listening-first approach -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative overflow-hidden">
-          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-bold flex items-center justify-center mb-4 text-sm border border-indigo-100">
-            01
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-indigo-200 hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white font-black text-lg flex items-center justify-center mb-5 shadow-sm">
+            1
           </div>
-          <h3 class="font-bold text-slate-900 text-base mb-2">Escucha Activa, Cero Cátedra</h3>
-          <p class="text-xs leading-relaxed text-slate-600">
-            Nadie conoce tu local mejor que tú. No venimos a auditarte ni a decirte cómo hacer tu trabajo. Nos sentamos a escucharte, entender qué parte del día se te hace pesada y construir una herramienta que se adapte exactamente a tu ritmo.
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Escuchamos tu día a día</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Sin juzgar tus métodos actuales. Si usas un cuaderno o notas de voz en WhatsApp porque te funciona rápido, entendemos exactamente por qué lo haces.
           </p>
         </div>
 
-        <!-- Point 2: Tangible Prototypes -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-bold flex items-center justify-center mb-4 text-sm border border-indigo-100">
-            02
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-indigo-200 hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white font-black text-lg flex items-center justify-center mb-5 shadow-sm">
+            2
           </div>
-          <h3 class="font-bold text-slate-900 text-base mb-2">Prototipos en Mano</h3>
-          <p class="text-xs leading-relaxed text-slate-600">
-            No vendemos ideas al aire ni presentaciones en PowerPoint. Si algo se puede mejorar, volvemos con un prototipo funcional en el teléfono para que tú y tus colaboradores lo toquen y nos digan qué le sobra o qué le falta.
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Una tarea, bien resuelta</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Nada de sistemas gigantescos donde pagas por 50 funciones y sólo usas 2. Diseñamos prototipos puntuales enfocados en el cuello de botella que más te pesa.
           </p>
         </div>
 
-        <!-- Point 3: Zero lock-in -->
-        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm">
-          <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 font-bold flex items-center justify-center mb-4 text-sm border border-indigo-100">
-            03
+        <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm hover:border-indigo-200 hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white font-black text-lg flex items-center justify-center mb-5 shadow-sm">
+            3
           </div>
-          <h3 class="font-bold text-slate-900 text-base mb-2">Cero Fricción ni Amarras</h3>
-          <p class="text-xs leading-relaxed text-slate-600">
-            Sin suscripciones forzadas ni cambios bruscos de sistema. Buscamos resolver un cuello de botella puntual de forma simple: si te ahorra dolores de cabeza lo adoptas; si no te sirve, no perdiste un solo peso.
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Tú tienes el control</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            La pones a prueba en tu mesón o gimnasio. Si a tu equipo le ahorra tiempo y dolores de cabeza, se adopta; si algo estorba, se modifica de inmediato.
           </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Interactive Micro-Tools Showcase -->
-    <section id="prototipos" class="max-w-5xl mx-auto px-4 py-12">
-      <div class="text-center mb-8">
-        <span class="text-xs uppercase tracking-wider font-bold text-indigo-600">Demostraciones Interactivas</span>
-        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Explora las Micro-Herramientas</h2>
-        <p class="text-slate-500 text-xs sm:text-sm max-w-xl mx-auto mt-2">
-          Haz clic en cada pestaña para probar cómo funcionan estas soluciones tácticas diseñadas para no interferir con tu flujo diario.
+  <!-- ==================================================== -->
+  <!-- 4. SECCIÓN: MICRO-HERRAMIENTAS INTERACTIVAS          -->
+  <!-- ==================================================== -->
+  <section id="herramientas" class="py-28 px-4 sm:px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
+          Muestrario Interactivo
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+          Explora los Prototipos Funcionales
+        </h2>
+        <p class="text-slate-600 text-sm mt-3">
+          Prueba las herramientas simuladas a continuación con botones reales y cálculo instantáneo.
         </p>
       </div>
 
-      <!-- Navigation Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 pb-2">
-        <button
-          id="tab-stock-btn"
-          onclick="switchTab('stock')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow"
-        >
-          📦 Stock Crítico + Pedido a Proveedor
+      <!-- Selector de Herramientas en 2 filas compactas -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10">
+        <button onclick="switchTab('stock')" id="btn-tab-stock" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-md shadow-indigo-100">
+          📦 Stock y Proveedores
         </button>
-        <button
-          id="tab-gym-btn"
-          onclick="switchTab('gym')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
-        >
-          🥋 Membresías & Cobranza Preventiva
+        <button onclick="switchTab('gym')" id="btn-tab-gym" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100">
+          🥋 Membresías Academias & Dojos
         </button>
-        <button
-          id="tab-waste-btn"
-          onclick="switchTab('waste')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
-        >
-          🗑️ Registro Ágil de Mermas
+        <button onclick="switchTab('waste')" id="btn-tab-waste" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100">
+          🗑️ Registro Rápido de Mermas
         </button>
-        <button
-          id="tab-bakery-btn"
-          onclick="switchTab('bakery')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
-        >
-          🎂 Gestor de Cupos e Insumos
+        <button onclick="switchTab('bakery')" id="btn-tab-bakery" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100">
+          🎂 Pastelería & Cupos por Fecha
         </button>
-        <button
-          id="tab-repair-btn"
-          onclick="switchTab('repair')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
-        >
-          🔧 Tracker Servicio Técnico
+        <button onclick="switchTab('repair')" id="btn-tab-repair" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100">
+          🔧 Seguimiento Servicio Técnico
         </button>
-        <button
-          id="tab-booking-btn"
-          onclick="switchTab('booking')"
-          class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
-        >
-          📅 Agenda Inteligente Cero Login
+        <button onclick="switchTab('booking')" id="btn-tab-booking" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100">
+          📅 Reserva Simple sin App
         </button>
       </div>
 
       <!-- ============================================== -->
-      <!-- TAB 1: Stock Crítico + Pedido a Proveedor     -->
+      <!-- HERRAMIENTA 1: STOCK Y PROVEEDORES             -->
       <!-- ============================================== -->
-      <div id="tab-stock-panel" class="bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-          <div>
-            <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
-              Doble Impacto Operativo
-            </span>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Detección de Quiebres y Pedido Directo a WhatsApp</h3>
-            <p class="text-xs text-slate-500 mt-1">
-              Comprueba el stock tocando los botones. Si baja del límite mínimo, genera la orden automática con el formato que el distribuidor necesita.
-            </p>
-          </div>
-          <div class="text-left md:text-right">
-            <span class="text-xs text-slate-400 block">Insumos Críticos</span>
-            <span id="critical-stock-counter" class="text-lg font-extrabold text-slate-800">2 productos en alerta</span>
-          </div>
+      <div id="tab-stock-panel" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+        <div class="pb-5 border-b border-slate-100">
+          <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-100">
+            Stock y Proveedores
+          </span>
+          <h3 class="text-xl font-bold text-slate-900 mt-2">Control de stock y contacto directo a proveedores</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1.5 max-w-3xl leading-relaxed">
+            Monitorea el inventario físico en tiempo real con umbrales de stock mínimo e ideal, calcula automáticamente las unidades requeridas y redacta pedidos directos por WhatsApp al distribuidor correspondiente en un solo toque.
+          </p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 mt-6">
-          <!-- Stock Items Column -->
-          <div class="lg:col-span-7 space-y-3">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Toca para seleccionar un producto:</p>
-            <div id="stock-items-container" class="space-y-3">
-              <!-- Rendered via JS -->
-            </div>
-          </div>
-
-          <!-- Order Generator Column -->
-          <div class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
-            <div id="order-box-content">
-              <!-- Rendered via JS based on selected product -->
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
-              💡 <strong>El Ahorro:</strong> El personal de turno ya no tiene que adivinar números ni llamar apurado. Con un toque, el pedido al proveedor queda redactado y sin errores.
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============================================== -->
-      <!-- TAB 2: Membresías & Cobranza Preventiva (Gym)  -->
-      <!-- ============================================== -->
-      <div id="tab-gym-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-          <div>
-            <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-100">
-              Cero Incomodidad en el Tatami
-            </span>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Control de Membresías y Cobranza Preventiva</h3>
-            <p class="text-xs text-slate-500 mt-1">
-              El profesor no pasa lista uno por uno. Solo filtra la lista de morosos y envía un recordatorio amable por WhatsApp con los datos de cuenta.
-            </p>
-          </div>
-
-          <!-- Filter buttons -->
-          <div class="flex items-center gap-1.5 bg-slate-100 p-1.5 rounded-xl self-start md:self-auto">
-            <button
-              id="filter-all-btn"
-              onclick="setGymFilter('all')"
-              class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-slate-800 shadow-sm transition"
-            >
-              Todos (4)
-            </button>
-            <button
-              id="filter-restricted-btn"
-              onclick="setGymFilter('restricted')"
-              class="px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition"
-            >
-              Vencidos / Por Cobrar (2)
-            </button>
-          </div>
-        </div>
-
-        <div class="grid lg:grid-cols-12 gap-8 mt-6">
-          <!-- Member list column -->
-          <div class="lg:col-span-7 space-y-2.5" id="gym-members-container">
-            <!-- Rendered via JS -->
-          </div>
-
-          <!-- WhatsApp Reminder Preview Box -->
-          <div class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 flex flex-col justify-between">
+        <div class="grid lg:grid-cols-12 gap-7 mt-6">
+          <!-- Columna Izquierda: Insumos de stock e historial de pedidos -->
+          <div class="lg:col-span-7 space-y-5">
             <div>
-              <h4 class="font-bold text-slate-800 text-sm mb-1.5">Mensaje Automático Respetuoso</h4>
-              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                El instructor no tiene que frenar la clase ni cobrar en persona. El mensaje sale con datos bancarios claros y tono motivador.
-              </p>
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2.5">Insumos y Reposición por Proveedor</p>
+              <div id="stock-items-container" class="space-y-2.5"></div>
+            </div>
 
-              <div id="gym-preview-area">
-                <div class="p-6 text-center border-2 border-dashed border-slate-200 rounded-xl text-xs text-slate-400">
-                  Presiona el botón <span class="font-bold text-indigo-600">"Cobrar WhatsApp"</span> en cualquier alumno para ver la vista previa.
+            <!-- Historial de Pedidos Recientes -->
+            <div class="pt-4 border-t border-slate-200">
+              <div class="flex items-center justify-between mb-2.5">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">Historial de Pedidos Recientes</h4>
+                <span class="text-[11px] text-slate-400">Actualización en vivo</span>
+              </div>
+              <div id="stock-orders-history" class="space-y-2"></div>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Smartphone Interactivo + Botón Limpiar Abajo -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-start">
+            <div class="border-[6px] border-slate-800 rounded-[2.5rem] bg-slate-800 shadow-xl max-w-[310px] w-full p-1.5 flex flex-col">
+              <div class="bg-white rounded-[2rem] overflow-hidden flex flex-col min-h-[520px]">
+                
+                <!-- Notch -->
+                <div class="bg-slate-800 pt-2 pb-1 flex justify-center items-center">
+                  <div class="w-16 h-3 bg-slate-900 rounded-full flex items-center justify-center">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-950/60 mr-1.5"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
+                  </div>
                 </div>
+
+                <!-- PANTALLA 1: LISTA DE CONTACTOS DE PROVEEDORES -->
+                <div id="phone-view-contacts" class="flex-1 flex flex-col bg-white">
+                  <div class="bg-[#075E54] text-white px-3.5 py-3 shadow-sm flex items-center justify-between">
+                    <div>
+                      <h5 class="text-xs font-bold text-white tracking-wide">Proveedores WhatsApp</h5>
+                      <p class="text-[10px] text-emerald-200">3 contactos asociados</p>
+                    </div>
+                    <span class="text-xs bg-emerald-800 px-2 py-0.5 rounded-full text-emerald-100 font-mono">PYMELab</span>
+                  </div>
+
+                  <div class="p-2 border-b border-slate-100 bg-slate-50">
+                    <p class="text-[10px] text-slate-500 font-medium">Toca un proveedor para ver el chat o enviar pedido:</p>
+                  </div>
+
+                  <div id="phone-contacts-list" class="flex-1 overflow-y-auto divide-y divide-slate-100">
+                    <!-- Contactos generados por JS -->
+                  </div>
+                </div>
+
+                <!-- PANTALLA 2: CHAT CON EL PROVEEDOR SELECCIONADO -->
+                <div id="phone-view-chat" class="hidden flex-1 flex flex-col">
+                  <!-- Cabecera de Chat -->
+                  <div class="bg-[#075E54] text-white px-2.5 py-2.5 flex items-center shadow-sm">
+                    <div class="flex items-center gap-2.5 overflow-hidden">
+                      <button onclick="phoneBackToContacts()" class="text-white hover:text-emerald-200 p-1 font-bold text-base leading-none" title="Volver a contactos">
+                        ←
+                      </button>
+                      <div id="phone-chat-avatar" class="w-7 h-7 rounded-full bg-emerald-800/80 flex items-center justify-center text-xs border border-emerald-600/50 text-white flex-shrink-0">
+                        🌾
+                      </div>
+                      <div class="overflow-hidden">
+                        <h5 id="phone-chat-provider-title" class="text-xs font-bold truncate leading-tight text-white">Proveedor</h5>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Mensajes WhatsApp -->
+                  <div id="phone-chat-messages-container" class="wa-chat-pattern p-3 flex-1 overflow-y-auto flex flex-col justify-end space-y-2">
+                    <!-- Burbujas de mensajes -->
+                  </div>
+
+                  <!-- Barra de entrada de texto y botón enviar -->
+                  <div class="p-2 bg-slate-100 border-t border-slate-200 flex items-end gap-1.5">
+                    <textarea
+                      id="phone-chat-input-text"
+                      rows="4"
+                      readonly
+                      placeholder="Mensaje pre-redactado..."
+                      class="flex-1 px-2.5 py-2 bg-white border border-slate-200 rounded-xl text-[11px] text-slate-800 outline-none resize-none leading-relaxed cursor-default select-none focus:ring-0 min-h-[105px]"
+                    ></textarea>
+                    <button
+                      onclick="phoneSendMessage()"
+                      class="w-9 h-9 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full flex items-center justify-center shadow-md transition flex-shrink-0 mb-1.5"
+                      title="Enviar orden al proveedor"
+                    >
+                      <svg class="w-4 h-4 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
-              🥋 <strong>Escalabilidad:</strong> Aunque la academia crezca a 100 alumnos, el profesor solo se fija en los 4 o 5 en rojo al terminar la jornada, sin perder el rol de mentor.
+            <!-- Botón Limpiar reposición debajo del teléfono -->
+            <button
+              onclick="resetStockReorders()"
+              class="mt-4 w-full max-w-[310px] py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 font-bold rounded-2xl text-xs transition border border-slate-300 shadow-sm flex items-center justify-center gap-2"
+            >
+              <span>🗑️</span> Limpiar y Restablecer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- HERRAMIENTA 2: MEMBRESÍAS GYM / DOJO           -->
+      <!-- ============================================== -->
+      <div id="tab-gym-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-100">
+              Cero Fricción Social
+            </span>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">Control de Suscripciones y Cobranza Preventiva</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Filtra la lista de morosos en segundos y envía un recordatorio neutral por WhatsApp con datos de transferencia.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl">
+            <button onclick="filterGymMembers('all')" id="btn-gym-all" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-white text-slate-800 shadow-sm transition">
+              Todos (4)
+            </button>
+            <button onclick="filterGymMembers('overdue')" id="btn-gym-overdue" class="px-3 py-1.5 text-xs font-bold rounded-xl text-slate-600 hover:text-red-700 transition">
+              Solo Vencidos (1)
+            </button>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <div class="lg:col-span-7 space-y-3">
+            <div class="flex items-center justify-between">
+              <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Estado de Alumnos</p>
+              <button onclick="resetGymState()" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold border border-slate-200">
+                🗑️ Limpiar
+              </button>
+            </div>
+            <div id="gym-members-list" class="space-y-2.5"></div>
+          </div>
+
+          <!-- Smartphone Vista Gym -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-start">
+            <div class="border-[6px] border-slate-800 rounded-[2.5rem] bg-slate-800 shadow-xl max-w-[300px] w-full p-1.5 flex flex-col">
+              <div class="bg-white rounded-[2rem] overflow-hidden flex flex-col min-h-[540px]">
+                <div class="bg-slate-800 pt-2 pb-1 flex justify-center items-center">
+                  <div class="w-16 h-3 bg-slate-900 rounded-full flex items-center justify-center">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-950/60 mr-1.5"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
+                  </div>
+                </div>
+
+                <div class="bg-[#075E54] text-white px-3 py-2.5 flex items-center gap-2.5 shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-indigo-900 flex items-center justify-center text-xs font-bold border border-indigo-700 text-white flex-shrink-0">
+                    🥋
+                  </div>
+                  <div class="overflow-hidden">
+                    <h5 id="gym-phone-target-name" class="text-xs font-bold truncate leading-tight text-white">Alumno Academia</h5>
+                    <p class="text-[10px] text-emerald-200 font-mono">+56 9 0000 0000</p>
+                  </div>
+                </div>
+
+                <div class="wa-chat-pattern p-3 flex-1 overflow-y-auto flex flex-col justify-end">
+                  <div id="gym-phone-chat-bubble" class="self-end max-w-[94%] bg-[#dcf8c6] text-slate-800 p-3 rounded-2xl rounded-tr-none shadow-sm text-[11px] leading-relaxed border border-[#cbebb2]">
+                  </div>
+                </div>
+
+                <div class="p-3 bg-slate-100 border-t border-slate-200 flex flex-col gap-2">
+                  <button
+                    onclick="triggerGymWhatsAppModal()"
+                    class="w-full py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-sm transition"
+                  >
+                    <span>📲</span> Enviar Recordatorio
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ============================================== -->
-      <!-- TAB 3: Registro Ágil de Mermas                -->
+      <!-- HERRAMIENTA 3: REGISTRO ÁGIL DE MERMAS         -->
       <!-- ============================================== -->
-      <div id="tab-waste-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+      <div id="tab-waste-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
           <div>
             <span class="text-[11px] font-bold text-amber-600 uppercase tracking-wider bg-amber-50 px-2.5 py-1 rounded-md border border-amber-100">
-              Control de Fugas Silenciosas
+              Control de Costos
             </span>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Registro Rápido de Mermas (Cafés y Locales)</h3>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">Registro Ágil de Mermas y Pérdidas de Turno</h3>
             <p class="text-xs text-slate-500 mt-1">
-              Anota en 3 toques lo que se descarta en cocina o bodega para tener una cifra real y clara de pérdida semanal.
+              Registra descartes en 3 toques para conocer la fuga real acumulada de dinero al cierre de semana.
             </p>
           </div>
-
-          <div class="bg-amber-50 border border-amber-200/80 px-4 py-2.5 rounded-xl text-left md:text-right">
-            <span class="text-xs text-amber-800 font-semibold block">Total Pérdida Semanal</span>
-            <span id="total-waste-display" class="text-xl font-extrabold text-amber-900">$12.000 CLP</span>
+          <div class="bg-amber-50 border border-amber-200 px-4 py-2.5 rounded-xl text-left md:text-right flex md:flex-col justify-between items-center md:items-end">
+            <span class="text-xs text-amber-800 font-semibold block">Total Pérdida Acumulada</span>
+            <span id="waste-total-amount" class="text-xl font-extrabold text-amber-950">$12.000 CLP</span>
           </div>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8 mt-6">
-          <!-- Form to add waste -->
-          <form onsubmit="handleWasteSubmit(event)" class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
-            <h4 class="font-bold text-slate-800 text-sm">Registrar Insumo Descartado</h4>
+          <form onsubmit="handleWasteSubmit(event)" class="lg:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">Anotar Producto Descartado</h4>
+              <button type="button" onclick="resetWasteList()" class="text-xs font-semibold text-slate-500 hover:text-slate-800 flex items-center gap-1">
+                🗑️ Limpiar
+              </button>
+            </div>
 
             <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Producto o Insumo</label>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Insumo o Alimento</label>
               <input
-                id="waste-item-input"
+                id="waste-input-item"
                 type="text"
-                placeholder="Ej. Leche Entera 1L o Queso Gouda"
                 required
-                class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                placeholder="Ej. Pan de masa madre, Queso crema..."
+                class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none focus:ring-2 focus:ring-amber-500"
               />
             </div>
 
@@ -324,375 +426,651 @@
               <div>
                 <label class="block text-xs font-semibold text-slate-700 mb-1">Cantidad</label>
                 <input
-                  id="waste-qty-input"
+                  id="waste-input-qty"
                   type="number"
                   min="1"
                   value="1"
                   required
-                  class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                  class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Costo Unitario ($ CLP)</label>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Costo Unitario ($)</label>
                 <input
-                  id="waste-cost-input"
+                  id="waste-input-cost"
                   type="number"
+                  min="100"
+                  step="50"
                   placeholder="Ej. 1200"
                   required
-                  class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+                  class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none focus:ring-2 focus:ring-amber-500"
                 />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Motivo del Descarte</label>
-              <select
-                id="waste-reason-input"
-                class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
-              >
-                <option value="Vencimiento">Fecha de Vencimiento</option>
-                <option value="Error en Preparación">Error en Preparación</option>
-                <option value="Dañado en Manipulación">Dañado en Manipulación / Transporte</option>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Causa de Merma</label>
+              <select id="waste-input-reason" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none focus:ring-2 focus:ring-amber-500">
+                <option value="Fecha de Vencimiento">Fecha de Vencimiento</option>
+                <option value="Error de Preparación">Error de Preparación</option>
+                <option value="Dañado en Manipulación">Dañado en Manipulación</option>
                 <option value="Rechazo de Cliente">Rechazo de Cliente</option>
               </select>
             </div>
 
             <button
               type="submit"
-              class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-xs transition shadow-sm"
+              class="w-full py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs transition shadow-sm"
             >
-              + Agregar Merma al Reporte
+              + Sumar Merma al Historial
             </button>
           </form>
 
-          <!-- Waste Log Table -->
           <div class="lg:col-span-7">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
-              Historial de Mermas de la Semana
-            </p>
-            <div id="waste-logs-container" class="space-y-2.5">
-              <!-- Rendered via JS -->
-            </div>
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Historial Semanal de Pérdidas</p>
+            <div id="waste-items-list" class="space-y-2.5"></div>
           </div>
         </div>
       </div>
 
       <!-- ============================================== -->
-      <!-- TAB 4: Gestor de Cupos e Insumos (Bakery)     -->
+      <!-- HERRAMIENTA 4: PASTELERÍA & CUPOS POR FECHA    -->
       <!-- ============================================== -->
-      <div id="tab-bakery-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
+      <div id="tab-bakery-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
           <div>
-            <span class="text-[11px] font-bold text-pink-600 uppercase tracking-wider bg-pink-50 px-2.5 py-1 rounded-md border border-pink-100">
-              Cálculo Automático
+            <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider bg-rose-50 px-2.5 py-1 rounded-md border border-rose-100">
+              Gastronomía & Talleres
             </span>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Gestor de Cupos de Fin de Semana</h3>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">Cupos por Fecha y Consolidado de Insumos</h3>
             <p class="text-xs text-slate-500 mt-1">
-              Agrega pedidos confirmados y el sistema suma automáticamente la lista de compras del viernes para que nunca falte mantequilla a última hora.
+              Evita tomar pedidos de más para el fin de semana y calcula ingredientes totales sin hacer cálculos a mano el viernes.
             </p>
           </div>
-          <div class="bg-pink-50 border border-pink-200/80 px-4 py-2.5 rounded-xl text-left md:text-right">
-            <span class="text-xs text-pink-800 font-semibold block">Cupos Usados Sábado</span>
-            <span id="bakery-capacity-display" class="text-xl font-extrabold text-pink-900">0 / 4</span>
-          </div>
+          <button onclick="resetBakeryOrders()" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold border border-slate-200 self-start md:self-auto">
+            🗑️ Limpiar
+          </button>
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8 mt-6">
-          <form onsubmit="handleBakerySubmit(event)" class="lg:col-span-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4">
-            <h4 class="font-bold text-slate-800 text-sm">Nuevo Pedido Confirmado</h4>
-            
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Tipo de Pastel</label>
-              <select id="bakery-cake-type" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white">
-                <option value="chocolate">Torta Chocolate (Para 12)</option>
-                <option value="zanahoria">Torta Zanahoria (Para 15)</option>
-                <option value="hojarasca">Torta Hojarasca Manjar (Para 20)</option>
-              </select>
-            </div>
-            
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Cliente</label>
-              <input id="bakery-client" type="text" placeholder="Ej. María López" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 bg-white" />
+          <div class="lg:col-span-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-bold text-slate-900 text-sm">Pedidos Agendados para el Sábado</h4>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
+                Capacidad: 3 / 4 Cupos
+              </span>
             </div>
 
-            <button type="submit" class="w-full py-2.5 bg-pink-600 hover:bg-pink-700 text-white font-bold rounded-lg text-xs transition shadow-sm">
-              + Bloquear Cupo y Sumar Insumos
-            </button>
-          </form>
+            <div id="bakery-orders-list" class="space-y-2.5"></div>
 
-          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
-            <div>
-              <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Pedidos (Sábado)</p>
-              <div id="bakery-orders-container" class="space-y-2"></div>
-            </div>
-            <div class="bg-indigo-50 rounded-xl p-4 border border-indigo-100">
-              <p class="text-xs font-semibold text-indigo-800 uppercase tracking-wider mb-3 flex items-center gap-2">
-                <span>🛒</span> Lista de Supermercado
-              </p>
-              <ul id="bakery-ingredients-container" class="space-y-2 text-sm text-slate-700 font-medium">
-                <li class="text-slate-500 text-xs italic">Agrega pedidos para calcular insumos...</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============================================== -->
-      <!-- TAB 5: Tracker Servicio Técnico (Tech Repair) -->
-      <!-- ============================================== -->
-      <div id="tab-repair-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-          <div>
-            <span class="text-[11px] font-bold text-sky-600 uppercase tracking-wider bg-sky-50 px-2.5 py-1 rounded-md border border-sky-100">
-              Fin a las llamadas
-            </span>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Portal de Estado de Reparación</h3>
-            <p class="text-xs text-slate-500 mt-1">
-              El técnico actualiza el estado con un clic. El cliente revisa el avance desde su teléfono sin tener que enviar WhatsApp preguntando "¿está listo?".
-            </p>
-          </div>
-          <div class="bg-slate-100 border border-slate-200 px-4 py-2.5 rounded-xl text-left md:text-right">
-            <span class="text-xs text-slate-500 font-semibold block">Orden de Trabajo</span>
-            <span class="text-lg font-mono font-extrabold text-slate-800">REP-1042</span>
-          </div>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 mt-6">
-          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h4 class="font-bold text-slate-800 text-sm mb-4">Vista del Técnico (Taller)</h4>
-            <div class="space-y-3">
-              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
-                <input type="radio" name="repair-status" value="ingresado" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-sky-600 focus:ring-sky-500" checked>
-                <span class="text-sm font-semibold text-slate-700">1. Equipo Ingresado</span>
-              </label>
-              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
-                <input type="radio" name="repair-status" value="diagnostico" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-sky-600 focus:ring-sky-500">
-                <span class="text-sm font-semibold text-slate-700">2. En Diagnóstico</span>
-              </label>
-              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
-                <input type="radio" name="repair-status" value="reparacion" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-sky-600 focus:ring-sky-500">
-                <span class="text-sm font-semibold text-slate-700">3. En Reparación / Esperando Repuesto</span>
-              </label>
-              <label class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-lg cursor-pointer hover:border-sky-400 transition">
-                <input type="radio" name="repair-status" value="listo" onchange="updateRepairStatus(this.value)" class="w-4 h-4 text-emerald-600 focus:ring-emerald-500">
-                <span class="text-sm font-semibold text-slate-700">4. Listo para Retiro</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="border-2 border-slate-800 rounded-[2rem] p-2 bg-slate-800 shadow-xl max-w-sm mx-auto w-full relative">
-            <div class="bg-white rounded-[1.5rem] p-6 h-full min-h-[300px] flex flex-col justify-center relative overflow-hidden">
-              <div class="absolute top-2 w-full left-0 flex justify-center"><div class="w-12 h-1.5 bg-slate-200 rounded-full"></div></div>
-              
-              <h4 class="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-1 mt-4">Consulta de Cliente</h4>
-              <h2 class="text-center text-2xl font-black text-slate-800 mb-8 font-mono tracking-tight">REP-1042</h2>
-              
-              <div class="relative flex flex-col gap-6 pl-4" id="tech-client-view">
-                <!-- Status lines injected by JS -->
-              </div>
-
-              <div id="tech-whatsapp-btn" class="mt-8 hidden">
-                <button class="w-full py-3 bg-emerald-500 text-white font-bold rounded-xl text-sm shadow-lg shadow-emerald-200">
-                  Ver Boleta y Retirar
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ============================================== -->
-      <!-- TAB 6: Agenda Inteligente (Booking)           -->
-      <!-- ============================================== -->
-      <div id="tab-booking-panel" class="hidden bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-sm">
-        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
-          <div>
-            <span class="text-[11px] font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-2.5 py-1 rounded-md border border-purple-100">
-              Reserva sin fricción
-            </span>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 mt-2">Agenda Inteligente Cero Login</h3>
-            <p class="text-xs text-slate-500 mt-1">
-              Tus clientes no tienen que descargar apps ni crear cuentas. Piden su hora en 2 pasos y la confirmación queda en su WhatsApp.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-8 mt-6">
-          <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-            <h4 class="font-bold text-slate-800 text-sm mb-4">Simulador: Vista del Cliente</h4>
-            <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">¿Qué servicio buscas?</label>
-                <select id="book-service" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white">
-                  <option value="Corte de Cabello Clásico">Corte Clásico ($12.000)</option>
-                  <option value="Corte + Perfilado de Barba">Corte + Barba ($18.000)</option>
-                  <option value="Camuflaje de Canas">Camuflaje de Canas ($15.000)</option>
+            <form onsubmit="handleBakeryAdd(event)" class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+              <p class="text-xs font-bold text-slate-700">Agregar Pedido a la Fecha:</p>
+              <div class="grid grid-cols-2 gap-2">
+                <input id="bakery-client-name" type="text" placeholder="Nombre cliente" required class="px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white" />
+                <select id="bakery-recipe-type" class="px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white">
+                  <option value="torta_manjar">Torta Manjar Nuez (15 porc.)</option>
+                  <option value="cheesecake">Cheesecake Frutos Rojos</option>
+                  <option value="torta_chocolate">Torta Chocolate Trufa</option>
                 </select>
               </div>
-              <div class="grid grid-cols-2 gap-3">
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Día</label>
-                  <input id="book-date" type="date" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white" />
-                </div>
-                <div>
-                  <label class="block text-xs font-semibold text-slate-700 mb-1">Hora</label>
-                  <select id="book-time" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white">
-                    <option>10:00 AM</option>
-                    <option>12:30 PM</option>
-                    <option>16:00 PM</option>
-                    <option>18:15 PM</option>
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Tu Nombre</label>
-                <input id="book-name" type="text" placeholder="Ej. Carlos Valdés" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-purple-500 bg-white" />
-              </div>
-              <button type="submit" class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg text-xs transition shadow">
-                Confirmar Hora
+              <button type="submit" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs transition">
+                + Agendar Pedido y Recalcular
               </button>
             </form>
           </div>
 
-          <div class="flex flex-col justify-center items-center p-6 border-2 border-dashed border-slate-200 rounded-2xl">
-            <div id="booking-success-area" class="w-full text-center hidden">
-              <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
-                ✓
+          <!-- Consolidado de Insumos Calculados -->
+          <div class="lg:col-span-6 bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h4 class="font-bold text-slate-900 text-sm">Lista de Compras Consolidada</h4>
+                <span class="text-[11px] font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-500">Auto-calculado</span>
               </div>
-              <h4 class="font-bold text-slate-800 text-lg mb-1">¡Hora Pre-reservada!</h4>
-              <p class="text-xs text-slate-500 mb-6">Para confirmar tu bloque en la agenda, haz clic abajo para avisarnos por WhatsApp.</p>
-              
-              <a id="booking-whatsapp-link" href="#" target="_blank" class="w-full py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-sm transition shadow-sm flex justify-center items-center gap-2">
-                <span>📲</span> Enviar Confirmación al Local
-              </a>
+              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                Ingredientes exactos requeridos para cumplir todos los pedidos agendados del fin de semana:
+              </p>
+              <div id="bakery-ingredients-summary" class="space-y-2"></div>
             </div>
-            
-            <div id="booking-empty-state" class="text-center text-slate-400 text-xs">
-              Completa el formulario a la izquierda para ver cómo el cliente finaliza su reserva.
+
+            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
+              💡 <strong>Impacto:</strong> Compras lo exacto el jueves, sin viajes de emergencia a comprar mantequilla a última hora.
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
 
-  <!-- Ground Connection & Footer Section -->
-  <footer id="contacto" class="bg-slate-900 text-slate-400 py-16 border-t border-slate-800">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <span class="text-xs uppercase tracking-widest font-bold text-indigo-400">Conversación Sin Compromiso</span>
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 mb-3">
-        ¿Tienes un negocio en Santiago o Quilpué?
-      </h3>
-      <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8 leading-relaxed">
-        Nos acercamos a tu local, nos tomamos un café y conversamos 15 minutos sobre lo que te hace perder tiempo. Sin discursos de venta ni compromisos.
-      </p>
+      <!-- ============================================== -->
+      <!-- HERRAMIENTA 5: SEGUIMIENTO SERVICIO TÉCNICO   -->
+      <!-- ============================================== -->
+      <div id="tab-repair-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
+              Talleres & Servicio Técnico
+            </span>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">Seguimiento por Código (Tipo Despacho)</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              Reduce llamadas y mensajes preguntando <em>"¿Está listo mi equipo?"</em> dando un enlace de consulta con código de orden.
+            </p>
+          </div>
+          <button onclick="resetRepairStatus()" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold border border-slate-200 self-start md:self-auto">
+            🗑️ Limpiar
+          </button>
+        </div>
 
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
-        <a
-          href="https://wa.me/56900000000?text=Hola!%20Me%20interesa%20conversar%20sobre%20mi%20local"
-          target="_blank"
-          rel="noreferrer"
-          class="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm"
-        >
-          <span>💬</span> Hablar directamente por WhatsApp
-        </a>
-        <a
-          href="mailto:contacto@pymelab.cl"
-          class="w-full sm:w-auto px-6 py-3.5 bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-700 font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center"
-        >
-          Enviar un Correo
-        </a>
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <div class="lg:col-span-6 space-y-4">
+            <h4 class="font-bold text-slate-900 text-sm">Panel del Taller (Actualización Rápida)</h4>
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="font-mono font-bold text-xs text-slate-700">Orden: REP-1042</span>
+                <span class="text-xs text-slate-500">Notebook ASUS ROG 15"</span>
+              </div>
+              <p class="text-xs text-slate-600">Cliente: Carlos Venegas • Falla: Cambio de pasta y teclado</p>
+
+              <label class="block text-xs font-bold text-slate-700 pt-2">Cambiar estado en 1 clic:</label>
+              <div class="grid grid-cols-2 gap-2 text-xs">
+                <button onclick="setRepairStage(1)" id="btn-rep-1" class="p-2 rounded-xl border border-slate-200 bg-white font-medium hover:bg-slate-100 text-left">
+                  1. Ingresado
+                </button>
+                <button onclick="setRepairStage(2)" id="btn-rep-2" class="p-2 rounded-xl border border-slate-200 bg-white font-medium hover:bg-slate-100 text-left">
+                  2. En Diagnóstico
+                </button>
+                <button onclick="setRepairStage(3)" id="btn-rep-3" class="p-2 rounded-xl border border-blue-500 bg-blue-50 text-blue-700 font-bold text-left">
+                  3. En Reparación
+                </button>
+                <button onclick="setRepairStage(4)" id="btn-rep-4" class="p-2 rounded-xl border border-slate-200 bg-white font-medium hover:bg-slate-100 text-left">
+                  4. Listo para Retiro
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vista que ve el cliente en su celular -->
+          <div class="lg:col-span-6 bg-slate-900 text-white p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <span class="text-xs text-slate-400 font-mono">portal.taller.cl/estado</span>
+                <span class="px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 text-[10px] font-mono font-bold">REP-1042</span>
+              </div>
+
+              <div class="mt-5">
+                <p class="text-xs text-slate-400 uppercase tracking-widest font-bold">Estado en Tiempo Real</p>
+                <h4 id="client-view-repair-title" class="text-xl font-extrabold text-blue-400 mt-1">
+                  En Reparación
+                </h4>
+                <p id="client-view-repair-desc" class="text-xs text-slate-300 mt-2 leading-relaxed">
+                  El técnico está instalando el nuevo repuesto y realizando pruebas térmicas de seguridad.
+                </p>
+              </div>
+
+              <div class="mt-6 flex items-center justify-between text-xs text-slate-400">
+                <span>Ingreso: Ayer, 11:20</span>
+                <span>Total Estimado: <strong class="text-white">$45.000 CLP</strong></span>
+              </div>
+            </div>
+
+            <div id="repair-client-action-box" class="mt-6 pt-4 border-t border-slate-800 hidden">
+              <button
+                onclick="triggerRepairWhatsAppModal()"
+                class="w-full py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition"
+              >
+                <span>💬</span> Avisar al Cliente por WhatsApp que está Listo
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="mt-14 pt-8 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-3">
-        <p>© 2026 PYMELab Chile • Santiago & Quilpué</p>
-        <p>Herramientas Ligeras • Foco en Escucha • Cero Fricción</p>
+      <!-- ============================================== -->
+      <!-- HERRAMIENTA 6: RESERVA SIMPLE SIN APP          -->
+      <!-- ============================================== -->
+      <div id="tab-booking-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+        <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
+          <div>
+            <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
+              Citas sin Comisiones
+            </span>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">Agendamiento Simple sin Descarga de App</h3>
+            <p class="text-xs text-slate-500 mt-1">
+              El cliente elige horario en 2 pasos; tú recibes la confirmación en tu calendario y WhatsApp sin pagar mensualidades abusivas.
+            </p>
+          </div>
+          <button onclick="resetBookingForm()" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold border border-slate-200 self-start md:self-auto">
+            🗑️ Limpiar
+          </button>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 mt-6">
+          <form onsubmit="handleBookingSubmit(event)" class="lg:col-span-6 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+            <h4 class="font-bold text-slate-900 text-sm">Reserva de Hora (Simulador de Cliente)</h4>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Servicio</label>
+              <select id="booking-service" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none">
+                <option value="Corte de Pelo y Perfilado ($12.000)">Corte de Pelo y Perfilado ($12.000)</option>
+                <option value="Consulta Veterinaria General ($18.000)">Consulta Veterinaria General ($18.000)</option>
+                <option value="Sesión Fisioterapia / Masaje ($25.000)">Sesión Fisioterapia / Masaje ($25.000)</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Día Preferente</label>
+                <select id="booking-day" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none">
+                  <option value="Jueves 14">Jueves 14</option>
+                  <option value="Viernes 15">Viernes 15</option>
+                  <option value="Sábado 16">Sábado 16</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Horario Disponible</label>
+                <select id="booking-time" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none">
+                  <option value="11:30 hrs">11:30 hrs</option>
+                  <option value="15:00 hrs">15:00 hrs</option>
+                  <option value="17:30 hrs">17:30 hrs</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre del Cliente</label>
+              <input id="booking-name" type="text" required placeholder="Ej. Camila Morales" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none" />
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition shadow-sm">
+              Confirmar Cita sin Registro
+            </button>
+          </form>
+
+          <div class="lg:col-span-6 flex flex-col justify-between bg-slate-50 p-6 rounded-2xl border border-slate-200">
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm mb-2">Confirmación Inmediata</h4>
+              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                Sin passwords ni perfiles. Al presionar confirmar, se crea el enlace directo que llega a tu WhatsApp con todos los detalles ordenados.
+              </p>
+
+              <div id="booking-result-box" class="p-4 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
+                <span class="text-slate-400 italic">Completa el formulario a la izquierda para previsualizar el mensaje de reserva.</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
+              📱 <strong>Cero Barrera:</strong> Los clientes mayores o apurados reservan en 20 segundos sin descargar nada.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- 5. SECCIÓN: NUESTRO PROCESO                          -->
+  <!-- ==================================================== -->
+  <section id="proceso" class="py-28 px-4 sm:px-6 bg-white border-t border-slate-200">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
+          Metodología de Trabajo
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
+          Cómo creamos tu micro-herramienta
+        </h2>
+        <p class="text-slate-600 text-sm mt-3">
+          Un proceso directo, enfocado en resolver antes de comprometer cualquier recurso o tiempo innecesario.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center mb-4">
+            01
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">Escucha en Terreno</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Conversamos en tu local sobre las rutinas más pesadas: el arqueo al cierre, coordinar pedidos con proveedores por audio o calcular cuotas atrasadas.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center mb-4">
+            02
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">Prototipo Funcional Ágil</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            En pocos días te entregamos un enlace web ligero y privado para que tú y tu personal lo prueben en el mesón de trabajo real con un teléfono o tablet.
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center mb-4">
+            03
+          </div>
+          <h3 class="font-bold text-slate-900 mb-2">Ajuste a la Medida</h3>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            Eliminamos lo que estorba y dejamos solo lo que te ahorra minutos valiosos. Sin ataduras ni suscripciones complejas.
+          </p>
+        </div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- Dynamic Application Script (Vanilla JS) -->
+  <!-- ==================================================== -->
+  <!-- 6. SECCIÓN: BUZÓN DE DESAFÍOS OPERATIVOS             -->
+  <!-- ==================================================== -->
+  <section id="desafios" class="py-28 px-4 sm:px-6 bg-slate-900 text-slate-300">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-xs uppercase tracking-widest font-extrabold text-indigo-400 bg-indigo-950/80 px-3 py-1 rounded-full border border-indigo-800">
+          Espacio de Escucha
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">
+          Buzón de Desafíos Operativos
+        </h2>
+        <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+          Cuéntanos sobre esa tarea repetitiva, ese cálculo en servilleta o ese mensaje de WhatsApp que te quita tiempo todos los días. Diseñaremos un prototipo específico para resolverlo.
+        </p>
+      </div>
+
+      <div class="bg-slate-800/90 border border-slate-700/80 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm">
+        <form id="challenge-box-form" onsubmit="handleChallengeSubmit(event)" class="space-y-6">
+          
+          <div>
+            <label class="block text-sm font-bold text-white mb-2">
+              ¿Cuál es la tarea o rutina que más tiempo o dolores de cabeza te quita en tu negocio? *
+            </label>
+            <textarea
+              id="challenge-desc"
+              required
+              rows="4"
+              placeholder="Ej: 'Todos los lunes pierdo 2 horas calculando a mano los ingredientes de las tortas agendadas en Instagram' o 'Mis clientes me llaman todo el día para saber si está listo el auto'..."
+              class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-2xl text-sm text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition"
+            ></textarea>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1.5">
+                Rubro o tipo de local <span class="text-slate-500 font-normal">(Opcional)</span>
+              </label>
+              <input
+                id="challenge-sector"
+                type="text"
+                placeholder="Ej. Cafetería, Barbería, Taller mecánico..."
+                class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 outline-none transition"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1.5">
+                Contacto si deseas ver la solución <span class="text-slate-500 font-normal">(Opcional)</span>
+              </label>
+              <input
+                id="challenge-contact"
+                type="text"
+                placeholder="WhatsApp (+56 9...) o correo"
+                class="w-full px-3.5 py-2.5 bg-slate-900 border border-slate-700 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 outline-none transition"
+              />
+            </div>
+          </div>
+
+          <p class="text-[11px] text-slate-400 leading-normal">
+            🔒 <strong>100% Confidencial y sin compromiso:</strong> No compartimos tus datos ni te enviaremos spam comercial. Solo creamos herramientas para resolver problemas reales.
+          </p>
+
+          <button
+            type="submit"
+            class="w-full py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl text-sm transition shadow-lg shadow-indigo-900/40 flex items-center justify-center gap-2"
+          >
+            Enviar Desafío al Equipo
+          </button>
+        </form>
+
+        <div id="challenge-success-message" class="hidden text-center py-8 space-y-3">
+          <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold border border-emerald-500/40">
+            ✓
+          </div>
+          <h4 class="text-xl font-bold text-white">¡Muchas gracias por compartir tu experiencia!</h4>
+          <p class="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+            Hemos recibido tu desafío. Lo analizaremos junto a nuestro equipo de operaciones para diseñar una micro-solución funcional.
+          </p>
+          <button
+            onclick="resetChallengeForm()"
+            class="mt-4 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-xs font-semibold rounded-xl transition"
+          >
+            Enviar otro comentario
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-slate-800 text-xs text-slate-500 text-center space-y-2">
+        <p>© 2026 PYMELab Chile • Santiago & Quilpué</p>
+        <p>Herramientas operativas diseñadas para el trabajo diario real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- 7. MODAL SIMULADOR SEGURO DE WHATSAPP                -->
+  <!-- ==================================================== -->
+  <div id="safe-wa-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-200">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">📲</span>
+          <h4 class="font-bold text-slate-800 text-sm">Simulación Segura</h4>
+        </div>
+        <button onclick="closeWhatsAppModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg">&times;</button>
+      </div>
+
+      <p class="text-xs text-slate-600 mb-3">
+        En un entorno real, esta acción abriría el chat con el mensaje pre-redactado listo para enviar:
+      </p>
+
+      <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1 font-mono mb-4">
+        <p class="text-[11px] text-slate-400 font-sans">Destinatario:</p>
+        <p id="safe-modal-recipient" class="font-bold text-slate-800 text-xs truncate"></p>
+        <p class="text-[11px] text-slate-400 font-sans pt-1">Mensaje listo:</p>
+        <p id="safe-modal-text" class="whitespace-pre-line text-[11px] text-slate-600 bg-white p-2 rounded border border-slate-200 max-h-40 overflow-y-auto"></p>
+      </div>
+
+      <div class="text-[11px] text-slate-500 mb-4 bg-emerald-50 border border-emerald-100 p-2.5 rounded-xl">
+        🔒 <strong>Privacidad Protegida:</strong> Esta demostración no accede a tu teléfono ni a tus contactos personales.
+      </div>
+
+      <button
+        onclick="closeWhatsAppModal()"
+        class="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-xs transition"
+      >
+        Entendido y Cerrar
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- 8. LÓGICA JAVASCRIPT AUTO-CONTENIDA                  -->
+  <!-- ==================================================== -->
   <script>
-    // ==============================================
-    // TAB SWITCHING LOGIC
-    // ==============================================
-    function switchTab(tabKey) {
-      const tabs = ['stock', 'gym', 'waste', 'bakery', 'repair', 'booking'];
-      tabs.forEach(tab => {
-        const panel = document.getElementById(`tab-${tab}-panel`);
-        const btn = document.getElementById(`tab-${tab}-btn`);
-        if (tab === tabKey) {
-          panel.classList.remove('hidden');
-          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow";
-        } else {
-          panel.classList.add('hidden');
-          btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100";
+    // --------------------------------------------------
+    // CAMBIO DE PESTAÑAS DE MICRO-HERRAMIENTAS
+    // --------------------------------------------------
+    const tabKeys = ['stock', 'gym', 'waste', 'bakery', 'repair', 'booking'];
+
+    function switchTab(activeKey) {
+      tabKeys.forEach(key => {
+        const panel = document.getElementById(`tab-${key}-panel`);
+        const btn = document.getElementById(`btn-tab-${key}`);
+        if (panel) {
+          if (key === activeKey) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        }
+        if (btn) {
+          if (key === activeKey) {
+            btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-md shadow-indigo-100";
+          } else {
+            btn.className = "px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-white text-slate-600 border border-slate-200 hover:bg-slate-100";
+          }
         }
       });
     }
 
-    // ==============================================
-    // TOOL 1: STOCK CRÍTICO + PEDIDO PROVEEDOR
-    // ==============================================
+    // --------------------------------------------------
+    // MODAL SEGURO DE WHATSAPP
+    // --------------------------------------------------
+    function openWhatsAppModal(recipient, phone, message) {
+      document.getElementById('safe-modal-recipient').textContent = `${recipient} (${phone})`;
+      document.getElementById('safe-modal-text').textContent = message;
+      document.getElementById('safe-wa-modal').classList.remove('hidden');
+    }
+
+    function closeWhatsAppModal() {
+      document.getElementById('safe-wa-modal').classList.add('hidden');
+    }
+
+    // --------------------------------------------------
+    // HERRAMIENTA 1: STOCK CRÍTICO + PROVEEDORES
+    // --------------------------------------------------
     let stockData = [
-      { id: 1, name: 'Harina Selecta 25kg', stock: 3, minStock: 6, unit: 'sacos', provider: 'Molinos del Sur', phone: '+56987654321', orderQty: 10 },
-      { id: 2, name: 'Café Grano Colombia 1kg', stock: 8, minStock: 5, unit: 'bolsas', provider: 'Tostaduría Central', phone: '+56976543210', orderQty: 6 },
-      { id: 3, name: 'Aceite Maravilla 5L', stock: 1, minStock: 4, unit: 'bidones', provider: 'Distribuidora Costa', phone: '+56965432109', orderQty: 8 }
+      { id: 1, name: 'Harina Panadera 25kg', stock: 5, minStock: 6, idealStock: 12, unit: 'sacos', provider: 'Distribuidora Mayorista Central', icon: '🌾', phone: '+56 9 0000 0000', reorderQty: 0 },
+      { id: 2, name: 'Café de Grano Tostado 1kg', stock: 8, minStock: 5, idealStock: 10, unit: 'bolsas', provider: 'Tostaduría y Café de Origen', icon: '☕', phone: '+56 9 0000 0000', reorderQty: 0 },
+      { id: 3, name: 'Leche Entera 12L', stock: 4, minStock: 5, idealStock: 12, unit: 'cajas', provider: 'Distribuidora Láctea del Valle', icon: '🥛', phone: '+56 9 0000 0000', reorderQty: 0 }
     ];
-    let selectedStockId = 1;
+
+    let stockOrders = [
+      { id: 'ORD-104', provider: 'Distribuidora Mayorista Central', itemKey: 1, itemName: 'Harina Panadera 25kg', qty: 6, unit: 'sacos', status: 'en_camino', date: 'Hoy, 08:30' },
+      { id: 'ORD-103', provider: 'Distribuidora Láctea del Valle', itemKey: 3, itemName: 'Leche Entera 12L', qty: 10, unit: 'cajas', status: 'recibido', date: 'Ayer, 16:40' }
+    ];
+
+    let activePhoneProviderId = 1;
+    let phoneScreenMode = 'chat'; // 'contacts' | 'chat'
+    let providerChatHistories = {
+      1: [{ text: "Hola Distribuidora Mayorista Central,\n\nQuisiéramos consultar stock disponible para el despacho de esta semana.", time: "Ayer, 14:10", sender: "me" }],
+      2: [{ text: "Hola Tostaduría y Café de Origen,\n\n¿Tendrán café de tueste medio disponible?", time: "Lunes, 11:00", sender: "me" }],
+      3: [{ text: "Buenas tardes Distribuidora Láctea del Valle,\n\nRecibido el pedido de ayer en óptimas condiciones, ¡gracias!", time: "Ayer, 17:00", sender: "me" }]
+    };
+
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function randomizeStockData() {
+      stockData.forEach(item => {
+        if (item.id === 1) item.stock = getRandomInt(2, 15);
+        else if (item.id === 2) item.stock = getRandomInt(3, 13);
+        else if (item.id === 3) item.stock = getRandomInt(2, 14);
+        item.reorderQty = 0;
+      });
+    }
+
+    // Escala proporcional: 0 a minStock (0% a 25%), minStock a idealStock (25% a 75%), superior a idealStock (75% a 100%)
+    function calculateStockPercentage(stock, minStock, idealStock) {
+      if (stock <= 0) return 0;
+      if (stock <= minStock) {
+        return Math.max(3, (stock / minStock) * 25);
+      } else if (stock <= idealStock) {
+        return 25 + ((stock - minStock) / (idealStock - minStock)) * 50;
+      } else {
+        const buffer = Math.max(1, idealStock - minStock);
+        const excess = Math.min(buffer, stock - idealStock);
+        return Math.min(100, 75 + (excess / buffer) * 25);
+      }
+    }
 
     function renderStockItems() {
       const container = document.getElementById('stock-items-container');
+      if (!container) return;
       container.innerHTML = '';
-
-      let criticalCount = 0;
 
       stockData.forEach(item => {
         const isCritical = item.stock <= item.minStock;
-        if (isCritical) criticalCount++;
+        const pct = calculateStockPercentage(item.stock, item.minStock, item.idealStock);
+        const suggestedReorder = Math.max(0, item.idealStock - item.stock);
 
-        const isSelected = item.id === selectedStockId;
         const card = document.createElement('div');
-        card.className = `p-4 rounded-xl border transition-all cursor-pointer ${
-          isSelected
-            ? 'border-indigo-500 ring-2 ring-indigo-100 bg-indigo-50/20'
-            : 'border-slate-200 hover:border-slate-300 bg-white'
+        card.className = `p-3 rounded-2xl border transition-all bg-white ${
+          isCritical ? 'border-amber-200 shadow-sm' : 'border-slate-200'
         }`;
-        card.onclick = () => selectStockItem(item.id);
 
         card.innerHTML = `
-          <div class="flex items-center justify-between">
+          <!-- Cabecera de Insumo con Proveedor -->
+          <div class="flex items-center justify-between gap-2 mb-2">
             <div>
-              <div class="flex items-center gap-2">
-                <h4 class="font-bold text-slate-800 text-sm">${item.name}</h4>
+              <div class="flex items-center gap-1.5">
+                <h4 class="font-bold text-slate-800 text-xs sm:text-sm">${item.name}</h4>
                 ${isCritical 
-                  ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-700">Crítico (Min: ${item.minStock})</span>` 
-                  : `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Stock OK</span>`
+                  ? `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-100 text-amber-800 border border-amber-200">Bajo Mínimo</span>` 
+                  : `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Stock OK</span>`
                 }
               </div>
-              <p class="text-xs text-slate-500 mt-1">
-                Proveedor: <strong class="text-slate-700">${item.provider}</strong> • Pedido típico: ${item.orderQty} ${item.unit}
+              <p class="text-[11px] text-slate-500">
+                Proveedor: <button onclick="openPhoneChat(${item.id})" class="font-semibold text-indigo-600 hover:text-indigo-800 underline decoration-indigo-200 text-left">${item.provider}</button>
               </p>
             </div>
 
-            <!-- Stepper -->
-            <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
-              <button onclick="modifyStock(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-sm transition">-</button>
-              <span class="w-7 text-center font-bold text-sm text-slate-800">${item.stock}</span>
-              <button onclick="modifyStock(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold flex items-center justify-center text-sm transition">+</button>
+            <button onclick="openPhoneChat(${item.id})" class="px-2 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold text-[10px] border border-emerald-200 flex items-center gap-1 transition">
+              <span>💬</span> Ver Chat
+            </button>
+          </div>
+
+          <!-- Barra de Stock con Meta y Umbral Mínimo (25% y 75%) -->
+          <div class="mb-2.5">
+            <div class="flex justify-between text-[10px] font-medium text-slate-500 mb-1">
+              <span>Stock actual: <strong class="${isCritical ? 'text-amber-600' : 'text-slate-800'}">${item.stock} ${item.unit}</strong></span>
+              <span>Stock ideal: <strong class="text-slate-800">${item.idealStock} ${item.unit}</strong></span>
+            </div>
+            
+            <div class="relative w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
+              <div class="h-full transition-all duration-300 ${isCritical ? 'bg-amber-500' : 'bg-emerald-500'}" style="width: ${pct}%"></div>
+              <!-- Línea Divisoria Mínimo (25%) -->
+              <div class="absolute top-0 bottom-0 w-0.5 bg-amber-400 z-10" style="left: 25%" title="Mínimo (${item.minStock} ${item.unit})"></div>
+              <!-- Línea Divisoria Ideal (75%) -->
+              <div class="absolute top-0 bottom-0 w-0.5 bg-indigo-400 z-10" style="left: 75%" title="Stock Ideal (${item.idealStock} ${item.unit})"></div>
+            </div>
+            <div class="relative flex justify-between text-[9px] text-slate-400 mt-1">
+              <span>0</span>
+              <span class="absolute text-amber-600 font-semibold -translate-x-1/2" style="left: 25%">Mínimo (${item.minStock})</span>
+              <span class="absolute text-indigo-600 font-semibold -translate-x-1/2" style="left: 75%">Ideal (${item.idealStock})</span>
+              <span>+</span>
+            </div>
+          </div>
+
+          <!-- Fila de Controles: STOCK a la izquierda, PEDIR a la derecha -->
+          <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+            <!-- Control de Stock Físico (Izquierda) -->
+            <div class="flex items-center gap-1 bg-slate-50 px-2 py-1 rounded-xl border border-slate-200">
+              <span class="text-[10px] font-bold text-slate-500 uppercase mr-1">Stock:</span>
+              <button onclick="modifyStock(${item.id}, -1)" class="w-5 h-5 rounded bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center shadow-sm">-</button>
+              <span class="w-5 text-center font-bold text-xs text-slate-800">${item.stock}</span>
+              <button onclick="modifyStock(${item.id}, 1)" class="w-5 h-5 rounded bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center shadow-sm">+</button>
+            </div>
+
+            <!-- Control de Pedido (Derecha) -->
+            <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1 bg-indigo-50 px-2 py-1 rounded-xl border border-indigo-100">
+                <span class="text-[10px] font-bold text-indigo-700 uppercase mr-1">Pedir:</span>
+                <button onclick="modifyReorder(${item.id}, -1)" class="w-5 h-5 rounded bg-white text-slate-700 font-bold text-xs flex items-center justify-center shadow-sm">-</button>
+                <span class="w-6 text-center font-bold text-xs text-indigo-900">${item.reorderQty}</span>
+                <button onclick="modifyReorder(${item.id}, 1)" class="w-5 h-5 rounded bg-white text-slate-700 font-bold text-xs flex items-center justify-center shadow-sm">+</button>
+                <span class="text-[10px] text-indigo-600 font-medium ml-0.5">${item.unit}</span>
+              </div>
+
+              ${suggestedReorder > 0 ? `
+                <button onclick="applySuggestedReorder(${item.id}, ${suggestedReorder})" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-[10px] font-semibold transition border border-slate-200">
+                  Pedir ${suggestedReorder}
+                </button>
+              ` : ''}
             </div>
           </div>
         `;
         container.appendChild(card);
       });
 
-      document.getElementById('critical-stock-counter').textContent = `${criticalCount} producto${criticalCount !== 1 ? 's' : ''} en alerta`;
-      renderOrderBox();
-    }
-
-    function selectStockItem(id) {
-      selectedStockId = id;
-      renderStockItems();
+      renderStockHistory();
+      renderPhoneInterface();
     }
 
     function modifyStock(id, delta) {
@@ -703,360 +1081,579 @@
       }
     }
 
-    function renderOrderBox() {
-      const box = document.getElementById('order-box-content');
-      const item = stockData.find(i => i.id === selectedStockId) || stockData[0];
-      const isCritical = item.stock <= item.minStock;
-
-      const orderMsg = `Hola ${item.provider}, necesitamos realizar el siguiente pedido para el local:\n- ${item.orderQty} ${item.unit} de ${item.name}\n\n¿Nos confirman stock y disponibilidad de despacho? ¡Muchas gracias!`;
-      const encodedMsg = encodeURIComponent(orderMsg);
-      const cleanPhone = item.phone.replace(/[^0-9]/g, '');
-      const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
-
-      box.innerHTML = `
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Acción de Reposición</span>
-          <span class="text-xs px-2 py-0.5 rounded bg-slate-200 text-slate-700 font-mono">${item.phone}</span>
-        </div>
-
-        <h4 class="font-bold text-slate-900 text-sm mb-1">${item.name}</h4>
-        <p class="text-xs text-slate-600 mb-4">
-          Stock actual: <strong class="${isCritical ? 'text-red-600' : 'text-slate-800'}">${item.stock} ${item.unit}</strong> (Mínimo requerido: ${item.minStock} ${item.unit})
-        </p>
-
-        <div class="p-3 bg-white rounded-xl border border-slate-200 mb-4 text-xs">
-          <p class="font-semibold text-slate-700 mb-1">Previsualización de orden:</p>
-          <p class="italic text-slate-500 whitespace-pre-line text-[11px]">"${orderMsg}"</p>
-        </div>
-
-        <a
-          href="${whatsappUrl}"
-          target="_blank"
-          rel="noreferrer"
-          class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs flex items-center justify-center gap-2 shadow-sm transition"
-        >
-          <span>📲</span> Abrir WhatsApp con Orden Armada
-        </a>
-      `;
-    }
-
-    // ==============================================
-    // TOOL 2: GIMNASIO & ACADEMIAS
-    // ==============================================
-    const gymMembers = [
-      { id: 1, name: 'Ignacio Morales', plan: 'Plan Mensual BJJ', status: 'al_dia', dueDate: '28 Nov', phone: '+56991122334' },
-      { id: 2, name: 'Camila Reyes', plan: 'Plan Libre 3x/sem', status: 'por_vencer', dueDate: '12 Nov', phone: '+56988776655' },
-      { id: 3, name: 'Diego Sanhueza', plan: 'Pase Ilimitado', status: 'vencido', dueDate: '02 Nov', phone: '+56977665544' },
-      { id: 4, name: 'Valentina Soto', plan: 'Plan Funcional AM', status: 'al_dia', dueDate: '25 Nov', phone: '+56955443322' }
-    ];
-    let gymCurrentFilter = 'all';
-
-    function setGymFilter(filterType) {
-      gymCurrentFilter = filterType;
-      const allBtn = document.getElementById('filter-all-btn');
-      const restrictedBtn = document.getElementById('filter-restricted-btn');
-
-      if (filterType === 'all') {
-        allBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg bg-white text-slate-800 shadow-sm transition";
-        restrictedBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition";
-      } else {
-        restrictedBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-600 text-white shadow-sm transition";
-        allBtn.className = "px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-600 hover:text-slate-900 transition";
+    function modifyReorder(id, delta) {
+      const item = stockData.find(i => i.id === id);
+      if (item) {
+        item.reorderQty = Math.max(0, item.reorderQty + delta);
+        activePhoneProviderId = item.id;
+        phoneScreenMode = 'chat';
+        renderStockItems();
       }
-      renderGymMembers();
     }
 
-    function renderGymMembers() {
-      const container = document.getElementById('gym-members-container');
-      container.innerHTML = '';
+    function applySuggestedReorder(id, qty) {
+      const item = stockData.find(i => i.id === id);
+      if (item) {
+        item.reorderQty = qty;
+        activePhoneProviderId = item.id;
+        phoneScreenMode = 'chat';
+        renderStockItems();
+      }
+    }
 
-      const filtered = gymMembers.filter(m => {
-        if (gymCurrentFilter === 'restricted') {
-          return m.status === 'vencido' || m.status === 'por_vencer';
-        }
-        return true;
-      });
+    function resetStockReorders() {
+      randomizeStockData();
+      stockOrders = [
+        { id: 'ORD-104', provider: 'Distribuidora Mayorista Central', itemKey: 1, itemName: 'Harina Panadera 25kg', qty: 6, unit: 'sacos', status: 'en_camino', date: 'Hoy, 08:30' },
+        { id: 'ORD-103', provider: 'Distribuidora Láctea del Valle', itemKey: 3, itemName: 'Leche Entera 12L', qty: 10, unit: 'cajas', status: 'recibido', date: 'Ayer, 16:40' }
+      ];
+      renderStockItems();
+    }
 
-      filtered.forEach(member => {
+    function renderStockHistory() {
+      const historyContainer = document.getElementById('stock-orders-history');
+      if (!historyContainer) return;
+      historyContainer.innerHTML = '';
+
+      if (stockOrders.length === 0) {
+        historyContainer.innerHTML = `
+          <div class="p-3 bg-slate-50 border border-dashed border-slate-200 rounded-xl text-center text-xs text-slate-400">
+            No hay órdenes registradas. Envía un pedido desde el teléfono para agregarlo aquí.
+          </div>
+        `;
+        return;
+      }
+
+      stockOrders.forEach(order => {
         const row = document.createElement('div');
-        row.className = "p-4 rounded-xl border border-slate-200 bg-white flex items-center justify-between hover:border-slate-300 transition";
-
-        let badgeHtml = '';
-        let actionBtnHtml = '';
-
-        if (member.status === 'al_dia') {
-          badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700">Al Día (Vence ${member.dueDate})</span>`;
-          actionBtnHtml = `<span class="text-xs text-slate-400 font-mono">Habilitado</span>`;
-        } else if (member.status === 'por_vencer') {
-          badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-700">Vence Pronto (${member.dueDate})</span>`;
-          actionBtnHtml = `<button onclick="previewGymReminder(${member.id})" class="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 text-white rounded-lg text-xs font-semibold transition">Avisar</button>`;
-        } else {
-          badgeHtml = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-700">Vencido (${member.dueDate})</span>`;
-          actionBtnHtml = `<button onclick="previewGymReminder(${member.id})" class="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition">Cobrar WhatsApp</button>`;
-        }
+        row.className = "p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs";
+        const isPending = order.status === 'en_camino';
 
         row.innerHTML = `
           <div>
-            <div class="flex items-center gap-2">
-              <h4 class="font-bold text-slate-800 text-sm">${member.name}</h4>
-              ${badgeHtml}
+            <div class="flex items-center gap-1.5">
+              <span class="font-mono font-bold text-slate-800">${order.id}</span>
+              <span class="text-slate-700 font-semibold truncate max-w-[170px]">${order.itemName}</span>
+              <span class="px-1.5 py-0.2 rounded text-[9px] font-bold ${
+                isPending ? 'bg-amber-100 text-amber-800' : 'bg-emerald-100 text-emerald-800'
+              }">
+                ${isPending ? '🚚 En camino' : '✓ Recibido'}
+              </span>
             </div>
-            <p class="text-xs text-slate-500 mt-0.5">${member.plan}</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">
+              ${order.qty} ${order.unit} • ${order.provider} • ${order.date}
+            </p>
           </div>
-          <div>${actionBtnHtml}</div>
+
+          <div>
+            ${isPending ? `
+              <button onclick="receiveStockOrder('${order.id}')" class="px-2 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-[10px] font-bold transition shadow-sm flex items-center gap-1">
+                <span>📦</span> Recibido
+              </button>
+            ` : `
+              <span class="text-[10px] font-mono text-slate-400">Ingresado</span>
+            `}
+          </div>
+        `;
+        historyContainer.appendChild(row);
+      });
+    }
+
+    function receiveStockOrder(orderId) {
+      const order = stockOrders.find(o => o.id === orderId);
+      if (!order || order.status !== 'en_camino') return;
+      order.status = 'recibido';
+      const item = stockData.find(i => i.id === order.itemKey);
+      if (item) {
+        item.stock += order.qty;
+      }
+      renderStockItems();
+    }
+
+    // --------------------------------------------------
+    // SMARTPHONE: NAVEGACIÓN Y ENVÍO DE MENSAJES
+    // --------------------------------------------------
+    function openPhoneChat(providerId) {
+      activePhoneProviderId = providerId;
+      phoneScreenMode = 'chat';
+      renderPhoneInterface();
+    }
+
+    function phoneBackToContacts() {
+      phoneScreenMode = 'contacts';
+      renderPhoneInterface();
+    }
+
+    function renderPhoneInterface() {
+      const contactsView = document.getElementById('phone-view-contacts');
+      const chatView = document.getElementById('phone-view-chat');
+      if (!contactsView || !chatView) return;
+
+      if (phoneScreenMode === 'contacts') {
+        contactsView.classList.remove('hidden');
+        chatView.classList.add('hidden');
+        renderPhoneContactsList();
+      } else {
+        contactsView.classList.add('hidden');
+        chatView.classList.remove('hidden');
+        renderPhoneChatView();
+      }
+    }
+
+    function renderPhoneContactsList() {
+      const container = document.getElementById('phone-contacts-list');
+      if (!container) return;
+      container.innerHTML = '';
+
+      stockData.forEach(item => {
+        const row = document.createElement('div');
+        row.onclick = () => openPhoneChat(item.id);
+        row.className = "px-3 py-3 hover:bg-slate-50 cursor-pointer flex items-center gap-3 transition border-b border-slate-100 last:border-0";
+        row.innerHTML = `
+          <div class="w-9 h-9 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-base flex-shrink-0 shadow-sm">
+            ${item.icon || '🏢'}
+          </div>
+          <div class="overflow-hidden flex-1">
+            <h6 class="font-bold text-slate-800 text-xs truncate leading-tight">${item.provider}</h6>
+          </div>
         `;
         container.appendChild(row);
       });
     }
 
-    function previewGymReminder(memberId) {
-      const member = gymMembers.find(m => m.id === memberId);
-      if (!member) return;
+    function renderPhoneChatView() {
+      const currentItem = stockData.find(i => i.id === activePhoneProviderId) || stockData[0];
+      const titleElem = document.getElementById('phone-chat-provider-title');
+      const avatarElem = document.getElementById('phone-chat-avatar');
+      const messagesContainer = document.getElementById('phone-chat-messages-container');
+      const inputElem = document.getElementById('phone-chat-input-text');
 
-      const previewArea = document.getElementById('gym-preview-area');
-      const bankDetails = "Banco Santander, Cuenta Corriente 0-000-987654, RUT 76.890.123-4, academia@tatami.cl";
-      const message = `¡Hola ${member.name}! Te escribimos de la Academia. Te recordamos que tu ${member.plan} venció el ${member.dueDate}.\n\nPara que continúes entrenando sin interrupción, puedes regularizar vía transferencia a:\n${bankDetails}\n\n¡Nos vemos en el próximo entrenamiento! 🥋`;
-      const cleanPhone = member.phone.replace(/[^0-9]/g, '');
-      const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
+      if (titleElem) titleElem.textContent = currentItem.provider;
+      if (avatarElem) avatarElem.textContent = currentItem.icon || '🏢';
 
-      previewArea.innerHTML = `
-        <div class="p-4 bg-white rounded-xl border border-indigo-200 text-xs shadow-sm">
-          <div class="flex items-center justify-between mb-2">
-            <span class="font-bold text-indigo-900">Para: ${member.name}</span>
-            <span class="text-slate-400 font-mono text-[11px]">${member.phone}</span>
-          </div>
-          <p class="text-slate-600 italic whitespace-pre-line bg-slate-50 p-2.5 rounded-lg border border-slate-100 text-[11px] leading-relaxed">
-            "${message}"
-          </p>
-          <a
-            href="${whatsappUrl}"
-            target="_blank"
-            rel="noreferrer"
-            class="mt-3 w-full block text-center py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition"
-          >
-            Enviar por WhatsApp
-          </a>
-        </div>
-      `;
+      // Renderizar historial de mensajes
+      if (messagesContainer) {
+        messagesContainer.innerHTML = '';
+        const history = providerChatHistories[currentItem.id] || [];
+        
+        history.forEach(msg => {
+          const bubble = document.createElement('div');
+          bubble.className = "self-end max-w-[92%] bg-[#dcf8c6] text-slate-800 p-2.5 rounded-xl rounded-tr-none shadow-sm text-[11px] leading-relaxed border border-[#cbebb2]";
+          bubble.innerHTML = `
+            <p class="whitespace-pre-line">${msg.text}</p>
+            <div class="flex items-center justify-end gap-1 mt-1 text-[8px] text-slate-400">
+              <span>${msg.time}</span>
+              <span class="text-sky-500 font-bold">✓✓</span>
+            </div>
+          `;
+          messagesContainer.appendChild(bubble);
+        });
+
+        // Scroll al fondo del chat
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }
+
+      // Cargar mensaje sugerido o pre-redactado si hay cantidad seleccionada (readonly)
+      if (inputElem) {
+        if (currentItem.reorderQty > 0) {
+          inputElem.value = `Hola ${currentItem.provider}, necesitamos realizar un pedido urgente de ${currentItem.reorderQty} ${currentItem.unit} de ${currentItem.name}. ¿Nos confirmas disponibilidad y despacho?`;
+        } else {
+          inputElem.value = `Hola ${currentItem.provider}, estamos revisando el stock en local. Te confirmamos si requerimos despacho para mañana.`;
+        }
+      }
     }
 
-    // ==============================================
-    // TOOL 3: REGISTRO ÁGIL DE MERMAS
-    // ==============================================
-    let wasteLogs = [
-      { id: 1, item: 'Leche Entera 1L', qty: 4, reason: 'Fecha de Vencimiento', cost: 4800, time: 'Hoy, 09:15' },
-      { id: 2, item: 'Croissant Mantequilla', qty: 6, reason: 'Error en Preparación', cost: 7200, time: 'Ayer, 18:30' }
-    ];
+    function phoneSendMessage() {
+      const currentItem = stockData.find(i => i.id === activePhoneProviderId) || stockData[0];
+      const inputElem = document.getElementById('phone-chat-input-text');
+      const text = inputElem ? inputElem.value.trim() : '';
 
-    function renderWasteLogs() {
-      const container = document.getElementById('waste-logs-container');
+      if (!text) return;
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      // 1. Guardar mensaje en el historial del chat
+      if (!providerChatHistories[currentItem.id]) {
+        providerChatHistories[currentItem.id] = [];
+      }
+      providerChatHistories[currentItem.id].push({
+        text,
+        time: `Hoy, ${timeStr}`,
+        sender: 'me'
+      });
+
+      // 2. Si tenía cantidad seleccionada, crear automáticamente orden en el historial
+      if (currentItem.reorderQty > 0) {
+        const newOrderId = `ORD-${Math.floor(100 + Math.random() * 900)}`;
+        stockOrders.unshift({
+          id: newOrderId,
+          provider: currentItem.provider,
+          itemKey: currentItem.id,
+          itemName: currentItem.name,
+          qty: currentItem.reorderQty,
+          unit: currentItem.unit,
+          status: 'en_camino',
+          date: `Hoy, ${timeStr}`
+        });
+
+        // Resetear la cantidad a pedir
+        currentItem.reorderQty = 0;
+      }
+
+      // 3. Re-renderizar interfaces
+      renderStockItems();
+    }
+
+    // --------------------------------------------------
+    // HERRAMIENTA 2: MEMBRESÍAS GYM / DOJO
+    // --------------------------------------------------
+    let gymMembers = [
+      { id: 1, name: 'Ignacio Morales', plan: 'Plan Mensual BJJ', status: 'al_dia', dueDate: '25 Nov' },
+      { id: 2, name: 'Camila Reyes', plan: 'Plan 3x Semana', status: 'por_vencer', dueDate: '15 Nov' },
+      { id: 3, name: 'Diego Sanhueza', plan: 'Pase Libre', status: 'vencido', dueDate: '02 Nov' },
+      { id: 4, name: 'Valentina Soto', plan: 'Plan Mañanero', status: 'al_dia', dueDate: '28 Nov' }
+    ];
+    let gymFilterMode = 'all';
+    let selectedGymMember = gymMembers[2];
+
+    function renderGymMembers() {
+      const container = document.getElementById('gym-members-list');
+      if (!container) return;
       container.innerHTML = '';
 
-      let totalCost = 0;
+      const filtered = gymMembers.filter(m => {
+        if (gymFilterMode === 'overdue') return m.status === 'vencido';
+        return true;
+      });
 
-      wasteLogs.forEach(entry => {
-        totalCost += entry.cost;
+      filtered.forEach(member => {
+        const card = document.createElement('div');
+        card.className = "p-3.5 rounded-2xl border border-slate-200 bg-white flex items-center justify-between";
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-slate-800 text-sm">${member.name}</span>
+              ${member.status === 'al_dia' ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Al Día</span>` : ''}
+              ${member.status === 'por_vencer' ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">Vence Pronto</span>` : ''}
+              ${member.status === 'vencido' ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800">Vencido</span>` : ''}
+            </div>
+            <p class="text-[11px] text-slate-500 mt-0.5">${member.plan} • Vence: ${member.dueDate}</p>
+          </div>
+          <div>
+            ${member.status === 'vencido' ? `
+              <button onclick="selectGymMember(${member.id})" class="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-bold transition">
+                Cobrar WhatsApp
+              </button>
+            ` : `
+              <span class="text-xs text-slate-400 font-mono">Habilitado</span>
+            `}
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      renderGymPhone();
+    }
+
+    function filterGymMembers(mode) {
+      gymFilterMode = mode;
+      const btnAll = document.getElementById('btn-gym-all');
+      const btnOverdue = document.getElementById('btn-gym-overdue');
+      if (mode === 'all') {
+        btnAll.className = "px-3 py-1.5 text-xs font-bold rounded-xl bg-white text-slate-800 shadow-sm transition";
+        btnOverdue.className = "px-3 py-1.5 text-xs font-bold rounded-xl text-slate-600 hover:text-red-700 transition";
+      } else {
+        btnAll.className = "px-3 py-1.5 text-xs font-bold rounded-xl text-slate-600 transition";
+        btnOverdue.className = "px-3 py-1.5 text-xs font-bold rounded-xl bg-red-600 text-white shadow-sm transition";
+      }
+      renderGymMembers();
+    }
+
+    function selectGymMember(id) {
+      selectedGymMember = gymMembers.find(m => m.id === id) || gymMembers[2];
+      renderGymPhone();
+    }
+
+    function resetGymState() {
+      gymFilterMode = 'all';
+      filterGymMembers('all');
+    }
+
+    function getGymReminderMessage() {
+      const member = selectedGymMember || gymMembers[2];
+      return {
+        name: member.name,
+        text: `¡Hola ${member.name}! Te escribimos de la Academia.\n\nTe recordamos que tu cuota de ${member.plan} venció el ${member.dueDate}.\n\nPuedes regularizar vía transferencia a:\nBanco Estado, Cuenta Rut 12.345.678, academia@pyme.cl\n\n¡Nos vemos en el tatami! 🥋`
+      };
+    }
+
+    function renderGymPhone() {
+      const msg = getGymReminderMessage();
+      const targetElem = document.getElementById('gym-phone-target-name');
+      const bubbleElem = document.getElementById('gym-phone-chat-bubble');
+      if (targetElem) targetElem.textContent = msg.name;
+
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+      if (bubbleElem) {
+        bubbleElem.innerHTML = `
+          <p class="whitespace-pre-line text-slate-800 font-normal">${msg.text}</p>
+          <div class="flex items-center justify-end gap-1 mt-1.5 text-[9px] text-slate-400">
+            <span>${timeStr}</span>
+            <span class="text-sky-500 font-bold">✓✓</span>
+          </div>
+        `;
+      }
+    }
+
+    function triggerGymWhatsAppModal() {
+      const msg = getGymReminderMessage();
+      openWhatsAppModal(msg.name, '+56 9 0000 0000', msg.text);
+    }
+
+    // --------------------------------------------------
+    // HERRAMIENTA 3: REGISTRO DE MERMAS
+    // --------------------------------------------------
+    let wasteList = [
+      { id: 1, item: 'Leche Entera 1L', qty: 4, cost: 4800, reason: 'Fecha de Vencimiento', time: 'Hoy, 09:15' },
+      { id: 2, item: 'Croissant Mantequilla', qty: 6, cost: 7200, reason: 'Dañado en Manipulación', time: 'Ayer, 18:30' }
+    ];
+
+    function renderWasteList() {
+      const container = document.getElementById('waste-items-list');
+      const totalElem = document.getElementById('waste-total-amount');
+      if (!container || !totalElem) return;
+
+      container.innerHTML = '';
+      let total = 0;
+
+      wasteList.forEach(entry => {
+        total += entry.cost;
         const row = document.createElement('div');
-        row.className = "p-3.5 rounded-xl border border-slate-200 bg-white flex items-center justify-between";
+        row.className = "p-3.5 rounded-2xl border border-slate-200 bg-white flex items-center justify-between";
         row.innerHTML = `
           <div>
             <div class="flex items-center gap-2">
               <span class="font-bold text-slate-800 text-sm">${entry.item}</span>
               <span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-semibold">${entry.qty} un.</span>
             </div>
-            <p class="text-[11px] text-slate-500 mt-0.5">
-              Motivo: <strong class="text-slate-700">${entry.reason}</strong> • ${entry.time}
-            </p>
+            <p class="text-[11px] text-slate-400 mt-0.5">Motivo: <strong class="text-slate-600">${entry.reason}</strong> • ${entry.time}</p>
           </div>
-          <div class="text-right">
-            <span class="text-sm font-bold text-red-600">-$${entry.cost.toLocaleString('es-CL')}</span>
-          </div>
+          <span class="text-sm font-extrabold text-red-600">-$${entry.cost.toLocaleString('es-CL')}</span>
         `;
         container.appendChild(row);
       });
 
-      document.getElementById('total-waste-display').textContent = `$${totalCost.toLocaleString('es-CL')} CLP`;
+      totalElem.textContent = `$${total.toLocaleString('es-CL')} CLP`;
     }
 
-    function handleWasteSubmit(event) {
-      event.preventDefault();
-      const itemInput = document.getElementById('waste-item-input');
-      const qtyInput = document.getElementById('waste-qty-input');
-      const costInput = document.getElementById('waste-cost-input');
-      const reasonInput = document.getElementById('waste-reason-input');
+    function handleWasteSubmit(e) {
+      e.preventDefault();
+      const item = document.getElementById('waste-input-item').value;
+      const qty = parseInt(document.getElementById('waste-input-qty').value) || 1;
+      const unitCost = parseInt(document.getElementById('waste-input-cost').value) || 0;
+      const reason = document.getElementById('waste-input-reason').value;
 
-      const qty = parseInt(qtyInput.value) || 1;
-      const unitCost = parseInt(costInput.value) || 0;
-      const total = qty * unitCost;
-
-      const newLog = {
+      wasteList.unshift({
         id: Date.now(),
-        item: itemInput.value.trim(),
-        qty: qty,
-        reason: reasonInput.value,
-        cost: total,
+        item,
+        qty,
+        cost: qty * unitCost,
+        reason,
         time: 'Recién agregado'
-      };
+      });
 
-      wasteLogs.unshift(newLog);
-      renderWasteLogs();
-
-      // Reset form fields
-      itemInput.value = '';
-      costInput.value = '';
-      qtyInput.value = '1';
+      document.getElementById('waste-input-item').value = '';
+      document.getElementById('waste-input-qty').value = '1';
+      document.getElementById('waste-input-cost').value = '';
+      renderWasteList();
     }
 
-    // ==============================================
-    // TOOL 4: BAKERY (GESTOR DE INSUMOS)
-    // ==============================================
-    let bakeryOrders = [];
-    const cakeRecipes = {
-      chocolate: { name: 'Torta Chocolate', huevos: 4, harina: 500, mantequilla: 200, chocolate: 300 },
-      zanahoria: { name: 'Torta Zanahoria', huevos: 3, harina: 400, mantequilla: 150, zanahoria: 500 },
-      hojarasca: { name: 'Torta Hojarasca', huevos: 6, harina: 600, manjar: 800 }
+    function resetWasteList() {
+      wasteList = [];
+      renderWasteList();
+    }
+
+    // --------------------------------------------------
+    // HERRAMIENTA 4: PASTELERÍA & CUPOS
+    // --------------------------------------------------
+    let bakeryOrders = [
+      { id: 1, client: 'María Paz R.', cake: 'Torta Manjar Nuez (15 porc.)', flour: 600, butter: 300, eggs: 6 },
+      { id: 2, client: 'Andrés Castro', cake: 'Cheesecake Frutos Rojos', flour: 250, butter: 200, eggs: 4 },
+      { id: 3, client: 'Francisca V.', cake: 'Torta Chocolate Trufa', flour: 500, butter: 350, eggs: 8 }
+    ];
+
+    function renderBakerySummary() {
+      const ordersContainer = document.getElementById('bakery-orders-list');
+      const ingredientsContainer = document.getElementById('bakery-ingredients-summary');
+      if (!ordersContainer || !ingredientsContainer) return;
+
+      ordersContainer.innerHTML = '';
+      let totalFlour = 0, totalButter = 0, totalEggs = 0;
+
+      bakeryOrders.forEach(o => {
+        totalFlour += o.flour;
+        totalButter += o.butter;
+        totalEggs += o.eggs;
+
+        const row = document.createElement('div');
+        row.className = "p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs";
+        row.innerHTML = `
+          <div>
+            <span class="font-bold text-slate-800">${o.client}</span>
+            <p class="text-[11px] text-slate-500">${o.cake}</p>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 font-semibold text-[10px]">Agendado</span>
+        `;
+        ordersContainer.appendChild(row);
+      });
+
+      ingredientsContainer.innerHTML = `
+        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span class="font-bold text-slate-700">Harina Pastelera:</span>
+          <span class="font-mono font-bold text-slate-900">${(totalFlour / 1000).toFixed(2)} kg</span>
+        </div>
+        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span class="font-bold text-slate-700">Mantequilla sin sal:</span>
+          <span class="font-mono font-bold text-slate-900">${(totalButter / 1000).toFixed(2)} kg</span>
+        </div>
+        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs">
+          <span class="font-bold text-slate-700">Huevos de campo:</span>
+          <span class="font-mono font-bold text-slate-900">${totalEggs} unidades</span>
+        </div>
+      `;
+    }
+
+    function handleBakeryAdd(e) {
+      e.preventDefault();
+      const client = document.getElementById('bakery-client-name').value;
+      const type = document.getElementById('bakery-recipe-type').value;
+
+      let flour = 500, butter = 250, eggs = 5, cakeName = 'Torta Personalizada';
+      if (type === 'torta_manjar') { flour = 600; butter = 300; eggs = 6; cakeName = 'Torta Manjar Nuez (15 porc.)'; }
+      if (type === 'cheesecake') { flour = 250; butter = 200; eggs = 4; cakeName = 'Cheesecake Frutos Rojos'; }
+      if (type === 'torta_chocolate') { flour = 500; butter = 350; eggs = 8; cakeName = 'Torta Chocolate Trufa'; }
+
+      bakeryOrders.push({ id: Date.now(), client, cake: cakeName, flour, butter, eggs });
+      document.getElementById('bakery-client-name').value = '';
+      renderBakerySummary();
+    }
+
+    function resetBakeryOrders() {
+      bakeryOrders = [];
+      renderBakerySummary();
+    }
+
+    // --------------------------------------------------
+    // HERRAMIENTA 5: SERVICIO TÉCNICO
+    // --------------------------------------------------
+    let repairStage = 3;
+    const stages = {
+      1: { title: 'Ingresado', desc: 'Equipo recepcionado en taller. En cola para revisión técnica inicial.' },
+      2: { title: 'En Diagnóstico', desc: 'Técnico asignado realizando pruebas de circuitos y verificación de fallas.' },
+      3: { title: 'En Reparación', desc: 'Instalando repuestos certificados y aplicando pruebas térmicas.' },
+      4: { title: 'Listo para Retiro', desc: 'Equipo reparado, limpiado y disponible para retiro en nuestro local.' }
     };
 
-    function handleBakerySubmit(e) {
-      e.preventDefault();
-      if(bakeryOrders.length >= 4) {
-        alert("¡Agenda llena! No puedes recibir más pedidos este sábado.");
-        return;
+    function setRepairStage(stageNum) {
+      repairStage = stageNum;
+      for (let i = 1; i <= 4; i++) {
+        const btn = document.getElementById(`btn-rep-${i}`);
+        if (btn) {
+          if (i === stageNum) {
+            btn.className = "p-2 rounded-xl border border-blue-500 bg-blue-50 text-blue-700 font-bold text-left";
+          } else {
+            btn.className = "p-2 rounded-xl border border-slate-200 bg-white font-medium hover:bg-slate-100 text-left";
+          }
+        }
       }
-      
-      const type = document.getElementById('bakery-cake-type').value;
-      const client = document.getElementById('bakery-client').value.trim();
-      
-      bakeryOrders.push({ id: Date.now(), type, client });
-      document.getElementById('bakery-client').value = '';
-      renderBakery();
-    }
 
-    function renderBakery() {
-      // 1. Update Capacity
-      document.getElementById('bakery-capacity-display').textContent = `${bakeryOrders.length} / 4`;
-      
-      // 2. Render Orders List
-      const orderContainer = document.getElementById('bakery-orders-container');
-      orderContainer.innerHTML = '';
-      bakeryOrders.forEach(order => {
-        const recipe = cakeRecipes[order.type];
-        orderContainer.innerHTML += `
-          <div class="p-3 bg-white border border-slate-200 rounded-lg flex justify-between items-center text-sm shadow-sm">
-            <div>
-              <p class="font-bold text-slate-800">${order.client}</p>
-              <p class="text-[11px] text-slate-500">${recipe.name}</p>
-            </div>
-            <span class="text-[10px] uppercase font-bold bg-pink-100 text-pink-700 px-2 py-1 rounded">Agendado</span>
-          </div>
-        `;
-      });
+      const titleElem = document.getElementById('client-view-repair-title');
+      const descElem = document.getElementById('client-view-repair-desc');
+      const actionBox = document.getElementById('repair-client-action-box');
 
-      // 3. Calculate Ingredients
-      let total = { huevos: 0, harina: 0, mantequilla: 0, chocolate: 0, zanahoria: 0, manjar: 0 };
-      bakeryOrders.forEach(order => {
-        const r = cakeRecipes[order.type];
-        if(r.huevos) total.huevos += r.huevos;
-        if(r.harina) total.harina += r.harina;
-        if(r.mantequilla) total.mantequilla += r.mantequilla;
-        if(r.chocolate) total.chocolate += r.chocolate;
-        if(r.zanahoria) total.zanahoria += r.zanahoria;
-        if(r.manjar) total.manjar += r.manjar;
-      });
+      if (titleElem) titleElem.textContent = stages[stageNum].title;
+      if (descElem) descElem.textContent = stages[stageNum].desc;
 
-      // 4. Render Ingredients
-      const ingContainer = document.getElementById('bakery-ingredients-container');
-      if (bakeryOrders.length === 0) {
-        ingContainer.innerHTML = '<li class="text-slate-500 text-xs italic">Agrega pedidos para calcular insumos...</li>';
-      } else {
-        let html = '';
-        if(total.huevos) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Huevos</span> <span class="font-bold">${total.huevos} un.</span></li>`;
-        if(total.harina) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Harina</span> <span class="font-bold">${total.harina} g.</span></li>`;
-        if(total.mantequilla) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Mantequilla</span> <span class="font-bold">${total.mantequilla} g.</span></li>`;
-        if(total.chocolate) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Chocolate</span> <span class="font-bold">${total.chocolate} g.</span></li>`;
-        if(total.zanahoria) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Zanahoria</span> <span class="font-bold">${total.zanahoria} g.</span></li>`;
-        if(total.manjar) html += `<li class="flex justify-between border-b border-indigo-200/50 pb-1"><span>Manjar</span> <span class="font-bold">${total.manjar} g.</span></li>`;
-        ingContainer.innerHTML = html;
+      if (actionBox) {
+        if (stageNum === 4) {
+          actionBox.classList.remove('hidden');
+        } else {
+          actionBox.classList.add('hidden');
+        }
       }
     }
 
-    // ==============================================
-    // TOOL 5: TECH REPAIR (TRACKER ESTADO)
-    // ==============================================
-    function updateRepairStatus(status) {
-      const clientView = document.getElementById('tech-client-view');
-      const waBtn = document.getElementById('tech-whatsapp-btn');
-      
-      const states = [
-        { key: 'ingresado', title: '1. Ingresado', desc: 'Equipo recibido en taller' },
-        { key: 'diagnostico', title: '2. Diagnóstico', desc: 'Técnico evaluando fallas' },
-        { key: 'reparacion', title: '3. Reparación', desc: 'Trabajando en el equipo' },
-        { key: 'listo', title: '4. Listo para Retiro', desc: 'Trabajo finalizado con éxito' }
-      ];
-
-      let currentIndex = states.findIndex(s => s.key === status);
-      
-      let html = '';
-      states.forEach((s, index) => {
-        let isPast = index < currentIndex;
-        let isCurrent = index === currentIndex;
-        let isFuture = index > currentIndex;
-        
-        let colorClass = isPast ? 'bg-emerald-500' : (isCurrent ? 'bg-sky-500 ring-4 ring-sky-100' : 'bg-slate-200');
-        let textClass = isPast || isCurrent ? 'text-slate-800' : 'text-slate-400';
-        let lineClass = isFuture ? 'border-slate-200' : 'border-emerald-500';
-        
-        html += `
-          <div class="flex items-start gap-4 relative z-10">
-            ${index !== states.length - 1 ? `<div class="absolute left-3 top-6 w-0.5 h-full -z-10 border-l-2 ${lineClass}"></div>` : ''}
-            <div class="w-6 h-6 rounded-full flex-shrink-0 mt-0.5 ${colorClass}"></div>
-            <div>
-              <h5 class="text-sm font-bold ${textClass}">${s.title}</h5>
-              <p class="text-[11px] text-slate-500">${isCurrent ? '<strong>Estado Actual:</strong> ' : ''}${s.desc}</p>
-            </div>
-          </div>
-        `;
-      });
-
-      clientView.innerHTML = html;
-      
-      if(status === 'listo') {
-        waBtn.classList.remove('hidden');
-      } else {
-        waBtn.classList.add('hidden');
-      }
+    function resetRepairStatus() {
+      setRepairStage(1);
     }
 
-    // ==============================================
-    // TOOL 6: AGENDA INTELIGENTE (BOOKING)
-    // ==============================================
+    function triggerRepairWhatsAppModal() {
+      const msg = `¡Hola Carlos! Te avisamos del Taller que tu ASUS ROG 15" (Orden REP-1042) está *Listo para Retiro*.\n\nTotal a cancelar: $45.000 CLP.\nPuedes retirar hoy hasta las 19:30 hrs. ¡Gracias por confiar en nosotros!`;
+      openWhatsAppModal('Carlos Venegas', '+56 9 0000 0000', msg);
+    }
+
+    // --------------------------------------------------
+    // HERRAMIENTA 6: RESERVA SIMPLE
+    // --------------------------------------------------
     function handleBookingSubmit(e) {
       e.preventDefault();
-      
-      const service = document.getElementById('book-service').value;
-      const date = document.getElementById('book-date').value;
-      const time = document.getElementById('book-time').value;
-      const name = document.getElementById('book-name').value;
-      
-      const msg = `¡Hola! Soy ${name}. Quiero confirmar mi reserva para *${service}* el día ${date} a las ${time}. ¡Gracias!`;
-      const url = `https://wa.me/56900000000?text=${encodeURIComponent(msg)}`;
-      
-      document.getElementById('booking-whatsapp-link').href = url;
-      document.getElementById('booking-empty-state').classList.add('hidden');
-      document.getElementById('booking-success-area').classList.remove('hidden');
+      const service = document.getElementById('booking-service').value;
+      const day = document.getElementById('booking-day').value;
+      const time = document.getElementById('booking-time').value;
+      const name = document.getElementById('booking-name').value;
+
+      const resultBox = document.getElementById('booking-result-box');
+      const message = `¡Hola! Soy *${name}*, solicito confirmar mi hora para *${service}* el día *${day}* a las *${time}*.`;
+
+      resultBox.innerHTML = `
+        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs space-y-2">
+          <p class="font-bold text-emerald-800">✓ Cita pre-confirmada para ${name}:</p>
+          <p class="italic text-slate-600 bg-white p-2 rounded border border-slate-200">${message}</p>
+          <button onclick="openWhatsAppModal('Administración', '+56 9 0000 0000', '${message}')" class="w-full py-2 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#20bd5a] transition">
+            Simular Envío a WhatsApp
+          </button>
+        </div>
+      `;
     }
 
-    // Initialize all views on load
-    window.onload = function() {
-      // Set today's date for booking tool
-      document.getElementById('book-date').valueAsDate = new Date();
-      
+    function resetBookingForm() {
+      document.getElementById('booking-name').value = '';
+      document.getElementById('booking-result-box').innerHTML = `
+        <span class="text-slate-400 italic">Completa el formulario a la izquierda para previsualizar el mensaje de reserva.</span>
+      `;
+    }
+
+    // --------------------------------------------------
+    // BUZÓN DE DESAFÍOS OPERATIVOS
+    // --------------------------------------------------
+    function handleChallengeSubmit(e) {
+      e.preventDefault();
+      document.getElementById('challenge-box-form').classList.add('hidden');
+      document.getElementById('challenge-success-message').classList.remove('hidden');
+    }
+
+    function resetChallengeForm() {
+      document.getElementById('challenge-desc').value = '';
+      document.getElementById('challenge-sector').value = '';
+      document.getElementById('challenge-contact').value = '';
+      document.getElementById('challenge-box-form').classList.remove('hidden');
+      document.getElementById('challenge-success-message').classList.add('hidden');
+    }
+
+    // --------------------------------------------------
+    // INICIALIZACIÓN AL CARGAR
+    // --------------------------------------------------
+    window.addEventListener('DOMContentLoaded', () => {
+      randomizeStockData();
       renderStockItems();
       renderGymMembers();
-      renderWasteLogs();
-      renderBakery();
-      updateRepairStatus('ingresado');
-    };
+      renderWasteList();
+      renderBakerySummary();
+      setRepairStage(3);
+    });
   </script>
 </body>
 </html>
