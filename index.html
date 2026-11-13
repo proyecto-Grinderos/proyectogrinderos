@@ -527,64 +527,62 @@
       <div id="tab-bakery-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
           <div>
-            <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider bg-rose-50 px-2.5 py-1 rounded-md border border-rose-100">
-              Gastronomía & Talleres
-            </span>
+            <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider bg-rose-50 px-2.5 py-1 rounded-md border border-rose-100">Gastronomía & Talleres</span>
             <h3 class="text-xl font-bold text-slate-900 mt-2">Cupos por Fecha y Consolidado de Insumos</h3>
-            <p class="text-xs text-slate-500 mt-1">
-              Evita tomar más pedidos de los que puedes preparar y calcula los ingredientes totales sin hacer cálculos a mano.
-            </p>
+            <p class="text-xs text-slate-500 mt-1">Evita tomar más pedidos de los que puedes preparar y calcula los ingredientes totales sin hacer cálculos a mano.</p>
           </div>
-          <button onclick="resetBakeryOrders(); document.getElementById('bakery-form').reset(); setBakeryToday();" class="px-5 py-3 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-sm font-semibold border border-red-200 self-start md:self-auto">
-            🗑️ Limpiar
-          </button>
+          <button onclick="resetBakeryOrders(); document.getElementById('bakery-form').reset(); setBakeryToday();" class="px-5 py-3 bg-red-50 hover:bg-red-100 text-red-600 rounded-lg text-sm font-semibold border border-red-200 self-start md:self-auto transition">🗑️ Limpiar</button>
         </div>
-
         <div class="grid lg:grid-cols-12 gap-8 mt-6">
           <div class="lg:col-span-6 space-y-4">
             <div class="flex items-center justify-between">
               <h4 class="font-bold text-slate-900 text-sm">Pedidos Agendados</h4>
-              <span id="bakery-capacity" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
-               Capacidad: 0 / 4 Cupos
-              </span>
+              <span id="bakery-capacity" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">Capacidad: 0 / 4 Cupos</span>
             </div>
-
             <div id="bakery-orders-list" class="space-y-2.5"></div>
-
             <form id="bakery-form" onsubmit="handleBakeryAdd(event)" class="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-3">
               <p class="text-xs font-bold text-slate-700">Agregar Pedido a la Fecha:</p>
               <div class="grid grid-cols-2 gap-2">
-                <input id="bakery-client-name" type="text" placeholder="Nombre cliente" required class="px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white" />
-              <select id="bakery-recipe-type" required class="px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white">
-                <option value="" selected disabled>Elige una torta...</option>
-                <option value="torta_manjar">Torta Manjar Nuez (15 porc.)</option>
-                <option value="cheesecake">Cheesecake Frutos Rojos</option>
-                <option value="torta_chocolate">Torta Chocolate Trufa</option>
-              </select>
+                <input id="bakery-date" type="date" required class="px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white text-slate-600" />
+                <input id="bakery-phone" type="tel" placeholder="WhatsApp (+569...)" required class="px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white" />
               </div>
-              <button id="bakery-submit-btn" type="submit" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs transition disabled:opacity-50 disabled:cursor-not-allowed">
-                + Agendar Pedido y Recalcular
-              </button>
-              <p id="bakery-full-msg" class="hidden text-xs font-semibold text-rose-600 text-center">
-                Cupos llenos. No se pueden agendar más pedidos.
-              </p>
-              </form>
-
+              <input id="bakery-client-name" type="text" placeholder="Nombre cliente" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white" />
+              <div class="grid grid-cols-4 gap-2">
+                <div class="col-span-3">
+                  <select id="bakery-recipe-type" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white text-slate-600">
+                    <option value="" selected disabled>Elige una torta...</option>
+                    <option value="torta_manjar">Torta Manjar Nuez (15 porc.)</option>
+                    <option value="cheesecake">Cheesecake Frutos Rojos</option>
+                    <option value="torta_chocolate">Torta Chocolate Trufa</option>
+                  </select>
+                </div>
+                <div class="col-span-1">
+                  <input id="bakery-qty" type="number" min="1" max="4" value="1" required class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white text-center" title="Cantidad" />
+                </div>
+              </div>
+              <button id="bakery-submit-btn" type="submit" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs transition disabled:opacity-50 disabled:cursor-not-allowed">+ Agendar Pedido y Recalcular</button>
+              <p id="bakery-full-msg" class="hidden text-xs font-semibold text-rose-600 text-center">Cupos llenos. No se pueden agendar más pedidos.</p>
+            </form>
+            <!-- NUEVO: HISTORIAL DE ENTREGADOS -->
+            <div class="mt-8 pt-6 border-t border-slate-200">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-bold text-slate-900 text-sm">Historial de Entregados</h4>
+                <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 border border-slate-200">Libera cupo e insumos</span>
+              </div>
+              <div id="bakery-history-list" class="space-y-2.5">
+                <p class="text-xs text-slate-400 italic">No hay entregas registradas aún.</p>
+              </div>
+            </div>
           </div>
-
-          <!-- Consolidado de Insumos Calculados -->
           <div class="lg:col-span-6 bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between mb-4">
                 <h4 class="font-bold text-slate-900 text-sm">Lista de Compras Consolidada</h4>
                 <span class="text-[11px] font-mono bg-white px-2 py-0.5 rounded border border-slate-200 text-slate-500">Auto-calculado</span>
               </div>
-              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                Ingredientes exactos requeridos para cumplir todos los pedidos agendados:
-              </p>
+              <p class="text-xs text-slate-600 mb-4 leading-relaxed">Ingredientes exactos requeridos para cumplir todos los pedidos agendados:</p>
               <div id="bakery-ingredients-summary" class="space-y-2"></div>
             </div>
-
             <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
               💡 <strong>Impacto:</strong> Compras lo justo y necesario, sin viajes de emergencia a comprar mantequilla a última hora.
             </div>
@@ -1530,74 +1528,162 @@
     }
 
     // --------------------------------------------------
-    // HERRAMIENTA 4: PASTELERÍA & CUPOS
+    // HERRAMIENTA 4: PASTELERÍA & CUPOS (ACTUALIZADA)
     // --------------------------------------------------
-    let bakeryOrders = [
-      { id: 1, client: 'María Paz R.', cake: 'Torta Manjar Nuez (15 porc.)', flour: 600, butter: 300, eggs: 6 },
-      
-    ];
-
-    function renderBakerySummary() {
-      const ordersContainer = document.getElementById('bakery-orders-list');
-      const ingredientsContainer = document.getElementById('bakery-ingredients-summary');
-      if (!ordersContainer || !ingredientsContainer) return;
-
-      ordersContainer.innerHTML = '';
-      let totalFlour = 0, totalButter = 0, totalEggs = 0;
-
-      bakeryOrders.forEach(o => {
-        totalFlour += o.flour;
-        totalButter += o.butter;
-        totalEggs += o.eggs;
-
-        const row = document.createElement('div');
-        row.className = "p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs";
-        row.innerHTML = `
-          <div>
-            <span class="font-bold text-slate-800">${o.client}</span>
-            <p class="text-[11px] text-slate-500">${o.cake}</p>
-          </div>
-          <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 font-semibold text-[10px]">Agendado</span>
-        `;
-        ordersContainer.appendChild(row);
-      });
-
-      ingredientsContainer.innerHTML = `
-        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs">
-          <span class="font-bold text-slate-700">Harina Pastelera:</span>
-          <span class="font-mono font-bold text-slate-900">${(totalFlour / 1000).toFixed(2)} kg</span>
-        </div>
-        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs">
-          <span class="font-bold text-slate-700">Mantequilla sin sal:</span>
-          <span class="font-mono font-bold text-slate-900">${(totalButter / 1000).toFixed(2)} kg</span>
-        </div>
-        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs">
-          <span class="font-bold text-slate-700">Huevos de campo:</span>
-          <span class="font-mono font-bold text-slate-900">${totalEggs} unidades</span>
-        </div>
-      `;
-    }
-
+    // HERRAMIENTA 4: PASTELERÍA (CON HISTORIAL)
+    const BAKERY_MAX = 4;
+    let bakeryOrders = [];
+    let bakeryHistory = []; // Nuevo arreglo para guardar los entregados
+    
     function handleBakeryAdd(e) {
       e.preventDefault();
       const client = document.getElementById('bakery-client-name').value;
       const type = document.getElementById('bakery-recipe-type').value;
+      const qty = parseInt(document.getElementById('bakery-qty').value) || 1;
+      const date = document.getElementById('bakery-date').value;
+      const phone = document.getElementById('bakery-phone').value;
+
+      const cuposUsados = bakeryOrders.reduce((sum, order) => sum + (order.qty || 1), 0);
+      if (cuposUsados + qty > BAKERY_MAX) {
+        alert(`Solo te quedan ${BAKERY_MAX - cuposUsados} cupos disponibles.`);
+        return;
+      }
 
       let flour = 500, butter = 250, eggs = 5, cakeName = 'Torta Personalizada';
       if (type === 'torta_manjar') { flour = 600; butter = 300; eggs = 6; cakeName = 'Torta Manjar Nuez (15 porc.)'; }
       if (type === 'cheesecake') { flour = 250; butter = 200; eggs = 4; cakeName = 'Cheesecake Frutos Rojos'; }
       if (type === 'torta_chocolate') { flour = 500; butter = 350; eggs = 8; cakeName = 'Torta Chocolate Trufa'; }
 
-      bakeryOrders.push({ id: Date.now(), client, cake: cakeName, flour, butter, eggs });
+      bakeryOrders.push({ id: Date.now(), client, phone, date, cake: cakeName, flour, butter, eggs, qty });
+      
       document.getElementById('bakery-client-name').value = '';
+      document.getElementById('bakery-phone').value = '';
+      document.getElementById('bakery-recipe-type').value = '';
+      document.getElementById('bakery-qty').value = '1';
+      
       renderBakerySummary();
+      updateBakeryCapacity();
+    }
+    
+    function renderBakerySummary() {
+      const ordersContainer = document.getElementById('bakery-orders-list');
+      const ingredientsContainer = document.getElementById('bakery-ingredients-summary');
+      if (!ordersContainer || !ingredientsContainer) return;
+      ordersContainer.innerHTML = '';
+      let totalFlour = 0, totalButter = 0, totalEggs = 0;
+
+      if (bakeryOrders.length === 0) {
+        ordersContainer.innerHTML = '<p class="text-xs text-slate-400 italic">No hay pedidos agendados aún.</p>';
+      }
+
+      bakeryOrders.forEach(o => {
+        totalFlour += (o.flour * o.qty);
+        totalButter += (o.butter * o.qty);
+        totalEggs += (o.eggs * o.qty);
+        const row = document.createElement('div');
+        row.className = "p-4 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs shadow-sm";
+        row.innerHTML = `
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <span class="font-semibold text-slate-800 text-sm">${o.client}</span>
+              <span class="text-[11px] text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-100 flex items-center gap-1">📱 ${o.phone}</span>
+            </div>
+            <p class="text-[12px] text-slate-500">${o.qty > 1 ? `<span class="font-medium text-slate-600">${o.qty}x</span> ` : ''}${o.cake} <span class="text-slate-400 ml-1">(Para: ${o.date})</span></p>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <!-- Botón Entregado -->
+            <button onclick="deliverBakeryOrder(${o.id})" class="w-8 h-8 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 shadow-sm flex items-center justify-center transition-all active:scale-95" title="Marcar como entregado">
+              ✅
+            </button>
+            <!-- Botón Basurero -->
+            <button onclick="deleteBakeryOrder(${o.id})" class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 shadow-sm flex items-center justify-center transition-all active:scale-95" title="Eliminar pedido">
+              🗑️
+            </button>
+          </div>
+        `;
+        ordersContainer.appendChild(row);
+      });
+
+      ingredientsContainer.innerHTML = `
+        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs"><span class="font-bold text-slate-700">Harina Pastelera:</span><span class="font-mono font-bold text-slate-900">${(totalFlour / 1000).toFixed(2)} kg</span></div>
+        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs"><span class="font-bold text-slate-700">Mantequilla sin sal:</span><span class="font-mono font-bold text-slate-900">${(totalButter / 1000).toFixed(2)} kg</span></div>
+        <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center justify-between text-xs"><span class="font-bold text-slate-700">Huevos de campo:</span><span class="font-mono font-bold text-slate-900">${totalEggs} unidades</span></div>
+      `;
     }
 
-    function resetBakeryOrders() {
-      bakeryOrders = [];
-      renderBakerySummary();
+    // NUEVO: Función para marcar como Entregado
+    function deliverBakeryOrder(orderId) {
+      const orderIndex = bakeryOrders.findIndex(order => order.id === orderId);
+      if (orderIndex > -1) {
+        // Sacamos el pedido de "agendados" y lo metemos en "historial"
+        const order = bakeryOrders.splice(orderIndex, 1)[0];
+        bakeryHistory.unshift(order);
+        
+        renderBakerySummary();
+        renderBakeryHistory();
+        updateBakeryCapacity();
+      }
     }
 
+    // NUEVO: Función para dibujar el historial abajo
+    function renderBakeryHistory() {
+      const container = document.getElementById('bakery-history-list');
+      if (!container) return;
+      
+      container.innerHTML = '';
+      if (bakeryHistory.length === 0) {
+        container.innerHTML = '<p class="text-xs text-slate-400 italic">No hay entregas registradas aún.</p>';
+        return;
+      }
+      
+      bakeryHistory.forEach(o => {
+        const row = document.createElement('div');
+        row.className = "p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs opacity-75";
+        row.innerHTML = `
+          <div class="flex flex-col gap-0.5">
+            <span class="font-semibold text-slate-700 line-through decoration-slate-400">${o.client}</span>
+            <p class="text-[11px] text-slate-500">${o.qty > 1 ? `${o.qty}x ` : ''}${o.cake}</p>
+          </div>
+          <span class="px-2 py-0.5 rounded bg-slate-200 text-slate-600 font-bold text-[10px]">Entregado</span>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function deleteBakeryOrder(orderId) {
+      bakeryOrders = bakeryOrders.filter(order => order.id !== orderId);
+      renderBakerySummary();
+      updateBakeryCapacity();
+    }
+    
+    function updateBakeryCapacity() {
+      const badge = document.getElementById('bakery-capacity');
+      const boton = document.getElementById('bakery-submit-btn');
+      const aviso = document.getElementById('bakery-full-msg');
+      if (!badge) return;
+      const total = bakeryOrders.reduce((sum, order) => sum + (order.qty || 1), 0);
+      const lleno = total >= BAKERY_MAX;
+      badge.className = lleno ? "text-xs font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-700 border border-red-200" : "text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200";
+      badge.textContent = lleno ? `Cupos llenos: ${total} / ${BAKERY_MAX}` : `Capacidad: ${total} / ${BAKERY_MAX} Cupos`;
+      if (boton) boton.disabled = lleno;
+      if (aviso) aviso.classList.toggle('hidden', !lleno);
+    }
+    
+    function resetBakeryOrders() { 
+      bakeryOrders = []; 
+      bakeryHistory = []; // También limpiamos el historial
+      renderBakerySummary(); 
+      renderBakeryHistory();
+      updateBakeryCapacity(); 
+    }
+    
+    function setBakeryToday() {
+      const dateInput = document.getElementById('bakery-date');
+      if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.value = today;
+      }
+    }
     // --------------------------------------------------
     // HERRAMIENTA 5: SERVICIO TÉCNICO
     // --------------------------------------------------
@@ -1695,7 +1781,7 @@
       document.getElementById('challenge-success-message').classList.add('hidden');
     }
 
-    // --------------------------------------------------
+   // --------------------------------------------------
     // INICIALIZACIÓN AL CARGAR
     // --------------------------------------------------
     window.addEventListener('DOMContentLoaded', () => {
@@ -1703,47 +1789,15 @@
       renderStockItems();
       renderGymMembers();
       renderWasteList();
-      renderBakerySummary();
       setRepairStage(3);
+      
+      // Inicialización de la Pastelería actualizada:
+      setBakeryToday();
+      renderBakerySummary();
+      updateBakeryCapacity();
     });
-
-    const BAKERY_MAX = 4;
-
-function updateBakeryCapacity() {
-  const lista = document.getElementById('bakery-orders-list');
-  const badge = document.getElementById('bakery-capacity');
-  const boton = document.getElementById('bakery-submit-btn');
-  const aviso = document.getElementById('bakery-full-msg');
-  if (!lista || !badge) return;
-
-  const total = lista.children.length;
-  const lleno = total >= BAKERY_MAX;
-
-  badge.textContent = lleno
-    ? `Cupos llenos: ${total} / ${BAKERY_MAX}`
-    : `Capacidad: ${total} / ${BAKERY_MAX} Cupos`;
-  if (boton) boton.disabled = lleno;
-  if (aviso) aviso.classList.toggle('hidden', !lleno);
-}
-
-document.addEventListener('submit', function (e) {
-  if (e.target.id !== 'bakery-form') return;
-  const lista = document.getElementById('bakery-orders-list');
-  if (lista && lista.children.length >= BAKERY_MAX) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-}, true);
-
-document.addEventListener('DOMContentLoaded', () => {
-  const lista = document.getElementById('bakery-orders-list');
-  if (lista) {
-    new MutationObserver(updateBakeryCapacity).observe(lista, { childList: true });
-  }
-  updateBakeryCapacity();
-});
-
 
   </script>
 </body>
 </html>
+
