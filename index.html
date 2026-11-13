@@ -146,7 +146,10 @@
     </div>
   </section>
 
-   <section id="proceso" class="py-28 px-4 sm:px-6 bg-white border-t border-slate-200">
+  <!-- ==================================================== -->
+  <!-- 4. SECCIÓN: NUESTRO PROCESO                          -->
+  <!-- ==================================================== -->
+  <section id="proceso" class="py-28 px-4 sm:px-6 bg-white border-t border-slate-200">
     <div class="max-w-5xl mx-auto">
       <div class="text-center max-w-2xl mx-auto mb-16">
         <span class="text-xs uppercase tracking-widest font-extrabold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
@@ -192,10 +195,10 @@
         </div>
       </div>
     </div>
-  </section> 
+  </section>
 
   <!-- ==================================================== -->
-  <!-- 4. SECCIÓN: MICRO-HERRAMIENTAS INTERACTIVAS          -->
+  <!-- 5. SECCIÓN: MICRO-HERRAMIENTAS INTERACTIVAS          -->
   <!-- ==================================================== -->
   <section id="herramientas" class="py-28 px-4 sm:px-6 bg-slate-50">
     <div class="max-w-6xl mx-auto">
@@ -212,7 +215,7 @@
         </p>
       </div>
 
-      <!-- Selector de Herramientas en 2 filas compactas -->
+      <!-- Selector de Herramientas -->
       <div class="flex flex-wrap justify-center gap-2 mb-10">
         <button onclick="switchTab('stock')" id="btn-tab-stock" class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-md shadow-indigo-100">
           📦 Stock y Proveedores
@@ -293,9 +296,7 @@
                     <p class="text-[10px] text-slate-500 font-medium">Toca un proveedor para ver el chat o enviar pedido:</p>
                   </div>
 
-                  <div id="phone-contacts-list" class="flex-1 overflow-y-auto divide-y divide-slate-100">
-                    <!-- Contactos generados por JS -->
-                  </div>
+                  <div id="phone-contacts-list" class="flex-1 overflow-y-auto divide-y divide-slate-100"></div>
                 </div>
 
                 <!-- PANTALLA 2: CHAT CON EL PROVEEDOR SELECCIONADO -->
@@ -316,9 +317,7 @@
                   </div>
 
                   <!-- Mensajes WhatsApp -->
-                  <div id="phone-chat-messages-container" class="wa-chat-pattern p-3 flex-1 overflow-y-auto flex flex-col justify-end space-y-2">
-                    <!-- Burbujas de mensajes -->
-                  </div>
+                  <div id="phone-chat-messages-container" class="wa-chat-pattern p-3 flex-1 overflow-y-auto flex flex-col justify-end space-y-2"></div>
 
                   <!-- Barra de entrada de texto y botón enviar -->
                   <div class="p-2 bg-slate-100 border-t border-slate-200 flex items-end gap-1.5">
@@ -563,7 +562,7 @@
               <button id="bakery-submit-btn" type="submit" class="w-full py-2 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs transition disabled:opacity-50 disabled:cursor-not-allowed">+ Agendar Pedido y Recalcular</button>
               <p id="bakery-full-msg" class="hidden text-xs font-semibold text-rose-600 text-center">Cupos llenos. No se pueden agendar más pedidos.</p>
             </form>
-            <!-- NUEVO: HISTORIAL DE ENTREGADOS -->
+            <!-- HISTORIAL DE ENTREGADOS -->
             <div class="mt-8 pt-6 border-t border-slate-200">
               <div class="flex items-center justify-between mb-3">
                 <h4 class="font-bold text-slate-900 text-sm">Historial de Entregados</h4>
@@ -591,7 +590,7 @@
       </div>
 
       <!-- ============================================== -->
-      <!-- HERRAMIENTA 5: SEGUIMIENTO SERVICIO TÉCNICO   -->
+      <!-- HERRAMIENTA 5: SEGUIMIENTO SERVICIO TÉCNICO    -->
       <!-- ============================================== -->
       <div id="tab-repair-panel" class="hidden bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm">
         <div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-slate-100 gap-4">
@@ -682,130 +681,244 @@
             <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
               Citas sin Comisiones
             </span>
-            <h3 class="text-xl font-bold text-slate-900 mt-2">Agendamiento Simple sin Descarga de App</h3>
+            <h3 class="text-xl font-bold text-slate-900 mt-2">Agendamiento Simple con Bloqueo de Cupos</h3>
             <p class="text-xs text-slate-500 mt-1">
-              El cliente elige horario en 2 pasos; tú recibes la confirmación en tu calendario y WhatsApp sin pagar mensualidades abusivas.
+              A la izquierda, el enlace público que usa cualquier persona para agendar. A la derecha, el panel de control que ve el dueño del negocio.
             </p>
           </div>
-          <button onclick="resetBookingForm()" class="px-3 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg text-xs font-semibold border border-slate-200 self-start md:self-auto">
-            🗑️ Limpiar
+          <button
+            type="button"
+            onclick="resetBookingForm()"
+            class="px-4 py-2.5 bg-red-50 hover:bg-red-100 text-red-600 rounded-xl text-xs font-bold border border-red-200 self-start md:self-auto transition active:scale-95 flex items-center gap-1.5 shadow-sm"
+          >
+            <span>🗑️</span> Limpiar Agenda
           </button>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 mt-6">
-          <form onsubmit="handleBookingSubmit(event)" class="lg:col-span-6 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
-            <h4 class="font-bold text-slate-900 text-sm">Reserva de Hora (Simulador de Cliente)</h4>
-
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Servicio</label>
-              <select id="booking-service" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none">
-                <option value="Corte de Pelo y Perfilado ($12.000)">Corte de Pelo y Perfilado ($12.000)</option>
-                <option value="Consulta Veterinaria General ($18.000)">Consulta Veterinaria General ($18.000)</option>
-                <option value="Sesión Fisioterapia / Masaje ($25.000)">Sesión Fisioterapia / Masaje ($25.000)</option>
-              </select>
+        <div class="grid lg:grid-cols-12 gap-8 mt-8 items-start">
+          
+          <!-- COLUMNA IZQUIERDA (5 cols): VISTA USUARIO PÚBLICO -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-start">
+            <div class="mb-3 text-center">
+              <span class="text-[11px] font-extrabold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 shadow-sm">
+                👤 Vista Usuario (Enlace Público)
+              </span>
             </div>
 
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Día Preferente</label>
-                <select id="booking-day" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none">
-                  <option value="Jueves 14">Jueves 14</option>
-                  <option value="Viernes 15">Viernes 15</option>
-                  <option value="Sábado 16">Sábado 16</option>
-                </select>
+            <!-- Marco Realista de Smartphone -->
+            <div class="border-[6px] border-slate-800 rounded-[2.5rem] bg-slate-800 shadow-xl max-w-[345px] w-full p-1.5 flex flex-col">
+              <div class="relative bg-white rounded-[2rem] overflow-hidden flex flex-col min-h-[570px]">
+                
+                <!-- Notch Superior -->
+                <div class="bg-slate-800 pt-2 pb-1.5 flex justify-center items-center">
+                  <div class="w-16 h-3 bg-slate-900 rounded-full flex items-center justify-center">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-950/60 mr-1.5"></div>
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
+                  </div>
+                </div>
+
+                <!-- Cabecera Esmeralda de Reserva -->
+                <div class="bg-emerald-600 text-white px-4 py-3.5 shadow-sm flex items-center justify-between">
+                  <div>
+                    <h4 class="text-xs font-extrabold tracking-wide">Reserva tu Hora Online</h4>
+                    <p class="text-[10px] text-emerald-100 mt-0.5">Sin registros ni apps • 30 segundos</p>
+                  </div>
+                  <span class="text-[10px] bg-emerald-700/90 px-2 py-0.5 rounded-full font-mono font-bold border border-emerald-500/40">
+                    24/7
+                  </span>
+                </div>
+
+                <!-- Cuerpo Interactivo del Smartphone -->
+                <div class="p-4 flex-1 flex flex-col justify-between bg-slate-50/70 space-y-3.5 overflow-y-auto">
+                  <form onsubmit="handleBookingSubmit(event)" class="space-y-3">
+                    
+                    <!-- Paso 1: Servicio -->
+                    <div>
+                      <label for="booking-service" class="block text-[11px] font-bold text-slate-700 mb-1">
+                        1. Elige el Servicio
+                      </label>
+                      <select
+                        id="booking-service"
+                        class="w-full px-2.5 py-2 text-xs border border-slate-300 rounded-xl bg-white text-slate-800 outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition"
+                      >
+                        <option value="Corte de Pelo y Perfilado ($12.000)">Corte de Pelo y Perfilado ($12.000)</option>
+                        <option value="Consulta Veterinaria General ($18.000)">Consulta Veterinaria General ($18.000)</option>
+                        <option value="Sesión Fisioterapia / Masaje ($25.000)">Sesión Fisioterapia / Masaje ($25.000)</option>
+                      </select>
+                    </div>
+
+                    <!-- Paso 2: Día -->
+                    <div>
+                      <div class="flex items-center justify-between mb-1.5">
+                        <div class="flex items-center gap-1.5">
+                          <label class="block text-[11px] font-bold text-slate-700">
+                            2. Selecciona el Día
+                          </label>
+                          <span id="selected-week-pill" class="hidden text-[9px] font-bold bg-indigo-50 text-indigo-700 px-1.5 py-0.5 rounded border border-indigo-200">
+                            Próx.
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onclick="openCalendarPopup()"
+                          class="text-[10px] font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-2 py-0.5 rounded-md border border-emerald-200 transition flex items-center gap-1 shadow-xs active:scale-95"
+                        >
+                          <span>📅</span>
+                          <span>Más fechas</span>
+                        </button>
+                      </div>
+
+                      <!-- Siempre muestra los 7 días de la semana actual -->
+                      <div id="booking-days-container" class="grid grid-cols-4 gap-1"></div>
+                    </div>
+
+                    <!-- Paso 3: Horarios -->
+                    <div>
+                      <div class="flex items-center justify-between mb-1">
+                        <label class="block text-[11px] font-bold text-slate-700">
+                          3. Horarios Disponibles
+                        </label>
+                        <span class="text-[9px] font-medium text-slate-400">Gris = Ocupado</span>
+                      </div>
+                      <div id="booking-slots-container" class="grid grid-cols-3 gap-1.5"></div>
+                    </div>
+
+                    <!-- Datos del Usuario -->
+                    <div class="grid grid-cols-2 gap-2 pt-1">
+                      <div>
+                        <label for="booking-name" class="block text-[10px] font-bold text-slate-700 mb-1">
+                          Tu Nombre *
+                        </label>
+                        <input
+                          id="booking-name"
+                          type="text"
+                          required
+                          placeholder="Camila Morales"
+                          class="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded-xl bg-white outline-none focus:ring-2 focus:ring-emerald-500 transition"
+                        />
+                      </div>
+                      <div>
+                        <label for="booking-phone" class="block text-[10px] font-bold text-slate-700 mb-1">
+                          Tu WhatsApp *
+                        </label>
+                        <input
+                          id="booking-phone"
+                          type="tel"
+                          required
+                          placeholder="+56 9..."
+                          class="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded-xl bg-white outline-none focus:ring-2 focus:ring-emerald-500 transition"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Botón Solicitar -->
+                    <button
+                      id="booking-submit-btn"
+                      type="submit"
+                      class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.99]"
+                    >
+                      Solicitar Hora (11:30 hrs)
+                    </button>
+                  </form>
+
+                  <!-- Aviso breve de envío al local -->
+                  <div id="booking-result-box" class="hidden p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-[11px] text-emerald-800 shadow-sm transition-all">
+                    <p class="font-bold flex items-center gap-1.5">
+                      <span>✓</span> Solicitud enviada al local.
+                    </p>
+                    <p class="text-[10px] text-emerald-700 mt-0.5 leading-snug">
+                      Te contactaremos por WhatsApp para confirmar tu hora.
+                    </p>
+                  </div>
+
+                </div>
+
+                <!-- POPUP INTERNO DENTRO DEL CELULAR (CALENDARIO) -->
+                <div id="calendar-popup-modal" class="absolute inset-0 bg-slate-900/60 backdrop-blur-[2px] z-30 hidden flex items-end justify-center p-2.5">
+                  <div class="bg-white rounded-2xl w-full p-3.5 shadow-2xl border border-slate-200 space-y-3 max-h-[88%] flex flex-col">
+                    <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                      <div class="flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">📅</span>
+                        <div>
+                          <h5 class="font-extrabold text-slate-900 text-xs">Más Fechas</h5>
+                          <p class="text-[10px] text-slate-500">Elige un día disponible</p>
+                        </div>
+                      </div>
+                      <button type="button" onclick="closeCalendarPopup()" class="text-slate-400 hover:text-slate-600 font-bold text-lg leading-none p-1">
+                        &times;
+                      </button>
+                    </div>
+
+                    <!-- Listado de semanas dentro del teléfono -->
+                    <div id="popup-weeks-list" class="space-y-2.5 overflow-y-auto pr-0.5 flex-1"></div>
+
+                    <button
+                      type="button"
+                      onclick="closeCalendarPopup()"
+                      class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-[11px] transition"
+                    >
+                      Volver
+                    </button>
+                  </div>
+                </div>
+
               </div>
-              <div>
-                <label class="block text-xs font-semibold text-slate-700 mb-1">Horario Disponible</label>
-                <select id="booking-time" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none">
-                  <option value="11:30 hrs">11:30 hrs</option>
-                  <option value="15:00 hrs">15:00 hrs</option>
-                  <option value="17:30 hrs">17:30 hrs</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label class="block text-xs font-semibold text-slate-700 mb-1">Nombre del Cliente</label>
-              <input id="booking-name" type="text" required placeholder="Ej. Camila Morales" class="w-full px-3 py-2 text-xs border border-slate-300 rounded-xl bg-white outline-none" />
-            </div>
-
-            <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs transition shadow-sm">
-              Confirmar Cita sin Registro
-            </button>
-          </form>
-
-          <div class="lg:col-span-6 flex flex-col justify-between bg-slate-50 p-6 rounded-2xl border border-slate-200">
-            <div>
-              <h4 class="font-bold text-slate-900 text-sm mb-2">Confirmación Inmediata</h4>
-              <p class="text-xs text-slate-600 mb-4 leading-relaxed">
-                Sin passwords ni perfiles. Al presionar confirmar, se crea el enlace directo que llega a tu WhatsApp con todos los detalles ordenados.
-              </p>
-
-              <div id="booking-result-box" class="p-4 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
-                <span class="text-slate-400 italic">Completa el formulario a la izquierda para previsualizar el mensaje de reserva.</span>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-slate-200 text-[11px] text-slate-500">
-              📱 <strong>Cero Barrera:</strong> Los clientes mayores o apurados reservan en 20 segundos sin descargar nada.
             </div>
           </div>
+
+          <!-- COLUMNA DERECHA (7 cols): VISTA ADMIN (NUESTRO CLIENTE) -->
+          <div class="lg:col-span-7 bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-100">
+                  🏪 Vista Admin (Nuestro Cliente / Dueño del Local)
+                </span>
+                <h4 class="font-bold text-slate-900 text-base mt-1.5">Solicitudes Recibidas y Agenda en Vivo</h4>
+              </div>
+              <span id="booking-count-badge" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200">
+                2 solicitudes
+              </span>
+            </div>
+
+            <!-- Indicadores Operativos en Tiempo Real -->
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+                <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Día en Consulta</span>
+                <span id="admin-selected-day-label" class="text-xs sm:text-sm font-extrabold text-slate-800 mt-0.5 block">Vie 13</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+                <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Cupos Libres Hoy</span>
+                <span id="admin-free-slots-count" class="text-xs sm:text-sm font-extrabold text-emerald-600 mt-0.5 block">4 disponibles</span>
+              </div>
+              <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+                <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Confirmadas</span>
+                <span id="admin-confirmed-count" class="text-xs sm:text-sm font-extrabold text-indigo-600 mt-0.5 block">0 / 2</span>
+              </div>
+            </div>
+
+            <!-- Listado de Solicitudes Agendadas (Ordenadas cronológicamente) -->
+            <div>
+              <div class="flex items-center justify-between mb-2.5">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Solicitudes Recibidas</p>
+                <span class="text-[11px] text-slate-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Ordenadas por proximidad
+                </span>
+              </div>
+              <div id="booking-agenda-list" class="space-y-2.5 max-h-[370px] overflow-y-auto pr-1"></div>
+            </div>
+
+            <div class="pt-3 border-t border-slate-200 text-[11px] text-slate-500 flex items-start gap-2">
+              <span>📱</span>
+              <p><strong>Flujo en 2 pasos:</strong> 1. Haz clic en <strong>📲 Enviar WhatsApp</strong> para simular el mensaje al cliente. 2. Presiona <strong>✅ Confirmar Hora</strong> para aprobar la cita oficialmente.</p>
+            </div>
+          </div>
+
         </div>
       </div>
 
     </div>
   </section>
-
-  <!-- ==================================================== -->
-  <!-- 5. SECCIÓN: NUESTRO PROCESO                          -->
-  <!-- ==================================================== -->
- <!-- <section id="proceso" class="py-28 px-4 sm:px-6 bg-white border-t border-slate-200">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <span class="text-xs uppercase tracking-widest font-extrabold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
-          Metodología de Trabajo
-        </span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">
-          Cómo creamos tu micro-herramienta
-        </h2>
-        <p class="text-slate-600 text-sm mt-3">
-          Un proceso directo, enfocado en resolver antes de comprometer cualquier recurso o tiempo innecesario.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center mb-4">
-            01
-          </div>
-          <h3 class="font-bold text-slate-900 mb-2">Escucha en Terreno</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Conversamos en tu local sobre las rutinas más pesadas: el arqueo al cierre, coordinar pedidos con proveedores por audio o calcular cuotas atrasadas.
-          </p>
-        </div>
-
-        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center mb-4">
-            02
-          </div>
-          <h3 class="font-bold text-slate-900 mb-2">Prototipo Funcional Ágil</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            En pocos días te entregamos un enlace web ligero y privado para que tú y tu personal lo prueben en el mesón de trabajo real con un teléfono o tablet.
-          </p>
-        </div>
-
-        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
-          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 font-bold flex items-center justify-center mb-4">
-            03
-          </div>
-          <h3 class="font-bold text-slate-900 mb-2">Ajuste a la Medida</h3>
-          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Eliminamos lo que estorba y dejamos solo lo que te ahorra minutos valiosos. Sin ataduras ni suscripciones complejas.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>  -->
 
   <!-- ==================================================== -->
   <!-- 6. SECCIÓN: BUZÓN DE DESAFÍOS OPERATIVOS             -->
@@ -912,25 +1025,53 @@
           <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold">📲</span>
           <h4 class="font-bold text-slate-800 text-sm">Simulación Segura</h4>
         </div>
-        <button onclick="closeWhatsAppModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg">&times;</button>
+        <button type="button" onclick="closeWhatsAppModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg">&times;</button>
       </div>
 
       <p class="text-xs text-slate-600 mb-3">
-        En un entorno real, esta acción abriría el chat con el mensaje pre-redactado listo para enviar:
+        En un entorno real, esta acción enviaría el chat pre-redactado listo al destinatario:
       </p>
 
-      <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1 font-mono mb-4">
-        <p class="text-[11px] text-slate-400 font-sans">Destinatario:</p>
-        <p id="safe-modal-recipient" class="font-bold text-slate-800 text-xs truncate"></p>
-        <p class="text-[11px] text-slate-400 font-sans pt-1">Mensaje listo:</p>
-        <p id="safe-modal-text" class="whitespace-pre-line text-[11px] text-slate-600 bg-white p-2 rounded border border-slate-200 max-h-40 overflow-y-auto"></p>
+      <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs text-slate-700 space-y-2 mb-3">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Destinatario:</span>
+          <span id="safe-modal-recipient" class="font-bold text-slate-800 text-[11px] truncate max-w-[180px]"></span>
+        </div>
+        <div class="bg-[#dcf8c6] text-slate-800 p-3 rounded-2xl rounded-tr-none border border-[#cbebb2] shadow-sm text-[11px] leading-relaxed">
+          <p id="safe-modal-text" class="whitespace-pre-line"></p>
+          <div class="flex items-center justify-end gap-1 mt-1 text-[9px] text-slate-500">
+            <span>Ahora</span>
+            <span class="text-sky-600 font-bold">✓✓</span>
+          </div>
+        </div>
       </div>
 
       <div class="text-[11px] text-slate-500 mb-4 bg-emerald-50 border border-emerald-100 p-2.5 rounded-xl">
         🔒 <strong>Privacidad Protegida:</strong> Esta demostración no accede a tu teléfono ni a tus contactos personales.
       </div>
 
+      <!-- Botón exclusivo para simular envío desde Reservas -->
+      <div id="safe-modal-booking-actions" class="hidden flex-col gap-2">
+        <button
+          type="button"
+          onclick="confirmSimulatedWhatsAppSend()"
+          class="w-full py-2.5 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl text-xs transition shadow-sm flex items-center justify-center gap-1.5"
+        >
+          <span>✓</span> Simular Envío de Mensaje
+        </button>
+        <button
+          type="button"
+          onclick="closeWhatsAppModal()"
+          class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold rounded-xl text-xs transition"
+        >
+          Cancelar
+        </button>
+      </div>
+
+      <!-- Botón estándar para el resto de herramientas -->
       <button
+        id="safe-modal-default-close"
+        type="button"
         onclick="closeWhatsAppModal()"
         class="w-full py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl text-xs transition"
       >
@@ -972,13 +1113,30 @@
     // --------------------------------------------------
     // MODAL SEGURO DE WHATSAPP
     // --------------------------------------------------
-    function openWhatsAppModal(recipient, phone, message) {
+    let pendingModalBookingId = null;
+
+    function openWhatsAppModal(recipient, phone, message, isBookingFlow = false) {
       document.getElementById('safe-modal-recipient').textContent = `${recipient} (${phone})`;
       document.getElementById('safe-modal-text').textContent = message;
+
+      const bookingActions = document.getElementById('safe-modal-booking-actions');
+      const defaultClose = document.getElementById('safe-modal-default-close');
+
+      if (isBookingFlow) {
+        bookingActions.classList.remove('hidden');
+        bookingActions.classList.add('flex');
+        defaultClose.classList.add('hidden');
+      } else {
+        bookingActions.classList.add('hidden');
+        bookingActions.classList.remove('flex');
+        defaultClose.classList.remove('hidden');
+      }
+
       document.getElementById('safe-wa-modal').classList.remove('hidden');
     }
 
     function closeWhatsAppModal() {
+      pendingModalBookingId = null;
       document.getElementById('safe-wa-modal').classList.add('hidden');
     }
 
@@ -997,7 +1155,7 @@
     ];
 
     let activePhoneProviderId = 1;
-    let phoneScreenMode = 'chat'; // 'contacts' | 'chat'
+    let phoneScreenMode = 'chat';
     let providerChatHistories = {
       1: [{ text: "Hola Distribuidora Mayorista Central,\n\nQuisiéramos consultar stock disponible para el despacho de esta semana.", time: "Ayer, 14:10", sender: "me" }],
       2: [{ text: "Hola Tostaduría y Café de Origen,\n\n¿Tendrán café de tueste medio disponible?", time: "Lunes, 11:00", sender: "me" }],
@@ -1017,7 +1175,6 @@
       });
     }
 
-    // Escala proporcional: 0 a minStock (0% a 25%), minStock a idealStock (25% a 75%), superior a idealStock (75% a 100%)
     function calculateStockPercentage(stock, minStock, idealStock) {
       if (stock <= 0) return 0;
       if (stock <= minStock) {
@@ -1047,7 +1204,6 @@
         }`;
 
         card.innerHTML = `
-          <!-- Cabecera de Insumo con Proveedor -->
           <div class="flex items-center justify-between gap-2 mb-2">
             <div>
               <div class="flex items-center gap-1.5">
@@ -1067,7 +1223,6 @@
             </button>
           </div>
 
-          <!-- Barra de Stock con Meta y Umbral Mínimo (25% y 75%) -->
           <div class="mb-2.5">
             <div class="flex justify-between text-[10px] font-medium text-slate-500 mb-1">
               <span>Stock actual: <strong class="${isCritical ? 'text-amber-600' : 'text-slate-800'}">${item.stock} ${item.unit}</strong></span>
@@ -1076,9 +1231,7 @@
             
             <div class="relative w-full h-3 bg-slate-100 rounded-full overflow-hidden border border-slate-200">
               <div class="h-full transition-all duration-300 ${isCritical ? 'bg-amber-500' : 'bg-emerald-500'}" style="width: ${pct}%"></div>
-              <!-- Línea Divisoria Mínimo (25%) -->
               <div class="absolute top-0 bottom-0 w-0.5 bg-amber-400 z-10" style="left: 25%" title="Mínimo (${item.minStock} ${item.unit})"></div>
-              <!-- Línea Divisoria Ideal (75%) -->
               <div class="absolute top-0 bottom-0 w-0.5 bg-indigo-400 z-10" style="left: 75%" title="Stock Ideal (${item.idealStock} ${item.unit})"></div>
             </div>
             <div class="relative flex justify-between text-[9px] text-slate-400 mt-1">
@@ -1089,9 +1242,7 @@
             </div>
           </div>
 
-          <!-- Fila de Controles: STOCK a la izquierda, PEDIR a la derecha -->
           <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
-            <!-- Control de Stock Físico (Izquierda) -->
             <div class="flex items-center gap-1 bg-slate-50 px-2 py-1 rounded-xl border border-slate-200">
               <span class="text-[10px] font-bold text-slate-500 uppercase mr-1">Stock:</span>
               <button onclick="modifyStock(${item.id}, -1)" class="w-5 h-5 rounded bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center shadow-sm">-</button>
@@ -1099,7 +1250,6 @@
               <button onclick="modifyStock(${item.id}, 1)" class="w-5 h-5 rounded bg-white hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center justify-center shadow-sm">+</button>
             </div>
 
-            <!-- Control de Pedido (Derecha) -->
             <div class="flex items-center gap-2">
               <div class="flex items-center gap-1 bg-indigo-50 px-2 py-1 rounded-xl border border-indigo-100">
                 <span class="text-[10px] font-bold text-indigo-700 uppercase mr-1">Pedir:</span>
@@ -1221,9 +1371,6 @@
       renderStockItems();
     }
 
-    // --------------------------------------------------
-    // SMARTPHONE: NAVEGACIÓN Y ENVÍO DE MENSAJES
-    // --------------------------------------------------
     function openPhoneChat(providerId) {
       activePhoneProviderId = providerId;
       phoneScreenMode = 'chat';
@@ -1282,7 +1429,6 @@
       if (titleElem) titleElem.textContent = currentItem.provider;
       if (avatarElem) avatarElem.textContent = currentItem.icon || '🏢';
 
-      // Renderizar historial de mensajes
       if (messagesContainer) {
         messagesContainer.innerHTML = '';
         const history = providerChatHistories[currentItem.id] || [];
@@ -1300,11 +1446,9 @@
           messagesContainer.appendChild(bubble);
         });
 
-        // Scroll al fondo del chat
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
       }
 
-      // Cargar mensaje sugerido o pre-redactado si hay cantidad seleccionada (readonly)
       if (inputElem) {
         if (currentItem.reorderQty > 0) {
           inputElem.value = `Hola ${currentItem.provider}, necesitamos realizar un pedido urgente de ${currentItem.reorderQty} ${currentItem.unit} de ${currentItem.name}. ¿Nos confirmas disponibilidad y despacho?`;
@@ -1324,7 +1468,6 @@
       const now = new Date();
       const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
-      // 1. Guardar mensaje en el historial del chat
       if (!providerChatHistories[currentItem.id]) {
         providerChatHistories[currentItem.id] = [];
       }
@@ -1334,7 +1477,6 @@
         sender: 'me'
       });
 
-      // 2. Si tenía cantidad seleccionada, crear automáticamente orden en el historial
       if (currentItem.reorderQty > 0) {
         const newOrderId = `ORD-${Math.floor(100 + Math.random() * 900)}`;
         stockOrders.unshift({
@@ -1348,11 +1490,9 @@
           date: `Hoy, ${timeStr}`
         });
 
-        // Resetear la cantidad a pedir
         currentItem.reorderQty = 0;
       }
 
-      // 3. Re-renderizar interfaces
       renderStockItems();
     }
 
@@ -1461,7 +1601,7 @@
 
     function triggerGymWhatsAppModal() {
       const msg = getGymReminderMessage();
-      openWhatsAppModal(msg.name, '+56 9 0000 0000', msg.text);
+      openWhatsAppModal(msg.name, '+56 9 0000 0000', msg.text, false);
     }
 
     // --------------------------------------------------
@@ -1528,12 +1668,11 @@
     }
 
     // --------------------------------------------------
-    // HERRAMIENTA 4: PASTELERÍA & CUPOS (ACTUALIZADA)
+    // HERRAMIENTA 4: PASTELERÍA & CUPOS
     // --------------------------------------------------
-    // HERRAMIENTA 4: PASTELERÍA (CON HISTORIAL)
     const BAKERY_MAX = 4;
     let bakeryOrders = [];
-    let bakeryHistory = []; // Nuevo arreglo para guardar los entregados
+    let bakeryHistory = [];
     
     function handleBakeryAdd(e) {
       e.preventDefault();
@@ -1545,7 +1684,11 @@
 
       const cuposUsados = bakeryOrders.reduce((sum, order) => sum + (order.qty || 1), 0);
       if (cuposUsados + qty > BAKERY_MAX) {
-        alert(`Solo te quedan ${BAKERY_MAX - cuposUsados} cupos disponibles.`);
+        const aviso = document.getElementById('bakery-full-msg');
+        if (aviso) {
+          aviso.textContent = `Solo te quedan ${BAKERY_MAX - cuposUsados} cupos disponibles.`;
+          aviso.classList.remove('hidden');
+        }
         return;
       }
 
@@ -1591,11 +1734,9 @@
             <p class="text-[12px] text-slate-500">${o.qty > 1 ? `<span class="font-medium text-slate-600">${o.qty}x</span> ` : ''}${o.cake} <span class="text-slate-400 ml-1">(Para: ${o.date})</span></p>
           </div>
           <div class="flex items-center gap-1.5">
-            <!-- Botón Entregado -->
             <button onclick="deliverBakeryOrder(${o.id})" class="w-8 h-8 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-600 border border-emerald-200 shadow-sm flex items-center justify-center transition-all active:scale-95" title="Marcar como entregado">
               ✅
             </button>
-            <!-- Botón Basurero -->
             <button onclick="deleteBakeryOrder(${o.id})" class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 shadow-sm flex items-center justify-center transition-all active:scale-95" title="Eliminar pedido">
               🗑️
             </button>
@@ -1611,11 +1752,9 @@
       `;
     }
 
-    // NUEVO: Función para marcar como Entregado
     function deliverBakeryOrder(orderId) {
       const orderIndex = bakeryOrders.findIndex(order => order.id === orderId);
       if (orderIndex > -1) {
-        // Sacamos el pedido de "agendados" y lo metemos en "historial"
         const order = bakeryOrders.splice(orderIndex, 1)[0];
         bakeryHistory.unshift(order);
         
@@ -1625,7 +1764,6 @@
       }
     }
 
-    // NUEVO: Función para dibujar el historial abajo
     function renderBakeryHistory() {
       const container = document.getElementById('bakery-history-list');
       if (!container) return;
@@ -1666,12 +1804,15 @@
       badge.className = lleno ? "text-xs font-semibold px-2 py-0.5 rounded-full bg-red-100 text-red-700 border border-red-200" : "text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200";
       badge.textContent = lleno ? `Cupos llenos: ${total} / ${BAKERY_MAX}` : `Capacidad: ${total} / ${BAKERY_MAX} Cupos`;
       if (boton) boton.disabled = lleno;
-      if (aviso) aviso.classList.toggle('hidden', !lleno);
+      if (aviso) {
+        aviso.textContent = 'Cupos llenos. No se pueden agendar más pedidos.';
+        aviso.classList.toggle('hidden', !lleno);
+      }
     }
     
     function resetBakeryOrders() { 
       bakeryOrders = []; 
-      bakeryHistory = []; // También limpiamos el historial
+      bakeryHistory = [];
       renderBakerySummary(); 
       renderBakeryHistory();
       updateBakeryCapacity(); 
@@ -1684,6 +1825,7 @@
         dateInput.value = today;
       }
     }
+
     // --------------------------------------------------
     // HERRAMIENTA 5: SERVICIO TÉCNICO
     // --------------------------------------------------
@@ -1730,38 +1872,473 @@
 
     function triggerRepairWhatsAppModal() {
       const msg = `¡Hola Carlos! Te avisamos del Taller que tu ASUS ROG 15" (Orden REP-1042) está *Listo para Retiro*.\n\nTotal a cancelar: $45.000 CLP.\nPuedes retirar hoy hasta las 19:30 hrs. ¡Gracias por confiar en nosotros!`;
-      openWhatsAppModal('Carlos Venegas', '+56 9 0000 0000', msg);
+      openWhatsAppModal('Carlos Venegas', '+56 9 0000 0000', msg, false);
     }
 
     // --------------------------------------------------
-    // HERRAMIENTA 6: RESERVA SIMPLE
+    // HERRAMIENTA 6: RESERVA SIMPLE CON BLOQUEO DE CUPOS
     // --------------------------------------------------
+    const bookingWeeks = [
+      {
+        id: 'current',
+        label: 'Semana Actual',
+        shortLabel: 'Actual',
+        days: ['Lun 09', 'Mar 10', 'Mié 11', 'Jue 12', 'Vie 13', 'Sáb 14', 'Dom 15']
+      },
+      {
+        id: 'next1',
+        label: 'Próx. Semana',
+        shortLabel: '16-22 Nov',
+        days: ['Lun 16', 'Mar 17', 'Mié 18', 'Jue 19', 'Vie 20', 'Sáb 21', 'Dom 22']
+      },
+      {
+        id: 'next2',
+        label: 'En 2 Semanas',
+        shortLabel: '23-29 Nov',
+        days: ['Lun 23', 'Mar 24', 'Mié 25', 'Jue 26', 'Vie 27', 'Sáb 28', 'Dom 29']
+      }
+    ];
+
+    const bookingTimeSlots = ['10:00 hrs', '11:30 hrs', '15:00 hrs', '16:30 hrs', '18:00 hrs'];
+
+    let selectedBookingDay = 'Vie 13';
+    let selectedBookingTime = '11:30 hrs';
+    let feedbackTimeout = null;
+
+    let bookedAppointments = [
+      {
+        id: 101,
+        service: 'Corte de Pelo y Perfilado ($12.000)',
+        day: 'Vie 13',
+        time: '10:00 hrs',
+        name: 'Matías Rojas',
+        phone: '+56 9 8765 4321',
+        wspSent: false,
+        confirmed: false
+      },
+      {
+        id: 102,
+        service: 'Consulta Veterinaria General ($18.000)',
+        day: 'Sáb 14',
+        time: '15:00 hrs',
+        name: 'Fernanda Silva',
+        phone: '+56 9 6543 2109',
+        wspSent: true,
+        confirmed: false
+      }
+    ];
+
+    function isSlotBooked(day, time) {
+      return bookedAppointments.some(app => app.day === day && app.time === time);
+    }
+
+    function getFirstFreeSlot(day) {
+      return bookingTimeSlots.find(slot => !isSlotBooked(day, slot)) || null;
+    }
+
+    function hideUserFeedback() {
+      const resultBox = document.getElementById('booking-result-box');
+      if (resultBox) {
+        resultBox.classList.add('hidden');
+      }
+      if (feedbackTimeout) {
+        clearTimeout(feedbackTimeout);
+        feedbackTimeout = null;
+      }
+    }
+
+    function openCalendarPopup() {
+      renderCalendarPopup();
+      const modal = document.getElementById('calendar-popup-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeCalendarPopup() {
+      const modal = document.getElementById('calendar-popup-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function selectDayFromPopup(day) {
+      selectBookingDay(day);
+      closeCalendarPopup();
+    }
+
+    function renderCalendarPopup() {
+      const container = document.getElementById('popup-weeks-list');
+      if (!container) return;
+
+      container.innerHTML = '';
+      bookingWeeks.forEach((week, idx) => {
+        const weekCard = document.createElement('div');
+        weekCard.className = "p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-2";
+
+        const header = document.createElement('div');
+        header.className = "flex items-center justify-between";
+        header.innerHTML = `
+          <span class="text-xs font-extrabold text-slate-800">${week.label}</span>
+          <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full ${
+            idx === 0 ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-200 text-slate-600'
+          }">${week.shortLabel}</span>
+        `;
+        weekCard.appendChild(header);
+
+        const daysGrid = document.createElement('div');
+        daysGrid.className = "grid grid-cols-4 gap-1.5";
+
+        week.days.forEach(day => {
+          const isSelected = day === selectedBookingDay;
+          const occupiedCount = bookedAppointments.filter(app => app.day === day).length;
+          const isFull = occupiedCount >= bookingTimeSlots.length;
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.onclick = () => selectDayFromPopup(day);
+          btn.className = isSelected
+            ? "py-2 px-1 rounded-xl text-[11px] font-bold bg-emerald-600 text-white border border-emerald-600 shadow-sm transition flex flex-col items-center leading-tight"
+            : "py-2 px-1 rounded-xl text-[11px] font-semibold bg-white text-slate-700 border border-slate-200 hover:border-emerald-400 transition flex flex-col items-center leading-tight";
+
+          btn.innerHTML = `
+            <span>${day}</span>
+            <span class="text-[8px] mt-0.5 ${
+              isSelected
+                ? 'text-emerald-100'
+                : isFull
+                  ? 'text-red-500 font-bold'
+                  : 'text-slate-400'
+            }">${isFull ? 'Lleno' : `${bookingTimeSlots.length - occupiedCount} lib.`}</span>
+          `;
+          daysGrid.appendChild(btn);
+        });
+
+        weekCard.appendChild(daysGrid);
+        container.appendChild(weekCard);
+      });
+    }
+
+    function selectBookingDay(day) {
+      hideUserFeedback();
+      selectedBookingDay = day;
+      if (!selectedBookingTime || isSlotBooked(day, selectedBookingTime)) {
+        selectedBookingTime = getFirstFreeSlot(day);
+      }
+      renderBookingSlots();
+      renderBookingAgenda();
+    }
+
+    function selectBookingTime(time) {
+      if (isSlotBooked(selectedBookingDay, time)) return;
+      hideUserFeedback();
+      selectedBookingTime = time;
+      renderBookingSlots();
+    }
+
+    function renderBookingSlots() {
+      const daysContainer = document.getElementById('booking-days-container');
+      const slotsContainer = document.getElementById('booking-slots-container');
+      const submitBtn = document.getElementById('booking-submit-btn');
+      const weekPill = document.getElementById('selected-week-pill');
+      if (!daysContainer || !slotsContainer) return;
+
+      const currentWeekDays = bookingWeeks[0].days;
+      const isOutsideCurrentWeek = !currentWeekDays.includes(selectedBookingDay);
+
+      if (weekPill) {
+        if (isOutsideCurrentWeek) {
+          weekPill.textContent = `Elegido: ${selectedBookingDay}`;
+          weekPill.classList.remove('hidden');
+        } else {
+          weekPill.classList.add('hidden');
+        }
+      }
+
+      daysContainer.innerHTML = '';
+      currentWeekDays.forEach(day => {
+        const isSelected = day === selectedBookingDay;
+        const hasBookings = bookedAppointments.some(app => app.day === day);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectBookingDay(day);
+        btn.className = isSelected
+          ? "py-1.5 px-1 rounded-xl text-[10px] font-bold bg-emerald-600 text-white border border-emerald-600 shadow-sm transition flex flex-col items-center leading-tight"
+          : "py-1.5 px-1 rounded-xl text-[10px] font-semibold bg-white text-slate-600 border border-slate-200 hover:border-emerald-400 transition flex flex-col items-center leading-tight";
+        btn.innerHTML = `
+          <span>${day}</span>
+          <span class="w-1 h-1 rounded-full mt-0.5 ${isSelected ? 'bg-white' : (hasBookings ? 'bg-amber-400' : 'bg-transparent')}"></span>
+        `;
+        daysContainer.appendChild(btn);
+      });
+
+      slotsContainer.innerHTML = '';
+      bookingTimeSlots.forEach(slot => {
+        const occupied = isSlotBooked(selectedBookingDay, slot);
+        const isSelected = !occupied && slot === selectedBookingTime;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.disabled = occupied;
+        btn.onclick = () => selectBookingTime(slot);
+
+        if (occupied) {
+          btn.className = "py-1.5 px-1.5 rounded-xl text-[10px] font-medium bg-slate-100 text-slate-400 border border-slate-200 cursor-not-allowed flex flex-col items-center leading-tight";
+          btn.innerHTML = `<span class="line-through">${slot}</span><span class="text-[8px] font-bold text-red-400">Ocupado</span>`;
+        } else if (isSelected) {
+          btn.className = "py-1.5 px-1.5 rounded-xl text-[11px] font-bold bg-emerald-50 text-emerald-800 border-2 border-emerald-500 shadow-sm transition";
+          btn.textContent = slot;
+        } else {
+          btn.className = "py-1.5 px-1.5 rounded-xl text-[11px] font-medium bg-white text-slate-700 border border-slate-200 hover:border-emerald-400 transition";
+          btn.textContent = slot;
+        }
+        slotsContainer.appendChild(btn);
+      });
+
+      if (submitBtn) {
+        submitBtn.disabled = !selectedBookingTime;
+        submitBtn.textContent = selectedBookingTime
+          ? `Solicitar Hora (${selectedBookingTime})`
+          : 'Sin horas disponibles este día';
+      }
+    }
+
     function handleBookingSubmit(e) {
       e.preventDefault();
+      if (!selectedBookingTime || isSlotBooked(selectedBookingDay, selectedBookingTime)) {
+        return;
+      }
+
       const service = document.getElementById('booking-service').value;
-      const day = document.getElementById('booking-day').value;
-      const time = document.getElementById('booking-time').value;
-      const name = document.getElementById('booking-name').value;
+      const name = document.getElementById('booking-name').value.trim();
+      const phone = document.getElementById('booking-phone').value.trim();
+
+      const newBooking = {
+        id: Date.now(),
+        service,
+        day: selectedBookingDay,
+        time: selectedBookingTime,
+        name,
+        phone,
+        wspSent: false,
+        confirmed: false
+      };
+
+      bookedAppointments.unshift(newBooking);
 
       const resultBox = document.getElementById('booking-result-box');
-      const message = `¡Hola! Soy *${name}*, solicito confirmar mi hora para *${service}* el día *${day}* a las *${time}*.`;
+      if (resultBox) {
+        resultBox.classList.remove('hidden');
+        if (feedbackTimeout) clearTimeout(feedbackTimeout);
+        feedbackTimeout = setTimeout(() => {
+          resultBox.classList.add('hidden');
+        }, 6000);
+      }
 
-      resultBox.innerHTML = `
-        <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs space-y-2">
-          <p class="font-bold text-emerald-800">✓ Cita pre-confirmada para ${name}:</p>
-          <p class="italic text-slate-600 bg-white p-2 rounded border border-slate-200">${message}</p>
-          <button onclick="openWhatsAppModal('Administración', '+56 9 0000 0000', '${message}')" class="w-full py-2 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#20bd5a] transition">
-            Simular Envío a WhatsApp
-          </button>
-        </div>
-      `;
+      document.getElementById('booking-name').value = '';
+      document.getElementById('booking-phone').value = '';
+      selectedBookingTime = getFirstFreeSlot(selectedBookingDay);
+
+      renderBookingSlots();
+      renderBookingAgenda();
+    }
+
+    function sendAdminWhatsApp(id) {
+      const app = bookedAppointments.find(a => a.id === id);
+      if (!app) return;
+
+      pendingModalBookingId = id;
+      const msg = `¡Hola ${app.name}! Te escribimos del local para coordinar y confirmar tu solicitud de *${app.service}* para el *${app.day}* a las *${app.time}*. ¿Nos confirmas tu asistencia?`;
+      openWhatsAppModal(app.name, app.phone, msg, true);
+    }
+
+    function confirmSimulatedWhatsAppSend() {
+      if (pendingModalBookingId !== null) {
+        const app = bookedAppointments.find(a => a.id === pendingModalBookingId);
+        if (app) {
+          app.wspSent = true;
+          renderBookingAgenda();
+        }
+      }
+      closeWhatsAppModal();
+    }
+
+    function toggleBookingConfirmation(id) {
+      const app = bookedAppointments.find(a => a.id === id);
+      if (!app || !app.wspSent) return;
+
+      app.confirmed = !app.confirmed;
+      renderBookingAgenda();
+    }
+
+    function renderBookingAgenda() {
+      const container = document.getElementById('booking-agenda-list');
+      const badge = document.getElementById('booking-count-badge');
+      const dayLabel = document.getElementById('admin-selected-day-label');
+      const freeCountLabel = document.getElementById('admin-free-slots-count');
+      const confirmedCountLabel = document.getElementById('admin-confirmed-count');
+
+      if (!container) return;
+
+      if (badge) {
+        badge.textContent = bookedAppointments.length === 1
+          ? '1 solicitud'
+          : `${bookedAppointments.length} solicitudes`;
+      }
+
+      if (dayLabel) {
+        dayLabel.textContent = selectedBookingDay;
+      }
+
+      if (freeCountLabel) {
+        const occupiedToday = bookedAppointments.filter(a => a.day === selectedBookingDay).length;
+        const freeToday = Math.max(0, bookingTimeSlots.length - occupiedToday);
+        freeCountLabel.textContent = `${freeToday} disponibles`;
+        freeCountLabel.className = freeToday === 0
+          ? "text-xs sm:text-sm font-extrabold text-red-600 mt-0.5 block"
+          : "text-xs sm:text-sm font-extrabold text-emerald-600 mt-0.5 block";
+      }
+
+      if (confirmedCountLabel) {
+        const confirmedTotal = bookedAppointments.filter(a => a.confirmed).length;
+        confirmedCountLabel.textContent = `${confirmedTotal} / ${bookedAppointments.length}`;
+      }
+
+      container.innerHTML = '';
+      if (bookedAppointments.length === 0) {
+        container.innerHTML = `
+          <div class="p-6 text-center bg-white rounded-xl border border-dashed border-slate-200 text-xs text-slate-400 italic">
+            No hay solicitudes pendientes. Todos los bloques están libres a la izquierda.
+          </div>
+        `;
+        return;
+      }
+
+      // Orden cronológico desde la fecha y hora más cercana a la más lejana
+      const allOrderedDays = bookingWeeks.flatMap(week => week.days);
+      const sortedAppointments = [...bookedAppointments].sort((a, b) => {
+        const dayDiff = allOrderedDays.indexOf(a.day) - allOrderedDays.indexOf(b.day);
+        if (dayDiff !== 0) return dayDiff;
+        return bookingTimeSlots.indexOf(a.time) - bookingTimeSlots.indexOf(b.time);
+      });
+
+      sortedAppointments.forEach(app => {
+        const row = document.createElement('div');
+        row.className = `p-3.5 bg-white border ${
+          app.confirmed
+            ? 'border-emerald-400 ring-2 ring-emerald-500/15 bg-emerald-50/10'
+            : app.wspSent
+              ? 'border-sky-300 ring-1 ring-sky-100'
+              : 'border-amber-200/80 shadow-sm'
+        } rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs transition-all`;
+
+        let statusBadge = '<span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 border border-amber-200">⏳ Pendiente</span>';
+        if (app.confirmed) {
+          statusBadge = '<span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">✓ Confirmada</span>';
+        } else if (app.wspSent) {
+          statusBadge = '<span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 border border-sky-200">💬 WhatsApp Enviado</span>';
+        }
+
+        let actionButtons = '';
+        if (!app.wspSent) {
+          actionButtons = `
+            <button
+              type="button"
+              onclick="sendAdminWhatsApp(${app.id})"
+              class="px-3 py-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition-all active:scale-95"
+              title="Enviar mensaje por WhatsApp al cliente"
+            >
+              <span>📲</span>
+              <span>Enviar WhatsApp</span>
+            </button>
+          `;
+        } else if (!app.confirmed) {
+          actionButtons = `
+            <button
+              type="button"
+              onclick="sendAdminWhatsApp(${app.id})"
+              class="w-8 h-8 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 border border-sky-200 shadow-sm flex items-center justify-center transition-all active:scale-95"
+              title="Reenviar WhatsApp"
+            >
+              📲
+            </button>
+            <button
+              type="button"
+              onclick="toggleBookingConfirmation(${app.id})"
+              class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] shadow-sm flex items-center gap-1.5 transition-all active:scale-95"
+              title="Confirmar hora oficialmente"
+            >
+              <span>✅</span>
+              <span>Confirmar Hora</span>
+            </button>
+          `;
+        } else {
+          actionButtons = `
+            <button
+              type="button"
+              onclick="sendAdminWhatsApp(${app.id})"
+              class="w-8 h-8 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-600 border border-sky-200 shadow-sm flex items-center justify-center transition-all active:scale-95"
+              title="Reenviar WhatsApp"
+            >
+              📲
+            </button>
+            <button
+              type="button"
+              onclick="toggleBookingConfirmation(${app.id})"
+              class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-200 shadow-sm flex items-center justify-center transition-all active:scale-95"
+              title="Deshacer confirmación"
+            >
+              ↩️
+            </button>
+          `;
+        }
+
+        row.innerHTML = `
+          <div class="flex flex-col gap-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="font-bold text-slate-800 text-sm">${app.name}</span>
+              <span class="text-[10px] text-slate-500 bg-slate-50 px-1.5 py-0.5 rounded border border-slate-100">
+                📱 ${app.phone}
+              </span>
+              ${statusBadge}
+            </div>
+            <p class="text-[11px] text-slate-600 truncate">
+              <strong class="${app.confirmed ? 'text-emerald-700' : 'text-indigo-700'}">
+                ${app.day} • ${app.time}
+              </strong> — ${app.service}
+            </p>
+          </div>
+
+          <div class="flex items-center gap-1.5 flex-shrink-0 self-end sm:self-center">
+            ${actionButtons}
+            <button
+              type="button"
+              onclick="cancelBookingAppointment(${app.id})"
+              class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 shadow-sm flex items-center justify-center transition-all active:scale-95"
+              title="Cancelar y liberar hora"
+            >
+              🗑️
+            </button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function cancelBookingAppointment(id) {
+      bookedAppointments = bookedAppointments.filter(app => app.id !== id);
+      if (!selectedBookingTime) {
+        selectedBookingTime = getFirstFreeSlot(selectedBookingDay);
+      }
+      renderBookingSlots();
+      renderBookingAgenda();
     }
 
     function resetBookingForm() {
+      bookedAppointments = [];
+      selectedBookingDay = 'Vie 13';
+      selectedBookingTime = '10:00 hrs';
+
       document.getElementById('booking-name').value = '';
-      document.getElementById('booking-result-box').innerHTML = `
-        <span class="text-slate-400 italic">Completa el formulario a la izquierda para previsualizar el mensaje de reserva.</span>
-      `;
+      document.getElementById('booking-phone').value = '';
+      hideUserFeedback();
+      renderBookingSlots();
+      renderBookingAgenda();
     }
 
     // --------------------------------------------------
@@ -1781,7 +2358,7 @@
       document.getElementById('challenge-success-message').classList.add('hidden');
     }
 
-   // --------------------------------------------------
+    // --------------------------------------------------
     // INICIALIZACIÓN AL CARGAR
     // --------------------------------------------------
     window.addEventListener('DOMContentLoaded', () => {
@@ -1791,13 +2368,20 @@
       renderWasteList();
       setRepairStage(3);
       
-      // Inicialización de la Pastelería actualizada:
+      // Pastelería
       setBakeryToday();
       renderBakerySummary();
       updateBakeryCapacity();
-    });
 
+      // Reservas
+      renderBookingSlots();
+      renderBookingAgenda();
+
+      const bookingNameInput = document.getElementById('booking-name');
+      if (bookingNameInput) {
+        bookingNameInput.addEventListener('input', hideUserFeedback);
+      }
+    });
   </script>
 </body>
 </html>
-
